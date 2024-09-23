@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- <button class="back-btn">Back to Log in</button> -->
+
+    <form method="POST">
+        <div class="container">
+            <div id="page-1" class="form-page">
+                <h2>Create Account</h2>
+                <input type="text" id="name" placeholder="Name">
+                <input type="text" id="surname" placeholder="Surname">
+                <button class="submit-btn next-btn" data-next="page-2">Next</button>
+            </div>
+
+            <div id="page-2" class="form-page" style="display: none;">
+                <h2>Create Account</h2>
+                <input type="text" id="phone" placeholder="Phone number">
+                <input type="text" id="gmail" placeholder="G-mail">
+                <button class="submit-btn next-btn" data-next="page-3">Next</button>
+            </div>
+
+            <div id="page-3" class="form-page" style="display: none;">
+                <h2>Create Account</h2>
+
+                <input type="text" id="email" placeholder="E-mail">
+                <input type="text" id="password" placeholder="Password">
+                <button class="submit-btn next-btn" data-next="page-4">Create</button>
+            </div>
+    </form>
+
+        <!-- Add more pages as needed -->
+
+        <p>Try the product out for free.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
