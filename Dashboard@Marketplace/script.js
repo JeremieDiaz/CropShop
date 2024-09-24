@@ -1,11 +1,14 @@
-function showProductDetails(productName) {
-    // Hide the marketplace and show product details
+function showSection(sectionId) {
+    // Hide all sections
+    document.getElementById('dashboard').style.display = 'none';
     document.getElementById('marketplace').style.display = 'none';
-    document.getElementById('product-details').style.display = 'block';
+    document.getElementById('cart').style.display = 'none';
     
-    // Update the product details with dynamic content
-    document.getElementById('product-title').textContent = productName;
-    // You can add more dynamic content like price and description here
+    // Hide the product details section as well when navigating to other sections
+    document.getElementById('product-details').style.display = 'none';
+    
+    // Show the selected section
+    document.getElementById(sectionId).style.display = 'block';
 }
 
 function goBackToMarketplace() {
@@ -19,7 +22,7 @@ function addToCart() {
 }
 
 // Filter Products based on criteria
-function filterProducts(criteria) {
+function filterProducts(criteria, event) {
     // Reset all filter buttons to inactive
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
 
@@ -28,7 +31,6 @@ function filterProducts(criteria) {
 
     // Logic to filter products (You can implement this based on actual data)
     if (criteria === 'new') {
-        // Example logic for filtering by 'new'
         console.log('Filtering by New');
     } else if (criteria === 'asc') {
         console.log('Sorting by Price Ascending');
@@ -54,75 +56,68 @@ document.getElementById('search-bar').addEventListener('input', function() {
     });
 });
 
-
-
-//function showProductDetails(productName) {
-
-    function showProductDetails(productName) {
-        // Define product data
-        const products = {
-            'Rice': {
-                img: '1.jpg',
-                price: '₱50',
-                description: 'Rice is a staple food in many countries.'
-            },
-            'Corn': {
-                img: '2.jpg',
-                price: '₱50',
-                description: 'Corn is rich in vitamins and minerals.'
-            },
-            'Potato': {
-                img: '3.jpg',
-                price: '₱50',
-                description: 'Potatoes are a good source of carbohydrates.'
-            },
-            'Garlic': {
-                img: '4.jpg',
-                price: '₱50',
-                description: 'Garlic is widely used for its strong flavor.'
-            },
-            'Onion': {
-                img: '5.jpg',
-                price: '₱50',
-                description: 'Onions are a common ingredient in many dishes.'
-            },
-            'Ginger': {
-                img: '6.jpg',
-                price: '₱50',
-                description: 'Ginger has anti-inflammatory properties.'
-            },
-            'Sugarcane': {
-                img: '7.jpg',
-                price: '₱50',
-                description: 'Sugarcane is the source of most sugar.'
-            },
-            'Carrot': {
-                img: '8.jpg',
-                price: '₱50',
-                description: 'Carrots are a great source of beta-carotene.'
-            },
-            'Rdish': {
-                img: '9.jpg',
-                price: '₱50',
-                description: 'Radish is a crunchy, edible root vegetable.'
-            }
-        };
+function showProductDetails(productName) {
+    const products = {
+        'Rice': { img: '1.jpg', price: '₱44/kilo', description: 'Rice is a staple food in many countries.' },
+        'Corn': { img: '2.jpg', price: '₱46/kilo', description: 'Corn is rich in vitamins and minerals.' },
+        'Potato': { img: '3.jpg', price: '₱48/kilo', description: 'Potatoes are a good source of carbohydrates.' },
+        'Garlic': { img: '4.jpg', price: '₱50/kilo', description: 'Garlic is widely used for its strong flavor.' },
+        'Onion': { img: '5.jpg', price: '₱60/kilo', description: 'Onions are a common ingredient in many dishes.' },
+        'Ginger': { img: '6.jpg', price: '₱70/kilo', description: 'Ginger has anti-inflammatory properties.' },
+        'Sugarcane': { img: '7.jpg', price: '₱65/kilo', description: 'Sugarcane is the source of most sugar.' },
+        'Carrot': { img: '8.jpg', price: '₱60/kilo', description: 'Carrots are a great source of beta-carotene.' },
+        'Radish': { img: '9.jpg', price: '₱55/kilo', description: 'Radish is a crunchy, edible root vegetable.' }
+    };
     
-        // Get product data based on the productName
-        const product = products[productName];
-    
-        if (product) {
-            // Hide the marketplace and show product details
-            document.getElementById('marketplace').style.display = 'none';
-            document.getElementById('product-details').style.display = 'block';
-    
-            // Update product details section with the selected product data
-            document.getElementById('product-title').textContent = productName;
-            document.querySelector('#product-details img').src = product.img;
-            document.getElementById('product-price').textContent = product.price;
-            document.getElementById('product-description').textContent = product.description;
-        } else {
-            alert('Product details not found!');
-        }
+    const product = products[productName];
+
+    if (product) {
+        document.getElementById('product-title').textContent = productName;
+        document.querySelector('#product-details img').src = product.img;
+        document.getElementById('product-price').textContent = product.price;
+        document.getElementById('product-description').textContent = product.description;
+
+        // Show product details section
+        document.getElementById('marketplace').style.display = 'none';
+        document.getElementById('product-details').style.display = 'block';
     }
-    
+}
+// Render the Sales Chart
+function renderSalesChart() {
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(ctx, {
+        type: 'bar', // Type of chart: bar chart
+        data: {
+            labels: ['Rice', 'Corn', 'Potato', 'Garlic', 'Onion', 'Ginger', 'Sugarcane', 'Carrot', 'Radish'], // X-axis labels
+            datasets: [
+                {
+                    label: 'Series ', // First dataset label (for 2023)
+                    data: [44, 46, 48, 50, 60, 70, 65, 60, 55], // Series
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)', // Bar color
+                    borderColor: 'rgba(75, 192, 192, 1)', // Bar border color
+                    borderWidth: 1
+                },
+                {
+                    label: 'Series 2', // Second dataset label (for 2024)
+                    data: [140, 130, 160, 110, 95, 150, 170, 120, 115], // Series 2
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)', // Bar color for the second dataset
+                    borderColor: 'rgba(255, 99, 132, 1)', // Bar border color
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true // Y-axis starts from zero
+                }
+            }
+        }
+    });
+}
+
+
+// Call this function when the page loads to render the chart
+window.onload = function() {
+    renderSalesChart();
+};
