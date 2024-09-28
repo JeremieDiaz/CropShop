@@ -186,6 +186,9 @@ header .navbar a:hover {
     gap: 1.5rem; /* Adds a 1.5rem gap between the child elements */
     min-height: 100vh; /* Ensures the .home section takes up at least 100% of the viewport height */
     align-items: center; /* Vertically centers the child elements within the container */
+    background: url(Images/White\ Background.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .home .content{
@@ -213,6 +216,7 @@ header .navbar a:hover {
 .home .image img{
     width: 100%; /* Ensures the image takes up 100% of the width of its container */
     padding: 1rem; /* Adds 1rem padding around the image */
+    border-radius: 20px; /* Rounds the corners to give a smooth edge */
 }
 
 
@@ -268,6 +272,7 @@ header .navbar a:hover {
 .features .image img{
     width: 100%; /* Ensures the image takes up full width */
     padding: 1rem; /* Padding around the image */
+    border-radius: 20px; /* Rounds the corners to give a smooth edge */
 }
 
 .features2{
@@ -304,6 +309,7 @@ header .navbar a:hover {
 .features2 .image img{
     width: 100%; /* Ensures the image takes up full width */
     padding: 1rem; /* Padding around the image */
+    border-radius: 20px; /* Rounds the corners to give a smooth edge */
 }
 
 .features3{
@@ -340,6 +346,7 @@ header .navbar a:hover {
 .features3 .image img{
     width: 100%; /* Ensures the image takes up full width */
     padding: 1rem; /* Padding around the image */
+    border-radius: 20px; /* Rounds the corners to give a smooth edge */
 }
 
 
