@@ -1,0 +1,123 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+    align-content: center;
+}
+.check_out {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: auto; 
+}
+
+h2 {
+    padding-top: 20px;
+    text-align: center;
+}
+
+h3 {
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    
+}
+.check_out_box {
+    width: 900px;
+    height: 100%;
+    background: rgba(66, 67, 66, 0.326);
+    
+}
+.client_details {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 95%; 
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.products_menu{
+    padding: 10px;
+    padding-top: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 95%; 
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+}
+.products_menu::-webkit-scrollbar {
+    display: none;
+}
+
+.product {
+    padding: 10px;
+    background-color: red;
+    border-radius: 10px;
+    width: 96%; 
+    height: 170px;
+    margin: 0 auto 10px;
+    position: relative;
+}
+
+.payment_methods {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 95%; 
+    height: 130px;
+    margin: 0 auto 20px;
+}
+
+.method_box {
+    width: 95%; 
+    height: 40px;
+}
+
+.more {
+    display: inline-flex;
+    align-items: center;
+}
+
+.more h3 {
+    margin: 0;
+    padding-right: 616px;
+}
+
+.more button {
+    margin-top: 23px ;
+    width: 90px;
+    height: 20px;
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    color: black; 
+}
+
+
+.price {
+    display: inline-flex;
+    align-items: center;
+}
+
+.price h3 {
+    margin: 0;
+    padding-right: 52px;
+    padding-bottom: 30px;
+    padding-left: 650px;
+}
+
+.price button {
+    width: 90px;
+    height: 40px;
+    background-color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    color: black;
+}
