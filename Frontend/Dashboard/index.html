@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROPSHOP</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">CROPSHOP</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="showSection('marketplace')">Marketplace</a></li>
+            <li><a href="#" onclick="showSection('cart')">Cart</a></li>
+        </ul>
+        <button class="profile-btn">Profile</button>
+    </nav>
+
+    <div class="content">
+        <!-- Dashboard Section -->
+        <div class="dashboard-box" id="dashboard">
+            <h2>Dashboard Content</h2>
+            <!--
+            <h3>Item List</h3>
+            <ul id="item-list">
+                <li>Rice - ₱50</li>
+                <li>Corn - ₱50</li>
+                <li>Potato - ₱50</li>
+                <li>Garlic - ₱50</li>
+                <li>Onion - ₱50</li>
+                <li>Ginger - ₱50</li>
+                <li>Sugarcane - ₱50</li>
+                <li>Carrot - ₱50</li>
+                <li>Radish - ₱50</li>
+            </ul>
+            -->
+    <!-- Chart Container -->
+    <h3>CROPS PRICE PER KILO</h3>
+    <canvas id="salesChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- Marketplace Section -->
+        <div class="dashboard-box" id="marketplace" style="display: none;">
+            <h2>CROPSHOP Marketplace</h2>
+            
+            <!-- Search and Filter Bar -->
+            <div class="search-filter-bar">
+                <input type="text" id="search-bar" placeholder="Search">
+                <button class="filter-btn active" onclick="filterProducts('new', event)">New</button>
+                <button class="filter-btn" onclick="filterProducts('asc', event)">Price ascending</button>
+                <button class="filter-btn" onclick="filterProducts('desc', event)">Price descending</button>
+                <button class="filter-btn" onclick="filterProducts('rating', event)">Rating</button>
+            </div>
+            
+            <!-- Product Grid -->
+            <div class="product-grid">
+                <div class="product-item" onclick="showProductDetails('Rice')">
+                    <img src="/Images/Dashboard imgs/1.jpg" alt="Rice">
+                    <p>Rice</p>
+                    <p>₱44/kilo</p>
+                </div>
+                <div class="product-item" onclick="showProductDetails('Corn')">
+                    <img src="/Images/Dashboard imgs/2.jpg" alt="Corn">
+                    <p>Corn</p>
+                    <p>₱46/kilo</p>
+                </div>
+                <div class="product-item" onclick="showProductDetails('Potato')">
+                    <img src="/Images/Dashboard imgs/3.jpg" alt="Potato">
+                    <p>Potato</p>
+                    <p>₱48/kilo</p>
+                </div>
+                <div class="product-item" onclick="showProductDetails('Garlic')">
+                    <img src="/Images/Dashboard imgs/4.jpg" alt="Garlic">
+                    <p>Garlic</p>
+                    <p>₱50/kilo</p>
+                </div>
+                <div class="product-item" onclick="showProductDetails('Onion')">
+                    <img src="/Images/Dashboard imgs/5.jpg" alt="Onion">
+                    <p>Onion</p>
+                    <p>₱60/kilo</p>
+                </div>
+                <div class="product-item" onclick="showProductDetails('Ginger')">
+                    <img src="/Images/Dashboard imgs/6.jpg" alt="Ginger">
+                    <p>Ginger</p>
+                    <p>₱70/kilo</p>
+                </div>
+                <div class="product-item" onclick="showProductDetails('Sugarcane')">
+                    <img src="/Images/Dashboard imgs/7.jpg" alt="Sugarcane">
+                    <p>Sugarcane</p>
+                    <p>₱65/kilo</p>
+                </div>
+                <div class="product-item" onclick="showProductDetails('Carrot')">
+                    <img src="/Images/Dashboard imgs/8.jpg" alt="Carrot">
+                    <p>Carrot</p>
+                    <p>₱60/kilo</p>
+                </div>
+                <div class="product-item" onclick="showProductDetails('Radish')">
+                    <img src="/Images/Dashboard imgs/9.jpg" alt="Radish">
+                    <p>Radish</p>
+                    <p>₱55/kilo</p>
+                </div>
+            </div>
+        </div>
+        <!-- Product Details Section -->
+        <div class="dashboard-box" id="product-details" style="display: none;">
+            <h2 id="product-title"></h2>
+            <div class="product-info">
+                <img src="" alt="Product Image"> <!-- Dynamically change src -->
+                <p id="product-price"></p> <!-- Dynamically change price -->
+                <p id="product-description"></p> <!-- Dynamically change description -->
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
+            <button onclick="goBackToMarketplace()">Back to Marketplace</button>
+        </div>
+        <!-- Cart Section -->
+        <div class="dashboard-box" id="cart" style="display: none;">
+            <h2>Cart Content</h2>
+            <p>This is the cart section.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
