@@ -4,21 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Frontend/Check Out/check_out.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="check_out.js"></script>
     <title>Check Out Page</title>
 </head>
-
-<body>
+<body onload="initializeImages()">
+    <div class="background-container">
+        <img src="/Images/BackgroundImages/apple.svg" alt="Apple" />
+        <img src="/Images/BackgroundImages/boiled-egg.svg" alt="Boiled Egg" />
+        <img src="/Images/BackgroundImages/carrot.svg" alt="Carrot" />
+        <img src="/Images/BackgroundImages/corn.svg" alt="Corn" />
+        <img src="/Images/BackgroundImages/hoe.svg" alt="Hoe" />
+        <img src="/Images/BackgroundImages/pineapple.svg" alt="Pineapple" />
+        <img src="/Images/BackgroundImages/pumpkin.svg" alt="Pumpkin" />
+        <img src="/Images/BackgroundImages/seeds1.svg" alt="Seeds 1" />
+        <img src="/Images/BackgroundImages/seeds2.svg" alt="Seeds 2" />
+        <img src="/Images/BackgroundImages/shovel.svg" alt="Shovel" />
+        <img src="/Images/BackgroundImages/wheat.svg" alt="Wheat" />
+    </div>
     <div class="check_out">
         <div class="check_out_box">
             <h2>Check Out</h2>
-            <h3>Personal Details</h3>
+            <div class="title">
+                <i class="fa-solid fa-user fa-2x"></i>
+                <h3>Personal Details</h3>
+            </div>
+            
             <div class="client_details">
                 <div class="name">Name: </div>
                 <div class="address">Address: </div>
                 <div class="contact">Contact Number: </div>
             </div>
             
-            <h3>Products</h3>
+            <div class="title">
+                <i class="fa-solid fa-shop fa-2x"></i>
+                <h3>Products</h3>
+            </div>
             <div class="products_menu">
                 <div class="product">
                     <div class="product_details">
@@ -51,7 +75,8 @@
                 </div>
             </div>
 
-            <div class="more">
+            <div class="title">
+                <i class="fa-solid fa-money-bill fa-2x"></i>
                 <h3>Payment Methods: </h3>
                 <button>View All</button>
             </div>
@@ -78,11 +103,9 @@
             </div>
 
             <div class="price">
-                <h3>Total Price: </h3>
+                <h3>Total Price: <span id="price">0</span></h3>
                 <button>Check Out</button>
             </div>
-
-            
         </div>
     </div>
 </body>
