@@ -18,8 +18,6 @@ function initializeImages() {
     ];
 
     const container = document.querySelector('.background-container');
-    
-    
     container.innerHTML = '';
 
     imageSources.forEach(src => {
@@ -29,22 +27,53 @@ function initializeImages() {
             img.src = src;
             img.alt = '';
 
-            const x = Math.random() * 90; 
-            const y = Math.random() * 90; 
+            img.style.left = `${Math.random() * 100}vw`; 
+            img.style.top = `${Math.random() * 100}vh`; 
+            img.style.width = `${Math.random() * (100 - 50) + 50}px`;
+            img.style.transform = `rotate(${Math.random() * 360}deg)`;
 
-            // Randomize size (increased range)
-            const size = Math.random() * (100 - 50) + 50; 
+            container.appendChild(img);
 
-            // Randomize rotation
-            const rotation = Math.random() * 360; 
-
-            // Apply styles
-            img.style.left = `${x}vw`; 
-            img.style.top = `${y}vh`; 
-            img.style.width = `${size}px`; 
-            img.style.transform = `rotate(${rotation}deg)`; 
-            
-            container.appendChild(img); 
+            roamImage(img);
         }
     });
 }
+
+function roamImage(img) {
+    const container = document.querySelector('.background-container');
+    const checkoutBox = document.querySelector('.check_out');
+
+    function moveImage() {
+        const containerWidth = container.clientWidth;
+        const containerHeight = container.clientHeight;
+        const imgWidth = img.offsetWidth;  
+        const imgHeight = img.offsetHeight; 
+
+        // Calculate new random position
+        const x = Math.random() * (containerWidth + 200) - imgWidth / 2; 
+        let y = Math.random() * (containerHeight + 200) - imgHeight / 2;
+
+        // Get the bottom position of the checkout box
+        const checkoutBoxBottom = checkoutBox.getBoundingClientRect().bottom;
+
+        // Ensure the image doesn't go below the checkout box, but allow it to be above the top
+        if (y + imgHeight / 2 > checkoutBoxBottom) {
+            y = checkoutBoxBottom - imgHeight / 2; // Adjust y to be just above the checkout box
+        }
+        // Allow images to go above the viewport
+        if (y + imgHeight / 2 < 0) {
+            y = -imgHeight / 2; // Adjust y to be just above the viewport
+        }
+
+        // Move the image
+        img.style.left = `${x}px`;
+        img.style.top = `${y}px`;
+
+        // Call moveImage again after a longer delay
+        setTimeout(moveImage, 3000 + Math.random() * 3000); 
+    }
+    
+    moveImage();
+}
+
+window.onload = initializeImages;

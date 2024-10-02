@@ -11,6 +11,7 @@ body {
     justify-content: center; 
     align-items: center; 
     position: relative;
+    overflow-x: hidden;
 }
 
 .background-container {
@@ -24,6 +25,7 @@ body {
     position: absolute;
     opacity: 0.5; 
     pointer-events: none; 
+    transition: transform 10s ease, left 10s ease, top 10s ease, bottom 10s ease, right 10s ease;
 }
 
 .check_out {
