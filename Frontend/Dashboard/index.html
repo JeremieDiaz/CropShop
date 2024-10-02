@@ -11,12 +11,13 @@
     <nav>
         <div class="logo">CROPSHOP</div>
         <ul class="nav-links">
-            <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
-            <li><a href="#" onclick="showSection('marketplace')">Marketplace</a></li>
-            <li><a href="#" onclick="showSection('cart')">Cart</a></li>
+            <li><a href="#" id="dashboard-link" onclick="showSection('dashboard', this)">Dashboard</a></li>
+            <li><a href="#" id="marketplace-link" onclick="showSection('marketplace', this)">Marketplace</a></li>
+            <li><a href="#" id="cart-link" onclick="showSection('cart', this)">Cart</a></li>
         </ul>
         <button class="profile-btn">Profile</button>
     </nav>
+    
 
     <div class="content">
         <!-- Dashboard Section -->
@@ -134,22 +135,26 @@
                 </div>
             </div>
         </div>
-        <!-- Product Details Section -->
+<!-- Product Details Section -->
 <div class="dashboard-box" id="product-details" style="display: none;">
     <div class="product-view">
         <div class="product-image">
             <img src="" alt="Product Image" id="product-image"> <!-- Dynamically change src -->
         </div>
         <div class="product-info">
-            <h2 id="product-title"></h2>
-            <p id="product-price"></p> <!-- Dynamically change price -->
-            <p id="product-stock"></p> <!-- Dynamically show stock -->
-            <p id="product-description"></p> <!-- Dynamically show description -->
-            <button onclick="addToCart()">Add to Cart</button> <!-- Add to Cart Button -->
-            <button onclick="buyNow()">Buy Now</button> <!-- Buy Now Button -->
+            <h2 id="product-title"></h2> <!-- Product Name -->
+            <p id="product-price"></p> <!-- Product Price -->
+            <p id="product-stock"></p> <!-- Product Stock -->
+            <p id="product-description"></p> <!-- Product Description -->
+            <div class="button-container"> <!-- Button container -->
+                <button onclick="addToCart()" class="add-to-cart">Add to Cart</button> <!-- Add to Cart Button -->
+                <button onclick="buyNow()" class="buy-now">Buy Now</button> <!-- Buy Now Button -->
+            </div>
         </div>
     </div>
-</div>
+    
+
+
 
 
         <!-- Cart Section -->
