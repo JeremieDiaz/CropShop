@@ -1,4 +1,4 @@
-function showSection(sectionId) {
+function showSection(sectionId, clickedLink) {
     // Hide all sections
     document.getElementById('dashboard').style.display = 'none';
     document.getElementById('marketplace').style.display = 'none';
@@ -9,7 +9,16 @@ function showSection(sectionId) {
     
     // Show the selected section
     document.getElementById(sectionId).style.display = 'block';
+    
+    // Remove 'active' class from all navigation links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Add 'active' class to the clicked link
+    clickedLink.classList.add('active');
 }
+
 
 function goBackToMarketplace() {
     // Hide product details and show the marketplace
@@ -68,9 +77,9 @@ function showProductDetails(productName) {
     const products = {
         'Rice': { img: '1.jpg', price: '₱44/kilo', stock: 'Available: 100 kg', description: 'Rice is a staple food in many countries.' },
         'Corn': { img: '2.jpg', price: '₱46/kilo', stock: 'Available: 50 kg', description: 'Corn is rich in vitamins and minerals.' },
-        'Potato': { img: '3.jpg', price: '₱48/kilo', stock: 'Available: 75 kg', description: 'Potatoes are a good source of carbohydrates.' },
-        'Garlic': { img: '4.jpg', price: '₱50/kilo', stock: 'Available: 25 kg', description: 'Garlic is widely used for its strong flavor.' },
-        'Onion': { img: '5.jpg', price: '₱60/kilo', stock: 'Available: 30 kg', description: 'Onions are a common ingredient in many dishes.' },
+        'Potato': { img: '3.jpg', price: '₱48/kilo', stock: 'Available: 60 kg', description: 'Potatoes are versatile and nutritious.' },
+        'Garlic': { img: '4.jpg', price: '₱50/kilo', stock: 'Available: 70 kg', description: 'Garlic has numerous health benefits.' },
+        'Onion': { img: '5.jpg', price: '₱60/kilo', stock: 'Available: 80 kg', description: 'Onions add flavor to many dishes.' },
         'Ginger': { img: '6.jpg', price: '₱70/kilo', stock: 'Available: 40 kg', description: 'Ginger has anti-inflammatory properties.' },
         'Sugarcane': { img: '7.jpg', price: '₱65/kilo', stock: 'Available: 60 kg', description: 'Sugarcane is the source of most sugar.' },
         'Carrot': { img: '8.jpg', price: '₱60/kilo', stock: 'Available: 80 kg', description: 'Carrots are a great source of beta-carotene.' },
@@ -87,15 +96,16 @@ function showProductDetails(productName) {
     };
 
     const product = products[productName];
-
+    
     if (product) {
-        document.getElementById('product-title').textContent = productName;
+        // Update the image, title, price, stock, and description
         document.getElementById('product-image').src = product.img;
+        document.getElementById('product-title').textContent = productName;
         document.getElementById('product-price').textContent = product.price;
-        document.getElementById('product-stock').textContent = product.stock || 'Stock not available';
+        document.getElementById('product-stock').textContent = product.stock;
         document.getElementById('product-description').textContent = product.description;
 
-        // Show product details section
+        // Hide the marketplace and show the product details
         document.getElementById('marketplace').style.display = 'none';
         document.getElementById('product-details').style.display = 'block';
     }
