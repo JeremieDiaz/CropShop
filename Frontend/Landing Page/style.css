@@ -39,6 +39,8 @@ html {
 
 body {
     background: #f7f7f7; /* Sets a light gray background color for the body */
+    /* background: url('path-to-your-image.jpg') no-repeat center center fixed; */ /* Adds a background image that is centered and fixed during scrolling */
+    /* background-size: cover; */ /* Ensures the image covers the entire viewport */
 }
 
 section {
