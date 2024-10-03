@@ -1,27 +1,16 @@
 function showSection(sectionId, clickedLink) {
-    // Hide all sections
     document.getElementById('dashboard').style.display = 'none';
     document.getElementById('marketplace').style.display = 'none';
     document.getElementById('cart').style.display = 'none';
-    
-    // Hide the product details section when navigating to other sections
     document.getElementById('product-details').style.display = 'none';
-    
-    // Show the selected section
     document.getElementById(sectionId).style.display = 'block';
-    
-    // Remove 'active' class from all navigation links
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.classList.remove('active');
     });
-    
-    // Add 'active' class to the clicked link
     clickedLink.classList.add('active');
 }
 
-
 function goBackToMarketplace() {
-    // Hide product details and show the marketplace
     document.getElementById('product-details').style.display = 'none';
     document.getElementById('marketplace').style.display = 'block';
 }
@@ -32,14 +21,15 @@ function addToCart() {
 
 // Enhanced Filter Products based on criteria
 function filterProducts(criteria, event) {
-    // Add 'active' class to the clicked button
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
     
     const products = document.querySelectorAll('.product-item');
     products.forEach(product => {
         const productName = product.querySelector('p').textContent;
-        if (criteria === 'Crops' && ['Rice', 'Corn', 'Potato', 'Garlic', 'Onion', 'Ginger', 'Sugarcane', 'Carrot', 'Radish'].includes(productName)) {
+        if (criteria === 'All') {
+            product.style.display = 'block'; // Show all products
+        } else if (criteria === 'Crops' && ['Rice', 'Corn', 'Potato', 'Garlic', 'Onion', 'Ginger', 'Sugarcane', 'Carrot', 'Radish'].includes(productName)) {
             product.style.display = 'block';
         } else if (criteria === 'Seeds' && productName.toLowerCase().includes('seeds')) {
             product.style.display = 'block';
@@ -75,41 +65,48 @@ document.getElementById('search-bar').addEventListener('input', function() {
 // Display Product Details
 function showProductDetails(productName) {
     const products = {
-        'Rice': { img: '/Images/Dashboard imgs/1.jpg', price: '₱44/kilo', stock: 'Available: 100 kg', description: 'Rice is a staple food in many countries.' },
-        'Corn': { img: '/Images/Dashboard imgs/2.jpg', price: '₱46/kilo', stock: 'Available: 50 kg', description: 'Corn is rich in vitamins and minerals.' },
-        'Potato': { img: '/Images/Dashboard imgs/3.jpg', price: '₱48/kilo', stock: 'Available: 60 kg', description: 'Potatoes are versatile and nutritious.' },
-        'Garlic': { img: '/Images/Dashboard imgs/4.jpg', price: '₱50/kilo', stock: 'Available: 70 kg', description: 'Garlic has numerous health benefits.' },
-        'Onion': { img: '/Images/Dashboard imgs/5.jpg', price: '₱60/kilo', stock: 'Available: 80 kg', description: 'Onions add flavor to many dishes.' },
-        'Ginger': { img: '/Images/Dashboard imgs/6.jpg', price: '₱70/kilo', stock: 'Available: 40 kg', description: 'Ginger has anti-inflammatory properties.' },
-        'Sugarcane': { img: '/Images/Dashboard imgs/7.jpg', price: '₱65/kilo', stock: 'Available: 60 kg', description: 'Sugarcane is the source of most sugar.' },
-        'Carrot': { img: '/Images/Dashboard imgs/8.jpg', price: '₱60/kilo', stock: 'Available: 80 kg', description: 'Carrots are a great source of beta-carotene.' },
-        'Radish': { img: '/Images/Dashboard imgs/9.jpg', price: '₱55/kilo', stock: 'Available: 90 kg', description: 'Radish is a crunchy, edible root vegetable.' },
-        'Rice seeds': { img: '/Images/Dashboard imgs/seeds.jfif', price: '₱55/kilo', stock: 'Available: 150 kg', description: 'Rice seeds for planting.' },
-        'Corn seeds': { img: '/Images/Dashboard imgs/seeds2.jfif', price: '₱55/kilo', stock: 'Available: 200 kg', description: 'Corn seeds for planting.' },
-        'Sunflower seeds': { img: '/Images/Dashboard imgs/seeds3.jfif', price: '₱55/kilo', stock: 'Available: 180 kg', description: 'Sunflower seeds for planting.' },
-        'Phosphorus fertilizer': { img: '/Images/Dashboard imgs/pfertilizers.jfif', price: '₱55/kilo', stock: 'Available: 120 kg', description: 'Phosphorus fertilizer.' },
-        'Nitrogen fertilizer': { img: '/Images/Dashboard imgs/nfertilizers.jfif', price: '₱55/kilo', stock: 'Available: 130 kg', description: 'Nitrogen fertilizer.' },
-        'Potassium fertilizer': { img: '/Images/Dashboard imgs/kfertilizers.jfif', price: '₱55/kilo', stock: 'Available: 110 kg', description: 'Potassium fertilizer.' },
-        'Trowel': { img: '/Images/Dashboard imgs/tools1.jfif', price: '₱55', stock: 'Available: 50 units', description: 'Trowel for gardening.' },
-        'Mini Hand Rake': { img: '/Images/Dashboard imgs/tools2.jfif', price: '₱55', stock: 'Available: 45 units', description: 'Mini Hand Rake for gardening.' },
-        'Water Sprinkler': { img: '/Images/Dashboard imgs/tools3.jfif', price: '₱55', stock: 'Available: 60 units', description: 'Water Sprinkler for gardening.' }
+        'Rice': { img: '/Images/Dashboard imgs/1.jpg', price: '₱44/kilo', rating: 4, description: 'Rice is a staple food in many countries.' },
+        'Corn': { img: '/Images/Dashboard imgs/2.jpg', price: '₱46/kilo', rating: 5, description: 'Corn is rich in vitamins and minerals.' },
+        'Potato': { img: '/Images/Dashboard imgs/3.jpg', price: '₱48/kilo', rating: 4, description: 'Potatoes are versatile and nutritious.' },
+        'Garlic': { img: '/Images/Dashboard imgs/4.jpg', price: '₱60/kilo', rating: 4, description: 'Garlic is a popular seasoning in many dishes worldwide.' },
+        'Onion': { img: '/Images/Dashboard imgs/5.jpg', price: '₱50/kilo', rating: 5, description: 'Onions are essential in various cuisines for their flavor.' },
+        'Ginger': { img: '/Images/Dashboard imgs/6.jpg', price: '₱70/kilo', rating: 4, description: 'Ginger is known for its medicinal and culinary uses.' },
+        'Sugarcane': { img: '/Images/Dashboard imgs/7.jpg', price: '₱65/kilo', rating: 5, description: 'Sugarcane is used to produce sugar and other sweeteners.' },
+        'Carrot': { img: '/Images/Dashboard imgs/8.jpg', price: '₱60/kilo', rating: 4, description: 'Carrots are rich in beta-carotene, which is good for eyesight.' },
+        'Radish': { img: '/Images/Dashboard imgs/9.jpg', price: '₱55/kilo', rating: 4, description: 'Radish is a crunchy, edible root vegetable.' },
+        'Rice seeds': { img: '/Images/Dashboard imgs/seeds.jfif', price: '₱55/kilo', rating: 4, description: 'Rice seeds for planting.' },
+        'Corn seeds': { img: '/Images/Dashboard imgs/seeds2.jfif', price: '₱55/kilo', rating: 4, description: 'Corn seeds for planting.' },
+        'Sunflower seeds': { img: '/Images/Dashboard imgs/seeds3.jfif', price: '₱55/kilo', rating: 4, description: 'Sunflower seeds for planting.' },
+        'Phosphorus fertilizer': { img: '/Images/Dashboard imgs/pfertilizers.jfif', price: '₱55/kilo', rating: 4, description: 'Phosphorus fertilizer.' },
+        'Nitrogen fertilizer': { img: '/Images/Dashboard imgs/nfertilizers.jfif', price: '₱55/kilo', rating: 4, description: 'Nitrogen fertilizer.' },
+        'Potassium fertilizer': { img: '/Images/Dashboard imgs/kfertilizers.jfif', price: '₱55/kilo', rating: 4, description: 'Potassium fertilizer.' },
+        'Trowel': { img: '/Images/Dashboard imgs/tools1.jfif', price: '₱55', rating: 4, description: 'Trowel for gardening.' },
+        'Mini Hand Rake': { img: '/Images/Dashboard imgs/tools2.jfif', price: '₱55', rating: 4, description: 'Mini Hand Rake for gardening.' },
+        'Water Sprinkler': { img: '/Images/Dashboard imgs/tools3.jfif', price: '₱55', rating: 4, description: 'Water Sprinkler for irrigation.' }
     };
 
     const product = products[productName];
-    
+
     if (product) {
-        // Update the image, title, price, stock, and description
         document.getElementById('product-image').src = product.img;
         document.getElementById('product-title').textContent = productName;
         document.getElementById('product-price').textContent = product.price;
-        document.getElementById('product-stock').textContent = product.stock;
-        document.getElementById('product-description').textContent = product.description;
 
-        // Hide the marketplace and show the product details
+        // Create star rating
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+            stars += `<span class="star-rating ${i <= product.rating ? 'filled' : ''}">&#9733;</span>`; // ★
+        }
+
+        // Set the rating with the text "Ratings: "
+        document.getElementById('product-rating').innerHTML = `Ratings: ${stars}`; // Set the rating
+        document.getElementById('product-description').textContent = product.description;
         document.getElementById('marketplace').style.display = 'none';
         document.getElementById('product-details').style.display = 'block';
     }
 }
+
+
 
 function addToCart() {
     alert('Product added to cart');
