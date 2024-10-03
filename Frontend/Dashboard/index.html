@@ -8,34 +8,33 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <nav>
-        <div class="logo">CROPSHOP</div>
-        <ul class="nav-links">
-            <li><a href="#" id="dashboard-link" onclick="showSection('dashboard', this)">Dashboard</a></li>
-            <li><a href="#" id="marketplace-link" onclick="showSection('marketplace', this)">Marketplace</a></li>
-            <li><a href="#" id="cart-link" onclick="showSection('cart', this)">Cart</a></li>
-        </ul>
-        <button class="profile-btn">Profile</button>
-    </nav>
-    
+<nav role="navigation" aria-label="Main Navigation">
+    <div class="logo" aria-label="CROPSHOP Logo">CROPSHOP</div>
+    <ul class="nav-links" role="menubar">
+        <li role="menuitem"><a href="#" id="dashboard-link" onclick="showSection('dashboard', this)">Dashboard</a></li>
+        <li role="menuitem"><a href="#" id="marketplace-link" onclick="showSection('marketplace', this)">Marketplace</a></li>
+        <li role="menuitem"><a href="#" id="cart-link" onclick="showSection('cart', this)">Cart</a></li>
+    </ul>
+    <button class="profile-btn" aria-label="User Profile">Profile</button>
+</nav>
+
 
     <div class="content">
         <!-- Dashboard Section -->
         <div class="dashboard-box" id="dashboard">
             <h2>Dashboard Content</h2>
-
-    <h3>CROPS PRICE PER KILO</h3>
-    <canvas id="salesChart" width="400" height="200"></canvas>
+            <h3>CROPS PRICE PER KILO</h3>
+            <canvas id="salesChart" width="400" height="200"></canvas>
         </div>
 
         <!-- Marketplace Section -->
         <div class="dashboard-box" id="marketplace" style="display: none;">
-            <h2>CROPSHOP Marketplace</h2>
-            
+            <h2></h2>
             <!-- Search and Filter Bar -->
             <div class="search-filter-bar">
                 <input type="text" id="search-bar" placeholder="Search">
-                <button class="filter-btn active" onclick="filterProducts('Crops', event)">Crops</button>
+                <button class="filter-btn active" onclick="filterProducts('All', event)">All</button>
+                <button class="filter-btn" onclick="filterProducts('Crops', event)">Crops</button>
                 <button class="filter-btn" onclick="filterProducts('Seeds', event)">Seeds</button>
                 <button class="filter-btn" onclick="filterProducts('Fertilizers', event)">Fertilizers</button>
                 <button class="filter-btn" onclick="filterProducts('Tools', event)">Tools</button>
@@ -109,7 +108,7 @@
                     <p>₱55/kilo</p>
                 </div>
                 <div class="product-item" onclick="showProductDetails('Nitrogen fertilizer')">
-                    <img src="/Images/Dashboard imgs/nfertilizers.jfif" alt="Nitrogen fertilizer">
+                    <img src="/Images/Dashboard imgs/pfertilizers.jfif" alt="Nitrogen fertilizer">
                     <p>Nitrogen fertilizer</p>
                     <p>₱55/kilo</p>
                 </div>
@@ -135,8 +134,8 @@
                 </div>
             </div>
         </div>
-<!-- Product Details Section -->
-<div class="dashboard-box" id="product-details" style="display: none;">
+ <!-- Product Details Section -->
+ <div class="dashboard-box" id="product-details" style="display: none;">
     <div class="product-view">
         <div class="product-image">
             <img src="" alt="Product Image" id="product-image"> <!-- Dynamically change src -->
@@ -144,9 +143,10 @@
         <div class="product-info">
             <h2 id="product-title"></h2> <!-- Product Name -->
             <p id="product-price"></p> <!-- Product Price -->
-            <p id="product-stock"></p> <!-- Product Stock -->
+            <p id="product-rating">Ratings: </p> <!-- Product Rating (Stars) -->
             <p id="product-description"></p> <!-- Product Description -->
             <div class="button-container"> <!-- Button container -->
+                <button onclick="goBackToMarketplace()" class="back-btn">&#8592; </button> <!-- Simple back button -->
                 <button onclick="addToCart()" class="add-to-cart">Add to Cart</button> <!-- Add to Cart Button -->
                 <button onclick="buyNow()" class="buy-now">Buy Now</button> <!-- Buy Now Button -->
             </div>
