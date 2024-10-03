@@ -75,24 +75,24 @@ document.getElementById('search-bar').addEventListener('input', function() {
 // Display Product Details
 function showProductDetails(productName) {
     const products = {
-        'Rice': { img: '1.jpg', price: '₱44/kilo', stock: 'Available: 100 kg', description: 'Rice is a staple food in many countries.' },
-        'Corn': { img: '2.jpg', price: '₱46/kilo', stock: 'Available: 50 kg', description: 'Corn is rich in vitamins and minerals.' },
-        'Potato': { img: '3.jpg', price: '₱48/kilo', stock: 'Available: 60 kg', description: 'Potatoes are versatile and nutritious.' },
-        'Garlic': { img: '4.jpg', price: '₱50/kilo', stock: 'Available: 70 kg', description: 'Garlic has numerous health benefits.' },
-        'Onion': { img: '5.jpg', price: '₱60/kilo', stock: 'Available: 80 kg', description: 'Onions add flavor to many dishes.' },
-        'Ginger': { img: '6.jpg', price: '₱70/kilo', stock: 'Available: 40 kg', description: 'Ginger has anti-inflammatory properties.' },
-        'Sugarcane': { img: '7.jpg', price: '₱65/kilo', stock: 'Available: 60 kg', description: 'Sugarcane is the source of most sugar.' },
-        'Carrot': { img: '8.jpg', price: '₱60/kilo', stock: 'Available: 80 kg', description: 'Carrots are a great source of beta-carotene.' },
-        'Radish': { img: '9.jpg', price: '₱55/kilo', stock: 'Available: 90 kg', description: 'Radish is a crunchy, edible root vegetable.' },
-        'Rice seeds': { img: 'seeds.jfif', price: '₱55/kilo', stock: 'Available: 150 kg', description: 'Rice seeds for planting.' },
-        'Corn seeds': { img: 'seeds2.jfif', price: '₱55/kilo', stock: 'Available: 200 kg', description: 'Corn seeds for planting.' },
-        'Sunflower seeds': { img: 'seeds3.jfif', price: '₱55/kilo', stock: 'Available: 180 kg', description: 'Sunflower seeds for planting.' },
-        'Phosphorus fertilizer': { img: 'pfertilizers.jfif', price: '₱55/kilo', stock: 'Available: 120 kg', description: 'Phosphorus fertilizer.' },
-        'Nitrogen fertilizer': { img: 'nfertilizers.jfif', price: '₱55/kilo', stock: 'Available: 130 kg', description: 'Nitrogen fertilizer.' },
-        'Potassium fertilizer': { img: 'kfertilizers.jfif', price: '₱55/kilo', stock: 'Available: 110 kg', description: 'Potassium fertilizer.' },
-        'Trowel': { img: 'tools1.jfif', price: '₱55', stock: 'Available: 50 units', description: 'Trowel for gardening.' },
-        'Mini Hand Rake': { img: 'tools2.jfif', price: '₱55', stock: 'Available: 45 units', description: 'Mini Hand Rake for gardening.' },
-        'Water Sprinkler': { img: 'tools3.jfif', price: '₱55', stock: 'Available: 60 units', description: 'Water Sprinkler for gardening.' }
+        'Rice': { img: '/Images/Dashboard imgs/1.jpg', price: '₱44/kilo', stock: 'Available: 100 kg', description: 'Rice is a staple food in many countries.' },
+        'Corn': { img: '/Images/Dashboard imgs/2.jpg', price: '₱46/kilo', stock: 'Available: 50 kg', description: 'Corn is rich in vitamins and minerals.' },
+        'Potato': { img: '/Images/Dashboard imgs/3.jpg', price: '₱48/kilo', stock: 'Available: 60 kg', description: 'Potatoes are versatile and nutritious.' },
+        'Garlic': { img: '/Images/Dashboard imgs/4.jpg', price: '₱50/kilo', stock: 'Available: 70 kg', description: 'Garlic has numerous health benefits.' },
+        'Onion': { img: '/Images/Dashboard imgs/5.jpg', price: '₱60/kilo', stock: 'Available: 80 kg', description: 'Onions add flavor to many dishes.' },
+        'Ginger': { img: '/Images/Dashboard imgs/6.jpg', price: '₱70/kilo', stock: 'Available: 40 kg', description: 'Ginger has anti-inflammatory properties.' },
+        'Sugarcane': { img: '/Images/Dashboard imgs/7.jpg', price: '₱65/kilo', stock: 'Available: 60 kg', description: 'Sugarcane is the source of most sugar.' },
+        'Carrot': { img: '/Images/Dashboard imgs/8.jpg', price: '₱60/kilo', stock: 'Available: 80 kg', description: 'Carrots are a great source of beta-carotene.' },
+        'Radish': { img: '/Images/Dashboard imgs/9.jpg', price: '₱55/kilo', stock: 'Available: 90 kg', description: 'Radish is a crunchy, edible root vegetable.' },
+        'Rice seeds': { img: '/Images/Dashboard imgs/seeds.jfif', price: '₱55/kilo', stock: 'Available: 150 kg', description: 'Rice seeds for planting.' },
+        'Corn seeds': { img: '/Images/Dashboard imgs/seeds2.jfif', price: '₱55/kilo', stock: 'Available: 200 kg', description: 'Corn seeds for planting.' },
+        'Sunflower seeds': { img: '/Images/Dashboard imgs/seeds3.jfif', price: '₱55/kilo', stock: 'Available: 180 kg', description: 'Sunflower seeds for planting.' },
+        'Phosphorus fertilizer': { img: '/Images/Dashboard imgs/pfertilizers.jfif', price: '₱55/kilo', stock: 'Available: 120 kg', description: 'Phosphorus fertilizer.' },
+        'Nitrogen fertilizer': { img: '/Images/Dashboard imgs/nfertilizers.jfif', price: '₱55/kilo', stock: 'Available: 130 kg', description: 'Nitrogen fertilizer.' },
+        'Potassium fertilizer': { img: '/Images/Dashboard imgs/kfertilizers.jfif', price: '₱55/kilo', stock: 'Available: 110 kg', description: 'Potassium fertilizer.' },
+        'Trowel': { img: '/Images/Dashboard imgs/tools1.jfif', price: '₱55', stock: 'Available: 50 units', description: 'Trowel for gardening.' },
+        'Mini Hand Rake': { img: '/Images/Dashboard imgs/tools2.jfif', price: '₱55', stock: 'Available: 45 units', description: 'Mini Hand Rake for gardening.' },
+        'Water Sprinkler': { img: '/Images/Dashboard imgs/tools3.jfif', price: '₱55', stock: 'Available: 60 units', description: 'Water Sprinkler for gardening.' }
     };
 
     const product = products[productName];
