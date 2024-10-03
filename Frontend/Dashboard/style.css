@@ -110,19 +110,13 @@ nav {
 /* Marketplace grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust column sizes */
+    gap: 15px;
     padding: 10px;
 }
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px; /* This should create space between items */
-    padding: 10px;
-}
-
 .product-item {
     background-color: #fff;
+    margin: 0;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px;
@@ -130,10 +124,9 @@ nav {
     transition: box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     cursor: pointer;
-    /* Optional: Add margin if gap is still not working */
-    /* margin: 10px; */
+    height: 100%; /* Allow product item to expand fully */
 }
 
 
@@ -143,7 +136,7 @@ nav {
 
 .product-item img {
     max-width: 100%;
-    height: auto;
+    height: 150px;
     margin-bottom: 8px;
     max-height: 120px;
     object-fit: cover;
@@ -157,6 +150,7 @@ nav {
 
 /* Product Details Section */
 .product-view {
+    position: relative; /* Set relative positioning for the container */
     display: flex;
     flex-direction: row; /* Ensure horizontal layout */
     gap: 20px; /* Space between image and info */
@@ -209,7 +203,6 @@ nav {
 .product-info button:hover {
     background-color: #218838;
 }
-
 /* Search and filter bar */
 .search-filter-bar {
     display: flex;
@@ -222,24 +215,26 @@ nav {
 }
 
 #search-bar {
+    flex-grow: 1; /* Allow the search bar to take available space */
     width: 100%;
     max-width: 300px;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 20px;
-    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
+/* Styling the filter buttons */
 .filter-btn {
-    padding: 8px 12px;
+    padding: 10px; /* Make the filter buttons taller */
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    flex: 0 1 auto; /* Maintain equal height with the search bar */
+    margin: 5px 5px; /* Add some space between buttons */
 }
-
 .filter-btn:hover {
     background-color: #218838;
 }
@@ -248,13 +243,12 @@ nav {
     background-color: #333;
 }
 
-/* Button Container Styling */
 /* Button Container */
 .button-container {
     display: flex;
     flex-direction: column; /* Arrange buttons vertically */
     gap: 10px; /* Space between buttons */
-    margin-top: 15px; /* Add space above the buttons */
+    margin-top: 45px; /* Add space above the buttons */
 }
 
 /* Adjust button styles if needed */
@@ -291,6 +285,24 @@ button:hover {
     background-color: #468949;
     transform: scale(1.05);
 }
+.back-btn {
+    position: absolute; /* Position the back button absolutely */
+    top: 10px; /* Position from the top */
+    right: 10px; /* Position from the right */
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    font-size: 20px; /* Adjust font size as needed */
+    cursor: pointer; /* Change cursor to pointer */
+}
+.star-rating {
+    font-size: 24px; /* Adjust size as needed */
+    color: #d3d3d3; /* Light grey for unshaded stars */
+}
+
+.star-rating.filled {
+    color: gold; /* Gold for filled stars */
+}
+
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
@@ -308,11 +320,11 @@ button:hover {
     }
 
     .dashboard-box {
-        width: 95%;
+        padding: 10px; /* Reduce padding for smaller screens */
     }
 
     .product-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
     }
 
     .product-item img {
@@ -326,11 +338,38 @@ button:hover {
     .product-info h2 {
         font-size: 1.5rem;
     }
+    .search-filter-bar {
+        flex-direction: column; /* Stack elements */
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .search-filter-bar {
+        display: flex;
+        flex-direction: column; /* Stack the filter buttons vertically */
+    }
+    .filter-btn {
+        width: 100%; /* Make buttons full width on small screens */
+    }
+    #search-bar {
+        width: 100%; /* Make the search bar full width */
+        margin-bottom: 10px; /* Add margin for spacing */
+    }
 }
 
 @media (max-width: 480px) {
     .product-grid {
         grid-template-columns: 1fr;
+    }
+    .dashboard-box {
+        padding: 5px; /* Further reduce padding for mobile */
+    }
+    .product-item img {
+        max-height: 100px; /* Adjust max height for images on mobile */
     }
 
     .product-view {
@@ -343,5 +382,13 @@ button:hover {
 
     .product-info p {
         font-size: 0.9rem;
+    }
+
+    #search-bar {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .filter-btn {
+        width: 100%; /* Full width buttons */
     }
 }
