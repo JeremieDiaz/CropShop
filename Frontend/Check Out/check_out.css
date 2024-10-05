@@ -11,13 +11,14 @@ body {
     justify-content: center; 
     align-items: center; 
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
+    background-color: #f8f4f1;
 }
 
 .background-container {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100vh;
+    height: 100vh;
     z-index: -1; 
 }
 
@@ -32,9 +33,11 @@ body {
     position: relative;
     z-index: 1; 
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-    width: 900px; 
-    height: auto;
+    width: 1500px; 
+    height: 700px;
+    display: inline-flex;
+    justify-content: center; 
+    align-items: center; 
 }
 
 h2 {
@@ -42,15 +45,27 @@ h2 {
     padding-top: 150px;
 }
 
-.check_out_box {
-    width: 900px;
+.check_out_box1 {
+    width: 600px;
     height: 100%;
+    background-color: rgba(237, 212, 183, .85);
+    margin-right: 30px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
+.check_out_box2 {
+    width: 600px;
+    height: 100%;
+    background-color: rgba(237, 212, 183, .85);
+    margin-left: 30px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+
 .title {
-    width: 100%;
-    border-radius: 30px;
-    background: rgba(66, 67, 66, 0.526);
+    width: auto;
     display: inline-flex;
     text-align: center;
     padding-left: 30px;
@@ -62,7 +77,7 @@ h2 {
 .title h3 {
     padding-left: 15px;
     padding-bottom: 10px;
-    padding-right: 525px;
+    padding-right: 65px;
 }
 .title button {
     margin-top: 5px ;
@@ -76,7 +91,7 @@ h2 {
 }
 
 .client_details {
-    padding: 10px;
+    padding: 5px;
     background: rgba(66, 67, 66, 0.526);
     border-radius: 8px;
     width: 95%; 
@@ -93,9 +108,11 @@ h2 {
     background-color: #f9f9f900;
     border-radius: 8px;
     width: 95%; 
-    height: 300px;
+    height: 460px;
     margin: 0 auto;
     position: relative;
+    justify-content: center; 
+    align-items: center;
 }
 .products_menu::-webkit-scrollbar {
     display: none;
@@ -111,22 +128,19 @@ h2 {
     position: relative;
 }
 
-.payment_methods {
+.methods {
     padding: 10px;
     background: rgba(66, 67, 66, 0.526);
     border-radius: 8px;
     width: 95%; 
-    height: 130px;
-    margin: 0 auto 20px;
+    height: auto;
+    margin: 0 auto 15px;
 }
 
 .method_box {
     width: 95%; 
     height: 40px;
 }
-
-
-
 
 .price {
     display: flex; 

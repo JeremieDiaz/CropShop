@@ -25,20 +25,22 @@
         <img src="/Images/BackgroundImages/shovel.svg" alt="Shovel" />
         <img src="/Images/BackgroundImages/wheat.svg" alt="Wheat" />
     </div>
+
+    <!--Check Out-->
     <div class="check_out">
-        <div class="check_out_box">
-            <h2>Check Out</h2>
+        <!-- page 1 of check out-->
+        <div class="check_out_box1">
             <div class="title">
                 <i class="fa-solid fa-user fa-2x"></i>
                 <h3>Personal Details</h3>
             </div>
-            
+
             <div class="client_details">
                 <div class="name">Name: </div>
                 <div class="address">Address: </div>
                 <div class="contact">Contact Number: </div>
             </div>
-            
+
             <div class="title">
                 <i class="fa-solid fa-shop fa-2x"></i>
                 <h3>Products</h3>
@@ -75,14 +77,55 @@
                 </div>
             </div>
 
+        </div>
+        <!-- page 2 of check out-->
+        <div class="check_out_box2">
+
+            <div class="title">
+                <i class="fa-solid fa-ticket fa-2x"></i>
+                <h3>Vouchers / Coupons:</h3>
+            </div>
+            <div class="methods">
+                    <div class="method_box">
+                        <div class="method_logo"></div>
+                        <input type="radio" id="voucher1" name="vouchers" value="VOUCHER1">
+                        <label for="cod">Voucher 1</label>
+                    </div>
+                    <div class="method_box">
+                        <div class="method_logo"></div>
+                        <input type="radio" id="voucher2" name="vouchers" value="VOUCHER2">
+                        <label for="e-wallet">Voucher 2</label>
+                    </div>
+                    <div class="method_box">
+                        <div class="method_logo"></div>
+                        <input type="radio" id="voucher3" name="vouchers" value="VOUCHER3">
+                        <label for="e-wallet">Voucher 3</label>
+                    </div>
+            </div>
+
+            <div class="title">
+                <i class="fa-solid fa-truck fa-2x"></i>
+                <h3>Delivery Options:</h3>
+            </div>
+            <div class="methods">
+                    <div class="method_box">
+                        <div class="method_logo"></div>
+                        <input type="radio" id="express" name="delivery_methods" value="EXPRESS">
+                        <label for="cod">Express Delivery</label>
+                    </div>
+                    <div class="method_box">
+                        <div class="method_logo"></div>
+                        <input type="radio" id="standard" name="delivery_methods" value="STANDARD">
+                        <label for="e-wallet">Standard</label>
+                    </div>
+            </div>
+
             <div class="title">
                 <i class="fa-solid fa-money-bill fa-2x"></i>
-                <h3>Payment Methods: </h3>
+                <h3>Payment Methods:</h3>
                 <button>View All</button>
             </div>
-            <div class="payment_methods">
-                
-                
+            <div class="methods">
                     <div class="method_box">
                         <div class="method_logo"></div>
                         <input type="radio" id="cod" name="payment_methods" value="COD">
@@ -98,8 +141,6 @@
                         <input type="radio" id="card" name="payment_methods" value="CARD">
                         <label for="card">Credit or Debit</label>
                     </div>
-                    
-                
             </div>
 
             <div class="price">
@@ -107,6 +148,8 @@
                 <button>Check Out</button>
             </div>
         </div>
+
     </div>
+    
 </body>
 </html>
