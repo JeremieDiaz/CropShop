@@ -12,7 +12,7 @@ body {
     align-items: center; 
     position: relative;
     overflow: hidden;
-    background-color: #f8f4f1;
+    background-color: #e7cebc;
 }
 
 .background-container {
@@ -38,6 +38,10 @@ body {
     display: inline-flex;
     justify-content: center; 
     align-items: center; 
+    overflow: auto;
+}
+.check_out::-webkit-scrollbar {
+    display: none;
 }
 
 h2 {
@@ -48,19 +52,19 @@ h2 {
 .check_out_box1 {
     width: 600px;
     height: 100%;
-    background-color: rgba(237, 212, 183, .85);
+    background-color: rgba(246, 180, 104, 0.85);
     margin-right: 30px;
     border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    box-shadow: rgba(236, 156, 65, 0.4) -5px 5px, rgba(236, 182, 65, 0.3) -10px 10px, rgba(236, 205, 65, 0.2) -15px 15px, rgba(236, 227, 65, 0.1) -20px 20px, rgba(216, 236, 65, 0.05) -25px 25px;
 }
 
 .check_out_box2 {
     width: 600px;
     height: 100%;
-    background-color: rgba(237, 212, 183, .85);
+    background-color: rgba(246, 180, 104, 0.85);
     margin-left: 30px;
     border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    box-shadow: rgba(236, 156, 65, 0.4) 5px 5px, rgba(236, 182, 65, 0.3) 10px 10px, rgba(236, 205, 65, 0.2) 15px 15px, rgba(236, 227, 65, 0.1) 20px 20px, rgba(216, 236, 65, 0.05) 25px 25px;
 }
 
 
@@ -68,19 +72,22 @@ h2 {
     width: auto;
     display: inline-flex;
     text-align: center;
-    padding-left: 30px;
+    padding-left: 20px;
     padding-bottom: 1px;
     padding-top: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+    color: #032c01;
 }
-.title h3 {
+.title h4 {
+    padding-top: 3px;
     padding-left: 15px;
-    padding-bottom: 10px;
-    padding-right: 65px;
+    padding-bottom: 5px;
+    padding-right: 270px;
+    color: #032c01;
 }
 .title button {
-    margin-top: 5px ;
+    margin-top: 10px ;
     width: 90px;
     height: 20px;
     color: #fff; 
@@ -92,12 +99,13 @@ h2 {
 
 .client_details {
     padding: 5px;
-    background: rgba(66, 67, 66, 0.526);
+    background: rgba(250, 251, 250, 0.526);
     border-radius: 8px;
     width: 95%; 
     height: 80px;
     margin: 0 auto;
     position: relative;
+    color: #032c01;
 }
 
 .products_menu{
@@ -113,6 +121,7 @@ h2 {
     position: relative;
     justify-content: center; 
     align-items: center;
+    color: #032c01;
 }
 .products_menu::-webkit-scrollbar {
     display: none;
@@ -120,7 +129,7 @@ h2 {
 
 .product {
     padding: 10px;
-    background: rgba(66, 67, 66, 0.526);
+    background: rgba(250, 251, 250, 0.526);
     border-radius: 10px;
     width: 96%; 
     height: 170px;
@@ -130,16 +139,19 @@ h2 {
 
 .methods {
     padding: 10px;
-    background: rgba(66, 67, 66, 0.526);
+    background: rgba(250, 251, 250, 0.526);
     border-radius: 8px;
     width: 95%; 
     height: auto;
     margin: 0 auto 15px;
+    color: #032c01;
+    
 }
 
 .method_box {
     width: 95%; 
     height: 40px;
+    
 }
 
 .price {
@@ -149,20 +161,65 @@ h2 {
     padding-right: 25px;
 }
 
-.price h3 {
+.price h4 {
     margin-left: auto; 
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 30px;
+    color: #032c01;
 }
 
 button {
     width: 90px;
     height: 40px;
-    background-color: white; 
+    background-color: #bc6c25; 
     border: none; 
     border-radius: 5px; 
     cursor: pointer;
-    color: black;
+    color: #032c01;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
 }
 
+button:hover {
+    background-color: #8d4920; 
+}
+
+@media (max-width: 768px) {
+    .check_out {
+        flex-direction: column; 
+        width: 100%;
+    }
+
+    .check_out_box1, .check_out_box2 {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    button {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px; 
+        align-items: flex-start; 
+    }
+
+    .check_out {
+        padding: 20px;
+        width: 100%;
+        min-height: auto; 
+    }
+
+    .price h4 {
+        padding-right: 10px;
+    }
+
+    .title h4 {
+        padding-right: 10px;
+    }
+}

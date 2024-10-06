@@ -49,23 +49,23 @@ function roamImage(img) {
         const imgWidth = img.offsetWidth;  
         const imgHeight = img.offsetHeight; 
 
-        // Calculate new random position
+        // make random position
         const x = Math.random() * (containerWidth + 200) - imgWidth / 2; 
         let y = Math.random() * (containerHeight + 200) - imgHeight / 2;
 
-        // Get the bottom position of the checkout box
+        // get bottom of checkoutbox
         const checkoutBoxBottom = checkoutBox.getBoundingClientRect().bottom;
 
-        // Ensure the image doesn't go below the checkout box, but allow it to be above the top
+        // make sure the images wont go outside checkoutbox
         if (y + imgHeight / 2 > checkoutBoxBottom) {
-            y = checkoutBoxBottom - imgHeight / 2; // Adjust y to be just above the checkout box
+            y = checkoutBoxBottom - imgHeight / 2;
         }
-        // Allow images to go above the viewport
+        // allow images to go above the viewport
         if (y + imgHeight / 2 < 0) {
-            y = -imgHeight / 2; // Adjust y to be just above the viewport
+            y = -imgHeight / 2;
         }
 
-        // Move the image
+        // animate the image
         img.style.left = `${x}px`;
         img.style.top = `${y}px`;
 
