@@ -29,6 +29,47 @@ body {
     transition: transform 10s ease, left 10s ease, top 10s ease, bottom 10s ease, right 10s ease;
 }
 
+.quantity_container {
+    display: flex;
+    align-items: center;
+}
+
+.quantity_btn {
+    width: 30px;
+    height: 30px;
+    background-color: #bc6c25;
+    color: #032c01;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    line-height: 28px;
+}
+
+.quantity_btn:focus {
+    outline: none;
+}
+
+.quantity_btn:hover {
+    background-color: #8d4920; 
+}
+
+.p_quantity input {
+    width: 50px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background: rgba(250, 251, 250, 0.526);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: border-color 0.3s ease;
+    color: #032c01;
+}
+
 .check_out {
     position: relative;
     z-index: 1; 
@@ -94,7 +135,7 @@ h2 {
     border: none; 
     border-radius: 5px; 
     cursor: pointer; 
-    color: black; 
+    color: #032c01; 
 }
 
 .client_details {
@@ -114,7 +155,7 @@ h2 {
     overflow-x: auto;
     overflow-y: auto;
     background-color: #f9f9f900;
-    border-radius: 8px;
+    border-radius: 30px;
     width: 95%; 
     height: 460px;
     margin: 0 auto;
@@ -132,9 +173,27 @@ h2 {
     background: rgba(250, 251, 250, 0.526);
     border-radius: 10px;
     width: 96%; 
-    height: 170px;
+    height: auto; 
     margin: 0 auto 10px;
-    position: relative;
+    display: flex;
+    align-items: center; 
+}
+
+.product_details {
+    display: flex;
+    flex-direction: column; 
+    margin-left: 20px; 
+}
+
+.products_menu .product .p_image {
+    height: 110px;
+    width: 110px;
+    background-color: red;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .methods {
@@ -145,7 +204,6 @@ h2 {
     height: auto;
     margin: 0 auto 15px;
     color: #032c01;
-    
 }
 
 .method_box {
@@ -158,7 +216,7 @@ h2 {
     display: flex; 
     align-items: center; 
     padding-bottom: 20px;
-    padding-right: 25px;
+    padding-right: 15px;
 }
 
 .price h4 {

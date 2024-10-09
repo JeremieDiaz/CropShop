@@ -1,6 +1,58 @@
-function updatePrice(newPrice) {
-    document.getElementById('price').innerText = newPrice;
+document.addEventListener('DOMContentLoaded', function() {
+    attachButtonEvents();
+    updateOverallTotal(); // Calculate total on page load
+});
+
+function attachButtonEvents() {
+    const plusBtns = document.querySelectorAll('.quantity_btn.plus'); 
+    const minusBtns = document.querySelectorAll('.quantity_btn.minus'); 
+
+    plusBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const input = this.previousElementSibling; 
+            input.value = parseInt(input.value) + 1; 
+            updateTotal(input);
+        });
+    });
+
+    minusBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const input = this.nextElementSibling; 
+            if (parseInt(input.value) > 1) { 
+                input.value = parseInt(input.value) - 1; 
+                updateTotal(input);
+            }
+        });
+    });
 }
+
+function updateTotal(input) {
+    const price = parseFloat(input.closest('.product_details').querySelector('.p_price').getAttribute('data-price'));
+    const totalCost = input.closest('.product_details').querySelector('.total_cost');
+    
+    // Calculate the total for the individual product
+    const productTotal = price * parseInt(input.value);
+    totalCost.textContent = 'Total: ₱ ' + productTotal.toFixed(2); 
+    
+    // Update the overall total price
+    updateOverallTotal();
+}
+
+function updateOverallTotal() {
+    const allProducts = document.querySelectorAll('.product');
+    let overallTotal = 0;
+
+    allProducts.forEach(product => {
+        const quantityInput = product.querySelector('.quantity_input');
+        const productPrice = parseFloat(product.querySelector('.p_price').getAttribute('data-price'));
+        const quantity = parseInt(quantityInput.value);
+
+        overallTotal += productPrice * quantity; // Accumulate the total
+    });
+
+    document.getElementById('price').textContent = overallTotal.toFixed(2); // Update the total price display
+}
+
 
 function initializeImages() {
     const imageSources = [
@@ -76,4 +128,15 @@ function roamImage(img) {
     moveImage();
 }
 
-window.onload = initializeImages;
+function updateClientDetails(newName, newAddress, newContact) {
+    document.querySelector('.client_details .name').textContent = 'Name: ' + newName;
+    document.querySelector('.client_details .address').textContent = 'Address: ' + newAddress;
+    document.querySelector('.client_details .contact').textContent = 'Contact Number: ' + newContact;
+}
+
+updateClientDetails('Jane Smith', '456 Elm St', '(987) 654-3210');
+
+function initializeFunctions() {
+    initializeImages();
+    updateClientDetails('Jane Smith', '456 Elm St', '(987) 654-3210');
+}
