@@ -18,6 +18,8 @@
     --orange2: #bc6c25;
     --grayishWhite: #e7e6e6;
     --paleGreen: #DFFFD6;
+    --peachyOrange: #f6b468;
+    --reddishBrown: #8d4920;
 }
 
 * {
@@ -75,8 +77,8 @@ section {
 .btn {
     display: inline-block; /* Makes the button behave like an inline element while retaining block-level properties (such as width and height) */
     padding: .8rem 3rem; /* Adds 0.8rem padding to the top and bottom, and 3rem to the left and right */
-    border: .2rem solid var(--darkBlue); /* Adds a border with a thickness of 0.2rem and the color of the dark blue variable */
-    color: var(--darkBlue); /* Sets the button's text color to dark blue */
+    border: .2rem solid var(--reddishBrown); /* Adds a border with a thickness of 0.2rem and the color of the dark blue variable */
+    color: var(--reddishBrown); /* Sets the button's text color to dark blue */
     cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
     font-size: 1.7rem; /* Sets the font size to 1.7rem */
     border-radius: .5rem; /* Rounds the button's corners with a radius of 0.5rem */
@@ -93,7 +95,7 @@ section {
     right: 0; /* Aligns the right edge of the pseudo-element with the right side of the button */
     width: 0; /* Initially sets the width to 0 (for the hover effect) */
     height: 100%; /* Ensures the pseudo-element covers the full height of the button */
-    background: var(--darkBlue); /* Sets the background color of the pseudo-element to dark blue */
+    background: var(--reddishBrown); /* Sets the background color of the pseudo-element to dark blue */
     transition: .3s linear; /* Animates the width change over 0.3 seconds */
     z-index: -1; /* Places the pseudo-element behind the button text */
 }
@@ -126,8 +128,8 @@ header {
     display: flex; /* Uses flexbox to lay out the child elements (logo, navbar) */
     align-items: center; /* Vertically centers the items within the header */
     justify-content: space-between; /* Distributes space between the logo and navbar */
-    background: var(--paleGreen); /* Sets the background color to white */
-    padding: 2rem 5%; /* Adds padding of 2rem on the top/bottom and 5% on the left/right */
+    background: var(--peachyOrange); /* Sets the background color to white */
+    padding: 1rem 5%; /* Adds padding of 2rem on the top/bottom and 5% on the left/right */
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); /* Adds a subtle shadow to the header for a raised effect */
 }
 
@@ -144,9 +146,9 @@ header .logo i {
 
 header .navbar {
     display: flex; /* Aligns the navigation links in a row (horizontal layout) */
-    justify-content: center; /* Centers the navbar links */
-    margin-right: 5rem; /* Adds a margin of 5rem to the right of the navbar for spacing */
-    font-weight: 600; /* Sets the font weight to semi-bold, making the text slightly thicker */
+    justify-content: flex-start; /* Moves the navbar links to the left */
+    margin-right: 50rem; /* Adds spacing on the left (adjust as needed) */
+    font-weight: 600; /* Sets the font weight to semi-bold */
 }
 
 header .navbar a {
@@ -190,18 +192,32 @@ header .navbar a:hover {
     background-position: center;
 }
 
-.home .content{
-    background-color: var(--paleGreen); /* Gives it a background color */
-    border-radius: 1rem; /* Rounds the corners of the background */
+.home .content {
+    position: relative; /* Ensure the content is positioned for the pseudo-element */
+    border-radius: 1rem; /* Keeps the rounded corners */
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for a raised effect */
-    flex: 1 1 40rem; /* Allows the .content section to flex-grow and take up space, with a minimum width of 40rem */
-    padding: 2rem; /* Adds padding around the text */
-    order: 1; /* Moves the content (text) to the left */
+    flex: 1 1 40rem;
+    padding: 4rem;
+    order: 1;
+    z-index: 1; /* Ensure the content is above the background */
+}
+
+.home .content::before {
+    content: ''; /* Creates an empty pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--peachyOrange); /* Background color with opacity */
+    border-radius: 1rem; /* Inherit the same border-radius */
+    opacity: 0.64; /* Sets the opacity only for the background */
+    z-index: -1; /* Places the pseudo-element behind the content */
 }
 
 .home .content h3{
     font-size: 5rem; /* Sets the font size of the h3 element to 5rem */
-    color: var(--darkCharcoal); /* Sets the text color of the h3 element to the dark charcoal variable */
+    color: var(--blacker); /* Sets the text color of the h3 element to the dark charcoal variable */
 }
 
 .home .content p{
