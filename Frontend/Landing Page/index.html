@@ -31,10 +31,10 @@
             <div class= "content">
                 <h3>Your Best Value <br>Proposition</h3>
                 <p>
-                    Welcome to CropShop, the marketplace that connects <br>
-                    farmers with buyers for fresh, locally grown crops. Our <br>
-                    platform promotes direct trade, fair pricing, and sustainable <br>
-                    practices, making it easy to buy or sell high-quality produce. <br>
+                    Welcome to CropShop, the marketplace that connects 
+                    farmers with buyers for fresh, locally grown crops. Our 
+                    platform promotes direct trade, fair pricing, and sustainable 
+                    practices, making it easy to buy or sell high-quality produce. 
                     Join us and support local agriculture today!
                 </p>
                 <a href= "/Frontend/Create Account Page/login.html" class= "btn">Start Now</a>
@@ -44,6 +44,66 @@
                 <img src= "/Images/CropShop Logo.png" alt="">
             </div>
         </section>
+
+        <div class="carousel">
+            <input type="radio" name="radio" id="radio1" checked>
+            <input type="radio" name="radio" id="radio2">
+            <input type="radio" name="radio" id="radio3">
+            
+            <div class="slides">
+                <div class="slide">
+                    <img src="/Images/Farming E-commerce.jpg" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="/Images/Farmland.jpg" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="/Images/Strawberries.jpg" alt="Slide 3">
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+            </div>
+        </div>
+
+        <input type="radio" name="radio" id="radio1" checked>
+        <input type="radio" name="radio" id="radio2">
+        <input type="radio" name="radio" id="radio3">
+
+        <script>
+            let currentIndex = 1; // Start with the first slide
+            const totalSlides = 3; // Update this based on the total number of slides
+            const changeSlide = () => {
+                document.getElementById('radio' + currentIndex).checked = true; // Set the checked radio button
+                currentIndex++; // Increment the index to go to the next slide
+                if (currentIndex > totalSlides) {
+                    currentIndex = 1; // Reset to the first slide after the last one
+                }
+            };
+        
+            setInterval(changeSlide, 10000); // Change slide every 10 seconds (10000 milliseconds)
+        </script>
+        
+        <style>
+            /* Hides the radio buttons */
+            input[type="radio"] {
+                display: none;
+            }
+
+            /* Carousel logic */
+            #radio1:checked ~ .slides {
+                transform: translateX(0);
+            }
+            #radio2:checked ~ .slides {
+                transform: translateX(-100%);
+            }
+            #radio3:checked ~ .slides {
+                transform: translateX(-200%);
+            }
+        </style>
 
         <!-- Home ends here -->
 
@@ -57,13 +117,11 @@
                     Buyers can purchase fresh produce directly from local farmers <br>
                     without intermediaries, ensuring transparency and fair pricing. <br>
                     This direct connection fosters trust and supports local agriculture.</p>
-                <br>
-                <p>Fair prices</p>
-                <br>
-                <p>Direct communication</p>
-                <br>
-                <p>Fresher produce</p>
-                <br>
+                <ul>
+                    <li>Fair prices</li>
+                    <li>Direct communication</li>
+                    <li>Fresher produce</li>
+                </ul>
             </div>
 
             <div class= "image">
@@ -79,13 +137,11 @@
                     tools, allowing them to reach a broader market in less time. <br>
                     This streamlined process helps them stay focused on farming <br>
                     while still expanding their customer base.</p>
-                <br>
-                <p>Quick updates</p>
-                <br>
-                <p>Wider reach</p>
-                <br>
-                <p>User-friendly</p>
-                <br>
+                <ul>
+                    <li>Quick updates</li>
+                    <li>Wider reach</li>
+                    <li>User-friendly</li>
+                </ul>
             </div>
 
             <div class= "image">
@@ -101,13 +157,11 @@
                     system that facilitates seamless and protected transactions <br>
                     for both buyers and farmers. This ensures smooth payments <br>
                     while offering peace of mind with reliable security features.</p>
-                <br>
-                <p>Safe payments</p>
-                <br>
-                <p>Fast processing</p>
-                <br>
-                <p>Reliable transactions</p>
-                <br>
+                <ul>
+                    <li>Safe payments</li>
+                    <li>Fast processing</li>
+                    <li>Reliable transactions</li>
+                </ul>
             </div>
 
             <div class= "image">

@@ -11,6 +11,13 @@
     --black: #0000001A;
     --gold: #FFD700;
     --blacker: #000000;
+    --green1: #197f14;
+    --green2: #032c01;
+    --beige: #e7cebc;
+    --orange1: #f6b468;
+    --orange2: #bc6c25;
+    --grayishWhite: #e7e6e6;
+    --paleGreen: #DFFFD6;
 }
 
 * {
@@ -38,9 +45,10 @@ html {
 }
 
 body {
-    background: #f7f7f7; /* Sets a light gray background color for the body */
+    background-color: var(--beige); /* Sets a background color for the body */
     /* background: url('path-to-your-image.jpg') no-repeat center center fixed; */ /* Adds a background image that is centered and fixed during scrolling */
     /* background-size: cover; */ /* Ensures the image covers the entire viewport */
+    /* background: linear-gradient(to bottom, var(--green1), var(--orange2)); */ /* Creates a vertical gradient from green at the top to orange at the bottom */
 }
 
 section {
@@ -118,7 +126,7 @@ header {
     display: flex; /* Uses flexbox to lay out the child elements (logo, navbar) */
     align-items: center; /* Vertically centers the items within the header */
     justify-content: space-between; /* Distributes space between the logo and navbar */
-    background: var(--white); /* Sets the background color to white */
+    background: var(--paleGreen); /* Sets the background color to white */
     padding: 2rem 5%; /* Adds padding of 2rem on the top/bottom and 5% on the left/right */
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); /* Adds a subtle shadow to the header for a raised effect */
 }
@@ -161,17 +169,6 @@ header .navbar a:hover {
     display: none; /* Hides the menu icon (used in mobile views typically) */
 }
 
-/* .sign-up-btn {
-    background: var(--darkCharcoal);
-    color: var(--white);
-    padding: .8rem 2rem;
-    border-radius: .5rem;
-    font-size: 1.7rem;
-    text-align: center;
-    text-transform: capitalize;
-    margin-left: auto;
-} */
-
 
 
 /* <----------Header ends here----------> */
@@ -194,8 +191,11 @@ header .navbar a:hover {
 }
 
 .home .content{
+    background-color: var(--paleGreen); /* Gives it a background color */
+    border-radius: 1rem; /* Rounds the corners of the background */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for a raised effect */
     flex: 1 1 40rem; /* Allows the .content section to flex-grow and take up space, with a minimum width of 40rem */
-    padding-top: 0rem; /* Adds padding to the top of the .content section */
+    padding: 2rem; /* Adds padding around the text */
     order: 1; /* Moves the content (text) to the left */
 }
 
@@ -206,7 +206,7 @@ header .navbar a:hover {
 
 .home .content p{
     font-size: 1.7rem; /* Sets the font size of the paragraph text to 1.7rem */
-    color: var(--darkGray); /* Sets the text color to the dark gray variable */
+    color: var(--blacker); /* Sets the text color to the dark gray variable */
     padding: 1rem 0; /* Adds 1rem padding to the top and bottom of the paragraph */
 }
 
@@ -221,6 +221,62 @@ header .navbar a:hover {
     border-radius: 20px; /* Rounds the corners to give a smooth edge */
 }
 
+.carousel {
+    width: 100%; /* Makes the image take up 100% of the available space */
+    max-width: 800px; /* Adjust to your preferred width */
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel img {
+    width: 100%; /* Makes the image take up 100% of the available space */
+    max-width: 500px; /* Set a maximum width for the image, adjust as needed */
+    height: auto; /* Ensures the height scales proportionally to the width */
+    object-fit: cover; /* Keeps the aspect ratio intact while covering the area */
+    margin-left: 15rem; /* Move the image horizontally to the left */
+    margin-bottom: 5rem; /* Move the image vertically to the bottom */
+}
+
+.slides {
+    display: flex;
+    width: 300%; /* Assuming there are 3 slides, adjust based on the number of slides */
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    width: 100%;
+    flex: 1 0 100%; /* Each slide takes up 100% of the carousel's width */
+}
+
+.slide img {
+    width: 100%;
+    height: auto; /* Keeps the image responsive */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+.navigation {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid var(--blacker);
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 0 5px;
+}
+
+.manual-btn:hover {
+    background: var(--blacker);
+}
+
 
 
 /* <----------Home ends here----------> */
@@ -231,89 +287,15 @@ header .navbar a:hover {
 
 
 
-.features{
-    display: flex; /* Flexbox layout for content and image */
-    flex-wrap: wrap; /* Allows wrapping for responsive design */
-    gap: 10rem; /* Adds space between the content and image */
-    min-height: 1vh; /* Ensures the section takes up at least 100% of the viewport height */
-    align-items: center; /* Vertically centers the child elements within the container */
-    padding-top: 0rem; /* Added padding at the top for spacing */
-}
-
-
 .features .heading{ /* This controls the style of the heading */
     width: 100%; /* Ensures the heading takes up the full width */
     text-align: center; /* Centers the heading text */
     font-size: 4rem; /* Sets a large font size for the heading */
     color: var(--darkCharcoal); /* Dark charcoal color for the heading text */
-
 }
 
-.features .content{
-    flex: 1 1 40rem; /* Flexible size for the content */
-    padding-top: 1rem; /* Padding above the content */
-    order: 2; /* Ensures content comes second */
-}
-
-.features .content h3{
-    font-size: 2rem; /* Large font size for the h3 */
-    color: var(--darkCharcoal); /* Color for the h3 */
-}
-
-.features .content p{
-    font-size: 1.7rem; /* Font size for the paragraph */
-    color: var(--darkGray); /* Color for the paragraph */
-    padding: 1rem 0; /* Padding for paragraph */
-}
-
-.features .image{
-    flex: 1 1 40rem; /* Flexible size for the image */
-    order: 1; /* Ensures the image comes first */
-}
-
-.features .image img{
-    width: 100%; /* Ensures the image takes up full width */
-    padding: 1rem; /* Padding around the image */
-    border-radius: 20px; /* Rounds the corners to give a smooth edge */
-}
-
-.features2{
-    display: flex; /* Flexbox layout for content and image */
-    flex-wrap: wrap; /* Allows wrapping for responsive design */
-    gap: 10rem; /* Adds space between the content and image */
-    min-height: 70vh; /* Ensures the section takes up at least 100% of the viewport height */
-    align-items: center; /* Vertically centers the child elements within the container */
-    padding-top: 0rem; /* Added padding at the top for spacing */
-}
-
-.features2 .content{
-    flex: 1 1 40rem; /* Flexible size for the content */
-    padding-top: 1rem; /* Padding above the content */
-    order: 1; /* Ensures content comes first */
-}
-
-.features2 .content h3{
-    font-size: 2rem; /* Large font size for the h3 */
-    color: var(--darkCharcoal); /* Color for the h3 */
-}
-
-.features2 .content p{
-    font-size: 1.7rem; /* Font size for the paragraph */
-    color: var(--darkGray); /* Color for the paragraph */
-    padding: 1rem 0; /* Padding for paragraph */
-}
-
-.features2 .image{
-    flex: 1 1 40rem; /* Flexible size for the image */
-    order: 2; /* Ensures the image comes second */
-}
-
-.features2 .image img{
-    width: 100%; /* Ensures the image takes up full width */
-    padding: 1rem; /* Padding around the image */
-    border-radius: 20px; /* Rounds the corners to give a smooth edge */
-}
-
+.features,
+.features2,
 .features3{
     display: flex; /* Flexbox layout for content and image */
     flex-wrap: wrap; /* Allows wrapping for responsive design */
@@ -323,21 +305,73 @@ header .navbar a:hover {
     padding-top: 0rem; /* Added padding at the top for spacing */
 }
 
-.features3 .content{
+.features .content h3,
+.features2 .content h3,
+.features3 .content h3 {
+    font-size: 2rem; /* Large font size for the h3 */
+    color: var(--blacker); /* Sets the text color to black */
+    font-weight: 800; /* Increases the thickness of the h3 text */
+}
+
+.features .content p,
+.features2 .content p,
+.features3 .content p {
+    font-size: 1.7rem; /* Sets the font size of the paragraph text to 1.7rem */
+    color: var(--blacker); /* Sets the text color to black */
+    font-weight: 500; /* Increases the thickness of the paragraph text */
+    padding: 1rem 0; /* Adds 1rem padding to the top and bottom of the paragraph */
+}
+
+.features .content p,
+.features2 .content p,
+.features3 .content p {
+    font-size: 1.7rem; /* Sets the font size of the paragraph text to 1.7rem */
+    color: var(--blacker); /* Sets the text color to black */
+    font-weight: 500; /* Increases the thickness of the paragraph text */
+    padding: 1rem 0; /* Adds 1rem padding to the top and bottom of the paragraph */
+}
+
+.features .content ul,
+.features2 .content ul,
+.features3 .content ul {
+    list-style-type: disc; /* Uses bullet points */
+    padding-left: 20px; /* Indent the list */
+}
+
+.features .content li,
+.features2 .content li,
+.features3 .content li {
+    font-size: 1.7rem; /* Sets the font size to match the paragraph */
+    color: #000000; /* Sets the color to black */
+    margin: 0; /* Remove default margins if needed */
+}
+
+.features .content{
     flex: 1 1 40rem; /* Flexible size for the content */
     padding-top: 1rem; /* Padding above the content */
     order: 2; /* Ensures content comes second */
 }
 
-.features3 .content h3{
-    font-size: 2rem; /* Large font size for the h3 */
-    color: var(--darkCharcoal); /* Color for the h3 */
+.features .image{
+    flex: 1 1 40rem; /* Flexible size for the image */
+    order: 1; /* Ensures the image comes first */
 }
 
-.features3 .content p{
-    font-size: 1.7rem; /* Font size for the paragraph */
-    color: var(--darkGray); /* Color for the paragraph */
-    padding: 1rem 0; /* Padding for paragraph */
+.features2 .content{
+    flex: 1 1 40rem; /* Flexible size for the content */
+    padding-top: 1rem; /* Padding above the content */
+    order: 1; /* Ensures content comes first */
+}
+
+.features2 .image{
+    flex: 1 1 40rem; /* Flexible size for the image */
+    order: 2; /* Ensures the image comes second */
+}
+
+.features3 .content{
+    flex: 1 1 40rem; /* Flexible size for the content */
+    padding-top: 1rem; /* Padding above the content */
+    order: 2; /* Ensures content comes second */
 }
 
 .features3 .image{
@@ -345,6 +379,8 @@ header .navbar a:hover {
     order: 1; /* Ensures the image comes first */
 }
 
+.features .image img,
+.features2 .image img,
 .features3 .image img{
     width: 100%; /* Ensures the image takes up full width */
     padding: 1rem; /* Padding around the image */
@@ -398,7 +434,7 @@ header .navbar a:hover {
 }
 
 .about .services-list div {
-    background: #ffffff; /* Sets a white background for each service item */
+    background: white; /* Sets a white background for each service item */
     padding: 40px; /* Adds 40px of padding inside each service item */
     font-size: 13px; /* Sets a smaller font size (13px) for text within the service item */
     font-weight: 300; /* Makes the text lighter (font-weight 300) */
