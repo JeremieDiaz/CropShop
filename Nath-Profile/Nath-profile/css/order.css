@@ -1,0 +1,155 @@
+/* General Styling */
+body {
+    display: flex; /* Use flexbox for layout */
+    background-color: #e7cebc;  /* Bottom Left (Grayish White) */
+}
+
+.sidebar {
+    min-width: 250px; /* Fixed width for sidebar */
+    height: 100vh; /* Full height */
+    background-color: #f6b468;/* Top Left (Green 1) */
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    padding: 15px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.content-area {
+    margin-left: 250px; /* Leave space for the sidebar */
+    padding: 20px; /* Padding for content */
+    width: calc(100% - 250px); /* Adjust width according to sidebar */
+    background-color: #e7cebc;  /* Content area background */
+    transition: margin-left 0.3s; /* Smooth transition */
+}
+
+.header {
+    background-color: #f6b468; /* Header background */
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.logo-section {
+    background-color: #032c01; /* Top Right (Green 2) */
+    padding: 15px; /* Padding for the logo section */
+    border-radius: 8px; /* Rounded corners for the logo section */
+    margin-bottom: 15px; /* Margin to separate from other elements */
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    background-color: #c4c4c4;
+    border-radius: 50%;
+}
+
+.logo {
+    width: 80px; /* Adjusted width for logo */
+    height: 80px; /* Adjusted height for logo */
+    background-image: url('../assets/cropshop.png'); /* Replace with the actual image URL */
+    background-size: cover; /* Ensures the image covers the entire logo */
+    background-position: center; /* Centers the image */
+    border-radius: 50%; /* Makes the logo circular */
+    margin: 20px auto; /* Centering */
+  }
+
+.nav-link {
+    border-radius: 8px;
+    color: #333;
+}
+
+.nav-link.active {
+    background-color: #004d00;
+    color: white;
+}
+
+.nav-link:hover {
+    background-color: #004d00;
+    color: white;
+}
+
+.order-status-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjusted margin */
+}
+
+.order-status-btn {
+    background-color: #f49e4f; /* Default button color */
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 10px 20px; /* Consistent padding */
+    margin-right: 10px; /* Margin for spacing */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer on hover */
+}
+
+.order-status-btn:hover {
+    background-color: #e5892e; /* Hover effect */
+}
+
+.order-status-btn.active {
+    background-color: #bc6c25; /* Bottom Right (Orange 2) */
+    color: white;
+}
+
+.order-status-btn.inactive {
+    background-color: #e0e0e0; /* Grey background for inactive buttons */
+    color: black;
+    border: none;
+}
+
+.order-status-btn.inactive:hover {
+    background-color: #d9d9d9; /* Hover effect for inactive */
+}
+
+/* Order Details Section */
+.order-details {
+    margin-top: 40px; /* Top margin for order details */
+}
+
+.order-card {
+    background-color: white; /* White background for order cards */
+    padding: 20px;
+    margin-bottom: 15px; /* Bottom margin for spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .sidebar {
+        position: absolute; /* Change position for smaller screens */
+        transform: translateX(-100%); /* Hide sidebar off-screen */
+        transition: transform 0.3s; /* Smooth transition */
+    }
+
+    .sidebar.visible {
+        transform: translateX(0); /* Show sidebar */
+    }
+
+    .content-area {
+        margin-left: 0; /* No margin on small screens */
+        width: 100%; /* Full width */
+    }
+
+    .toggle-btn {
+        display: block; /* Show toggle button on small screens */
+    }
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 1.5rem; /* Adjust font size */
+    color: #fff; /* Close icon color */
+    position: absolute; /* Position absolute to the sidebar */
+    top: 10px; /* Distance from top */
+    right: 10px; /* Distance from right */
+    border: none; /* Remove border */
+    background: none; /* Remove background */
+}
