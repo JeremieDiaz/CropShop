@@ -14,6 +14,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    overflow-x: hidden;
 }
 
 .background-container {
@@ -36,8 +37,11 @@ body {
     justify-content: center; 
     align-items: center; 
     overflow: auto;
-    width: 1500px; 
+    width: 1400px; 
     height: 700px;
+}
+.check_out::-webkit-scrollbar {
+    display: none;
 }
 
 
