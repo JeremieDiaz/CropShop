@@ -21,6 +21,7 @@
             <img src="/Images/BackgroundImages/shovel.svg" alt="Shovel" />
             <img src="/Images/BackgroundImages/wheat.svg" alt="Wheat" />
         </div>
+
         <!-- Header starts here -->
 
         <header>
@@ -38,6 +39,7 @@
         <!-- Header ends here -->
 
         <!-- Home starts here -->
+
         <div class="check_out">
             <section class= "home" id= "home">
                 <div class= "content">
@@ -188,19 +190,25 @@
             </section>
     
             <!-- Features end here -->
-    <section class = "login-section" id="login-section">
-        <div class="container">
-            <div class="login-box">
-                <h2>Welcome Back !</h2>
-                <form>
-                    <input type="email" placeholder="email" required>
-                    <input type="password" placeholder="password" required>
-                    <button type="submit" class="submit-btn"><a href="/Frontend/Dashboard/index.html" style="color: white; text-decoration: none;" >Login</a></button>
-                </form>
-                <p>Don't have an account ? <a href="/Frontend/Create Account Page/register.html">Sign Up</a></p>
-            </div>
-        </div>
-    </section>
+
+            <!-- Login starts here -->
+             
+            <section class = "login-section" id="login-section">
+                <div class="container">
+                    <div class="login-box">
+                        <h2>Welcome Back !</h2>
+                        <form>
+                            <input type="email" placeholder="email" required>
+                            <input type="password" placeholder="password" required>
+                            <button type="submit" class="submit-btn"><a href="/Frontend/Dashboard/index.html" style="color: white; text-decoration: none;" >Login</a></button>
+                        </form>
+                        <p>Don't have an account ? <a href="/Frontend/Create Account Page/register.html">Sign Up</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Login end here -->
+            
             <!-- About starts here -->
     
             <section class="about" id="about">
@@ -272,13 +280,17 @@
                     </div>
                 </div>
             </section>
-        </div>
         
-        <div class="copyright">
-            <p>Copyright © Name</p>
+            <div class="copyright">
+                <p>Copyright © Name</p>
+            </div>
         </div>
 
+
         <!-- Contact ends here -->
+
+        <!-- Background script starts here -->
+
         <script>
             window.addEventListener('load', initializeFunctions);
             function initializeImages() {
@@ -359,6 +371,6 @@
                 console.log("initializeFunctions is running"); // Test log
                 initializeImages();
             }
-            </script>
+        </script>
     </body>
 </html>
