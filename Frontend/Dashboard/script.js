@@ -62,6 +62,7 @@ function goBackToMarketplace() {
     }
 }
 
+
     // Enhanced Filter Products based on criteria
     function filterProducts(criteria, event) {
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
@@ -356,4 +357,5 @@ function goBackToMarketplace() {
         const trendsGrid = document.querySelector('.trends-grid');
         trendsGrid.classList.add('all-products-view');
     }
+
     
