@@ -76,9 +76,10 @@ html {
 
 body {
     background-color: var(--beige); /* Sets a background color for the body */
-    /* background: url('path-to-your-image.jpg') no-repeat center center fixed; */ /* Adds a background image that is centered and fixed during scrolling */
-    /* background-size: cover; */ /* Ensures the image covers the entire viewport */
-    /* background: linear-gradient(to bottom, var(--green1), var(--orange2)); */ /* Creates a vertical gradient from green at the top to orange at the bottom */
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    min-height: 100vh;
 }
 
 section {
@@ -141,103 +142,6 @@ section {
 
 
 /* <----------Button ends here----------> */
-
-
-
-/* <----------Login Starts here----------> */
-
-
-
-.login-section {
-    height: auto; /* Allows the login section to expand as needed based on content */
-}
-
-.login-section .container {
-    margin-top: 150px; /* Adds space above the container */
-    position: relative; /* Positions the container relative to its normal flow */
-    width: 100%; /* Sets the container width to 100% of its parent */
-    max-width: 400px; /* Limits the maximum width of the container to 400px */
-    padding: 30px; /* Adds 30px padding inside the container */
-    background-color: var(--white); /* Sets the container background color to white */
-    border: 1px solid var(--lightGray); /* Adds a light gray border around the container */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Creates a subtle shadow for depth */
-    border-radius: 5px; /* Rounds the corners of the container */
-    text-align: center; /* Centers the text inside the container */
-    top: 50%; /* Vertically centers the container */
-    left: 50%; /* Horizontally centers the container */
-    transform: translate(-50%, -50%); /* Moves the container to the exact center of the viewport */
-    align-items: center; /* Aligns flex items in the center (if used in a flex container) */
-}
-
-.login-section .back-btn {
-    position: absolute; /* Positions the back button absolutely within the container */
-    top: 10px; /* Places the back button 10px from the top */
-    left: 10px; /* Places the back button 10px from the left */
-    padding: 8px 12px; /* Adds padding to the back button (8px top/bottom, 12px left/right) */
-    background-color: var(--white); /* Sets the background color to white */
-    border: 1px solid var(--blacker); /* Adds a solid black border */
-    border-radius: 5px; /* Rounds the corners of the button */
-    cursor: pointer; /* Changes the cursor to a pointer when hovering */
-    font-size: 14px; /* Sets the font size of the back button text */
-}
-
-.login-section .login-box h2 {
-    margin-bottom: 20px; /* Adds space below the heading */
-    font-size: 24px; /* Sets the font size of the heading */
-}
-
-.login-section form {
-    display: flex; /* Uses flexbox for the form layout */
-    flex-direction: column; /* Aligns form elements in a vertical column */
-}
-
-.login-section input {
-    padding: 15px; /* Adds padding inside the input fields */
-    height: 60px; /* Sets a fixed height for the input fields */
-    margin: 10px 0; /* Adds 10px margin above and below each input */
-    width: 100%; /* Makes the input fields take up the full width of the container */
-    border: 1px solid var(--lightGray); /* Adds a light gray border around the input fields */
-    border-radius: 5px; /* Rounds the corners of the input fields */
-    font-size: 16px; /* Sets a larger font size for the input text */
-}
-
-.login-section .submit-btn {
-    padding: 12px; /* Adds padding inside the submit button */
-    background-color: var(--blacker); /* Sets the background color of the submit button to black */
-    color: var(--white); /* Sets the text color to white */
-    border: none; /* Removes the border from the submit button */
-    border-radius: 5px; /* Rounds the corners of the submit button */
-    cursor: pointer; /* Changes the cursor to a pointer when hovering */
-    margin-top: 20px; /* Adds space above the submit button */
-    font-size: 16px; /* Sets the font size of the submit button text */
-}
-
-.login-section .submit-btn:hover, .back-btn:hover {
-    background-color: #333; /* Changes the background color to dark gray when hovered */
-}
-
-.login-section p {
-    margin-top: 15px; /* Adds space above the paragraph */
-    font-size: 14px; /* Sets the font size of the paragraph text */
-}
-
-.login-section a {
-    color: var(--blacker); /* Sets the link color to black */
-}
-
-.login-section .input-error {
-    border: 1px solid var(--red); /* Adds a red border to inputs when there is an error */
-}
-
-.login-section .error-message {
-    color: var(--red); /* Sets the error message text color to red */
-    font-size: 12px; /* Sets the font size of the error message text */
-    margin-top: 4px; /* Adds space above the error message */
-}
-
-
-
-/* <----------Login ends here----------> */
 
 
 
@@ -365,65 +269,147 @@ header .navbar a:hover {
     border-radius: 20px; /* Rounds the corners of the image for a smooth, polished look */
 }
 
-.carousel {
-    width: 100%; /* Ensures the carousel takes up 100% of the container's width */
-    max-width: 800px; /* Sets a maximum width of 800px for the carousel */
-    margin: auto; /* Centers the carousel horizontally */
-    position: relative; /* Positions the carousel relative to other elements */
-    overflow: hidden; /* Hides any content (like slides) that overflows the container */
-}
-
-.carousel img {
-    width: 100%; /* Ensures the image takes up 100% of the carousel's width */
-    max-width: 500px; /* Sets a maximum width of 500px for the images */
-    height: auto; /* Ensures the image scales proportionally (maintaining aspect ratio) */
-    object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
-    margin-left: 15rem; /* Adds 15rem of space to the left of the image */
-    margin-bottom: 5rem; /* Adds 5rem of space below the image */
-}
-
-.slides {
-    display: flex; /* Displays the slides in a row using flexbox */
-    width: 300%; /* Sets the width of the slides container to 300% (3 slides) */
-    transition: transform 0.5s ease; /* Animates the sliding effect between images */
-}
-
-.slide {
-    width: 100%; /* Each slide takes up 100% of the container's width */
-    flex: 1 0 100%; /* Ensures each slide is treated as a flex item with no shrinking or growing */
-}
-
-.slide img {
-    width: 100%; /* Ensures the image within each slide takes up the full width of its container */
-    height: auto; /* Keeps the image responsive by adjusting its height proportionally */
-    border-radius: 10px; /* Adds a border-radius of 10px for rounded image corners */
-}
-
-.navigation {
-    position: absolute; /* Positions the navigation elements relative to the carousel */
-    bottom: 10px; /* Positions the navigation buttons 10px from the bottom of the carousel */
-    left: 50%; /* Centers the navigation buttons horizontally */
-    transform: translateX(-50%); /* Moves the navigation buttons exactly to the center */
-    display: flex; /* Displays the navigation buttons in a horizontal row */
-    justify-content: center; /* Centers the navigation buttons within their container */
-}
-
-.manual-btn {
-    border: 2px solid var(--blacker); /* Sets a 2px border around each navigation button */
-    padding: 5px; /* Adds padding of 5px inside the buttons */
-    border-radius: 50%; /* Makes the navigation buttons round */
-    cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
-    transition: background 0.3s ease; /* Adds a smooth transition effect to the background color */
-    margin: 0 5px; /* Adds 5px of space between the navigation buttons */
-}
-
-.manual-btn:hover {
-    background: var(--blacker); /* Changes the background color to a custom dark shade when hovered */
-}
-
 
 
 /* <----------Home ends here----------> */
+
+
+
+/* <----------Carousel starts here----------> */
+
+.card-slider {
+    /* max-height: 500px; */
+}
+
+.card-wrapper {
+    max-width: 1100px;
+    margin: 0 60px 35px;
+    padding: 20px 10px;
+    overflow: hidden;
+}
+
+.card-list .card-item {
+    list-style: none;
+}
+
+.card-list .card-item .card-link {
+    /* margin-left: 15rem;
+    width: 900px; */
+    user-select: none;
+    display: block;
+    background: var(--white);
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease;
+}
+
+.card-list .card-item .card-link:active {
+    cursor: grabbing;
+}
+
+.card-list .card-item .card-link:hover {
+    border-color: #5372F0;
+}
+
+.card-list .card-link .card-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+
+.card-list .card-link .badge {
+    color: #5372F0;
+    background: #DDE4FF;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 16px 0 18px;
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.card-list .card-link .badge.farming {
+    color: #B22485;
+    background: #F7DFF5;
+}
+
+.card-list .card-link .badge.farmland {
+    color: #B25A2B;
+    background: #FFE3D2;
+}
+
+.card-list .card-link .badge.strawberries {
+    color: #205C20;
+    background: #D6F8D6;
+}
+
+.card-list .card-link .badge.transaction {
+    color: var(--darkBlue);
+    background: var(--cyan);
+}
+
+.card-list .card-link .badge.logo {
+    color: var(--orange2);
+    background: var(--peachyOrange);
+}
+
+.card-list .card-link .card-title {
+    font-size: 1.19rem;
+    color: #000;
+    font-weight: 600;
+} 
+
+.card-list .card-link .card-button {
+    height: 35px;
+    width: 35px;
+    color: #5372F0;
+    border-radius: 50%;
+    margin: 30px 0 5px;
+    background: none;
+    cursor: pointer;
+    border: 2px solid #5372F0;
+    transform: rotate(-45deg);
+}
+
+.card-list .card-link:hover .card-button{
+    color: var(--white);
+    background: #5372F0;
+}
+
+.card-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background-color: #5372F0;
+}
+
+.card-wrapper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.card-wrapper .swiper-slide-button {
+    color: #5372F0;
+    margin-top: -200px; 
+}
+
+@media screen and (max-width: 768px) {
+    .card-wrapper {
+        margin: 0 10px 25px;
+    }
+
+    .card-wrapper .swiper-slide-button {
+        display: none;
+    }
+}
+
+
+
+/* <----------Carousel ends here----------> */
 
 
 
@@ -448,6 +434,69 @@ header .navbar a:hover {
     min-height: 70vh; /* Ensures the section takes up at least 70% of the viewport height */
     align-items: center; /* Vertically centers the content and image */
     padding-top: 0rem; /* No padding added at the top */
+}
+
+.features .content {
+    position: relative; /* Ensures the pseudo-element is relative to .content */
+    z-index: 1; /* Ensures the actual content is in front of the pseudo-element */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Adds a light shadow for a subtle 3D effect */
+    padding: 4rem; /* Adds 4rem of padding inside the content area */
+    flex: 1 1 40rem; /* Allows the content to grow/shrink, with a base size of 40rem */
+}
+
+.features .content::before {
+    content: ''; /* Inserts an empty pseudo-element for background effect */
+    position: absolute; /* Positions the pseudo-element relative to its parent (.content) */
+    top: -2rem; /* Moves the pseudo-element 2rem above the content */
+    left: 0; /* Aligns the left edge of the pseudo-element with the left edge of the content */
+    width: 100%; /* Ensures the pseudo-element spans the full width of the content */
+    height: calc(100% + 2rem); /* Increases the height to cover the extra space */
+    background-color: var(--peachyOrange); /* Applies a semi-transparent background color */
+    border-radius: 1rem; /* Matches the border-radius of the content for consistent rounded corners */
+    opacity: 0.64; /* Adds transparency to the background */
+    z-index: -1; /* Places the pseudo-element behind the actual content */
+}
+
+.features2 .content {
+    position: relative; /* Ensures the pseudo-element is relative to .content */
+    z-index: 1; /* Ensures the actual content is in front of the pseudo-element */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Adds a light shadow for a subtle 3D effect */
+    padding: 4rem; /* Adds 4rem of padding inside the content area */
+    flex: 1 1 40rem; /* Allows the content to grow/shrink, with a base size of 40rem */
+}
+
+.features2 .content::before {
+    content: ''; /* Inserts an empty pseudo-element for background effect */
+    position: absolute; /* Positions the pseudo-element relative to its parent (.content) */
+    top: -2rem; /* Moves the pseudo-element 2rem above the content */
+    left: 0; /* Aligns the left edge of the pseudo-element with the left edge of the content */
+    width: 100%; /* Ensures the pseudo-element spans the full width of the content */
+    height: calc(100% + 2rem); /* Increases the height to cover the extra space */
+    background-color: var(--peachyOrange); /* Applies a semi-transparent background color */
+    border-radius: 1rem; /* Matches the border-radius of the content for consistent rounded corners */
+    opacity: 0.64; /* Adds transparency to the background */
+    z-index: -1; /* Places the pseudo-element behind the actual content */
+}
+
+.features3 .content {
+    position: relative; /* Ensures the pseudo-element is relative to .content */
+    z-index: 1; /* Ensures the actual content is in front of the pseudo-element */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Adds a light shadow for a subtle 3D effect */
+    padding: 4rem; /* Adds 4rem of padding inside the content area */
+    flex: 1 1 40rem; /* Allows the content to grow/shrink, with a base size of 40rem */
+}
+
+.features3 .content::before {
+    content: ''; /* Inserts an empty pseudo-element for background effect */
+    position: absolute; /* Positions the pseudo-element relative to its parent (.content) */
+    top: -2rem; /* Moves the pseudo-element 2rem above the content */
+    left: 0; /* Aligns the left edge of the pseudo-element with the left edge of the content */
+    width: 100%; /* Ensures the pseudo-element spans the full width of the content */
+    height: calc(100% + 2rem); /* Increases the height to cover the extra space */
+    background-color: var(--peachyOrange); /* Applies a semi-transparent background color */
+    border-radius: 1rem; /* Matches the border-radius of the content for consistent rounded corners */
+    opacity: 0.64; /* Adds transparency to the background */
+    z-index: -1; /* Places the pseudo-element behind the actual content */
 }
 
 .features .content h3,
@@ -526,6 +575,103 @@ header .navbar a:hover {
 
 
 /* <----------Features ends here----------> */
+
+
+
+/* <----------Login Starts here----------> */
+
+
+
+.login-section {
+    height: auto; /* Allows the login section to expand as needed based on content */
+}
+
+.login-section .container {
+    margin-top: 150px; /* Adds space above the container */
+    position: relative; /* Positions the container relative to its normal flow */
+    width: 100%; /* Sets the container width to 100% of its parent */
+    max-width: 400px; /* Limits the maximum width of the container to 400px */
+    padding: 30px; /* Adds 30px padding inside the container */
+    background-color: var(--white); /* Sets the container background color to white */
+    border: 1px solid var(--lightGray); /* Adds a light gray border around the container */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Creates a subtle shadow for depth */
+    border-radius: 5px; /* Rounds the corners of the container */
+    text-align: center; /* Centers the text inside the container */
+    top: 50%; /* Vertically centers the container */
+    left: 50%; /* Horizontally centers the container */
+    transform: translate(-50%, -50%); /* Moves the container to the exact center of the viewport */
+    align-items: center; /* Aligns flex items in the center (if used in a flex container) */
+}
+
+.login-section .back-btn {
+    position: absolute; /* Positions the back button absolutely within the container */
+    top: 10px; /* Places the back button 10px from the top */
+    left: 10px; /* Places the back button 10px from the left */
+    padding: 8px 12px; /* Adds padding to the back button (8px top/bottom, 12px left/right) */
+    background-color: var(--white); /* Sets the background color to white */
+    border: 1px solid var(--blacker); /* Adds a solid black border */
+    border-radius: 5px; /* Rounds the corners of the button */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering */
+    font-size: 14px; /* Sets the font size of the back button text */
+}
+
+.login-section .login-box h2 {
+    margin-bottom: 20px; /* Adds space below the heading */
+    font-size: 24px; /* Sets the font size of the heading */
+}
+
+.login-section form {
+    display: flex; /* Uses flexbox for the form layout */
+    flex-direction: column; /* Aligns form elements in a vertical column */
+}
+
+.login-section input {
+    padding: 15px; /* Adds padding inside the input fields */
+    height: 60px; /* Sets a fixed height for the input fields */
+    margin: 10px 0; /* Adds 10px margin above and below each input */
+    width: 100%; /* Makes the input fields take up the full width of the container */
+    border: 1px solid var(--lightGray); /* Adds a light gray border around the input fields */
+    border-radius: 5px; /* Rounds the corners of the input fields */
+    font-size: 16px; /* Sets a larger font size for the input text */
+}
+
+.login-section .submit-btn {
+    padding: 12px; /* Adds padding inside the submit button */
+    background-color: var(--blacker); /* Sets the background color of the submit button to black */
+    color: var(--white); /* Sets the text color to white */
+    border: none; /* Removes the border from the submit button */
+    border-radius: 5px; /* Rounds the corners of the submit button */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering */
+    margin-top: 20px; /* Adds space above the submit button */
+    font-size: 16px; /* Sets the font size of the submit button text */
+}
+
+.login-section .submit-btn:hover, .back-btn:hover {
+    background-color: #333; /* Changes the background color to dark gray when hovered */
+}
+
+.login-section p {
+    margin-top: 15px; /* Adds space above the paragraph */
+    font-size: 14px; /* Sets the font size of the paragraph text */
+}
+
+.login-section a {
+    color: var(--blacker); /* Sets the link color to black */
+}
+
+.login-section .input-error {
+    border: 1px solid var(--red); /* Adds a red border to inputs when there is an error */
+}
+
+.login-section .error-message {
+    color: var(--red); /* Sets the error message text color to red */
+    font-size: 12px; /* Sets the font size of the error message text */
+    margin-top: 4px; /* Adds space above the error message */
+}
+
+
+
+/* <----------Login ends here----------> */
 
 
 
