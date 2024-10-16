@@ -193,19 +193,63 @@
 
             <!-- Login starts here -->
              
-            <section class = "login-section" id="login-section">
-                <div class="container">
+            <section class="login-section" id="login-section">
+                <div id="login-form" class="container">
                     <div class="login-box">
-                        <h2>Welcome Back !</h2>
+                        <h2>Welcome Back!</h2>
                         <form>
                             <input type="email" placeholder="email" required>
                             <input type="password" placeholder="password" required>
-                            <button type="submit" class="submit-btn"><a href="/Frontend/Dashboard/index.html" style="color: white; text-decoration: none;" >Login</a></button>
+                            <button type="submit" class="submit-btn"><a href="/Frontend/Dashboard/index.html" style="color: white; text-decoration: none;">Login</a></button>
                         </form>
-                        <p>Don't have an account ? <a href="/Frontend/Create Account Page/register.html">Sign Up</a></p>
+                        <p>Don't have an account? <a href="#" id="sign-up-link">Sign Up</a></p> <!-- Sign up link triggers toggle -->
                     </div>
                 </div>
+            
+                <div id="register-form" class="container" style="display: none;"> <!-- Hidden by default -->
+                    <form method="POST">
+                        <div id="page-1" class="form-page">
+                            <h2>Create Account</h2>
+                            <input type="text" id="name" placeholder="Name">
+                            <input type="text" id="surname" placeholder="Surname">
+                            <button class="submit-btn next-btn" data-next="page-2">Next</button>
+                        </div>
+            
+                        <div id="page-2" class="form-page" style="display: none;">
+                            <h2>Create Account</h2>
+                            <input type="text" id="phone" placeholder="Phone number">
+                            <input type="text" id="gmail" placeholder="G-mail">
+                            <button class="submit-btn next-btn" data-next="page-3">Next</button>
+                        </div>
+            
+                        <div id="page-3" class="form-page" style="display: none;">
+                            <h2>Create Account</h2>
+                            <input type="text" id="email" placeholder="E-mail">
+                            <input type="text" id="password" placeholder="Password">
+                            <button class="submit-btn next-btn" data-next="page-4">Create</button>
+                        </div>
+                    </form>
+                    <p>Already have an account? <a href="#" id="login-link">Log in</a></p> <!-- Log in link triggers toggle -->
+                </div>
             </section>
+            
+            <!-- Inline JavaScript inside the script tag -->
+            <script>
+                document.getElementById('sign-up-link').addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent default link behavior
+                    document.getElementById('login-form').style.display = 'none'; // Hide login form
+                    document.getElementById('register-form').style.display = 'block'; // Show register form
+                });
+            
+                document.getElementById('login-link').addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent default link behavior
+                    document.getElementById('register-form').style.display = 'none'; // Hide register form
+                    document.getElementById('login-form').style.display = 'block'; // Show login form
+                });
+            </script>
+            
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="/Frontend/Create Account Page/script.js"></script>
 
             <!-- Login end here -->
             
