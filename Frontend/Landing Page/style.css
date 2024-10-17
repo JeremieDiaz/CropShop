@@ -277,8 +277,30 @@ header .navbar a:hover {
 
 /* <----------Carousel starts here----------> */
 
+
+
 .card-slider {
-    /* max-height: 500px; */
+    max-height: 600px;
+}
+
+.card-slider .container {
+    position: relative; /* Ensures the pseudo-element is positioned relative to the container */
+    z-index: 1; /* Keeps the actual content in front of the pseudo-element */
+    padding: 2rem; /* Adjust padding as necessary for spacing */
+    border-radius: 1rem; /* Adds rounded corners to the container */
+}
+
+.card-slider .container::before {
+    content: ''; /* Inserts an empty pseudo-element for the background effect */
+    position: absolute; /* Positions the pseudo-element relative to its parent (.container) */
+    top: 0; /* Aligns the top of the pseudo-element with the top of the container */
+    left: 0; /* Aligns the left edge of the pseudo-element with the left edge of the container */
+    width: 100%; /* Makes the pseudo-element span the full width of the container */
+    height: 55%; /* Makes the pseudo-element span the full height of the container */
+    background-color: var(--peachyOrange); /* Use the same semi-transparent background color */
+    border-radius: 1rem; /* Matches the border-radius of the container */
+    opacity: 0.64; /* Adjust the transparency */
+    z-index: -1; /* Places the pseudo-element behind the actual content */
 }
 
 .card-wrapper {
@@ -379,6 +401,14 @@ header .navbar a:hover {
 .card-list .card-link:hover .card-button{
     color: var(--white);
     background: #5372F0;
+}
+
+.card-wrapper .swiper-pagination {
+    bottom: -10rem; /* Moves the entire pagination element up */
+    position: absolute; /* Ensures it respects the bottom value */
+    width: 100%; /* Optional: ensures the pagination stays centered */
+    text-align: center; /* Centers the bullets */
+    display: none; /* Hides the pagination bullets */
 }
 
 .card-wrapper .swiper-pagination-bullet {
