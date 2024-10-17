@@ -14,7 +14,6 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    
 }
 
 /* Navigation bar styling */
@@ -89,10 +88,10 @@ nav {
 
 /* Dashboard content box */
 .dashboard-box {
-    border: 2px solid #bc6c25; /* Applying #bc6c25 to the canvas border */
+    display: flex;
     flex-direction: column;
-    justify-content: center; /* Align content to the top */
-    align-items: center; /* Align items to the left */
+    justify-content: center;
+    align-items: center;
     width: 100%;
     max-width: 1000px;
     background-color: #fff;
@@ -100,21 +99,7 @@ nav {
     padding: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-
 }
-.dashboard-box h3 {
-    margin-bottom: 20px; /* Space below the heading */
-}
-
-.dashboard-box label {
-    margin-right: 10px; /* Space between label and select */
-}
-
-.dashboard-box select {
-    margin-bottom: 20px; /* Space below each select */
-    padding: 5px; /* Padding inside select */
-}
-
 
 /* Marketplace grid */
 .product-grid {
@@ -122,7 +107,6 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
     gap: 15px;
     padding: 10px;
-    
 }
 
 .product-item {
@@ -133,7 +117,7 @@ nav {
     text-align: center;
     transition: box-shadow 0.3s ease;
     cursor: pointer;
-
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
@@ -257,7 +241,7 @@ nav {
     display: flex;
     flex-direction: column; /* Arrange buttons vertically */
     gap: 10px; /* Space between buttons */
-    margin-top: 40px; /* Add space above the buttons */
+    margin-top: 45px; /* Add space above the buttons */
 }
 
 /* Adjust button styles if needed */
@@ -280,17 +264,16 @@ nav {
 
 button {
     padding: 8px 12px;
-    background-color: #bc6c25;
+    background-color: #45a049;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-bottom: 10px;
 }
 
 button:hover {
-    background-color: #8d4920;;
+    background-color: #468949;
     transform: scale(1.05);
 }
 .back-btn {
@@ -408,7 +391,6 @@ button:hover {
     max-width: 1000px; /* Adjust this to your desired maximum width */
     margin: 20px auto;
     align-items: stretch; /* Stretch items to match height */
-    
 }
 
 /* Carousel Container */
@@ -421,7 +403,6 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: stretch; /* Ensure items stretch */
-    border: 2px solid #bc6c25; /* Applying #bc6c25 to the canvas border */
 }
 
 /* Ensure full height of carousel */
@@ -478,21 +459,19 @@ button:hover {
     position: relative;
     flex: 0 0 35%; /* Adjust width to 35% of the parent */
     background-color: #f9f9f9;
-    padding: 5px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 6px;
     border: 2px ;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Align items at the start */
-    border: 2px solid #bc6c25; /* Applying #bc6c25 to the canvas border */
 }
 
 .top-trends-header {
     display: flex; /* Use flexbox for header */
     justify-content: space-between; /* Space between title and button */
     align-items: center; /* Center align items */
-    
 }
 
 .see-all-trends {
@@ -504,7 +483,6 @@ button:hover {
     color: rgb(14, 14, 14); /* Text color */
     cursor: pointer; /* Pointer cursor */
     transition: background-color 0.3s; /* Transition for hover effect */
-    
 }
 
 .trends-grid {
@@ -576,7 +554,7 @@ button:hover {
 }
 
 .back-button:hover {
-    background-color: #8d4920;
+    background-color: #45a049;
 }
 
 /* Container for All Products View */
@@ -656,69 +634,92 @@ button:hover {
     }
 }
 
-/* Container for slider buttons and index */
-.slider-button-container {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Align items vertically centered */
-    margin-top: -30px; /* Optional: Space above buttons */
-    margin-bottom: 10px;
+
+
+/* start nath css */
+.cart-item-row {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 15px; /* Increased space between cart items */
+    padding: 15px; /* Increased padding around the cart item */
+    border: 2px solid #ccc; /* Thicker border for visual separation */
+    border-radius: 10px; /* More rounded corners */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    font-size: 1.2em; /* Increase font size for better readability */
+    background-color: #f9f9f9; /* Optional: add a background color */
 }
 
-/* Image index styling */
-#image-index {
-    margin-right: 13px; /* Space between index and buttons */
-    font-weight: bold; /* Make it bold */
-    color: #000; /* Set text color */
-    margin-left: 0px;
+#cart-items {
+    max-height: 400px; /* Set a maximum height for the cart */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: add border for visibility */
+    padding: 10px; /* Optional: add padding */
+    margin: 10px; /* Optional: add margin */
 }
 
-/* Button styling */
-.slider-button {
-    padding: 8px 12px; /* Padding for buttons */
-    background-color: #bc6c25; /* Background color */
-    color: white; /* Text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer on hover */
+
+.cart-item-row img {
+    flex-shrink: 0; /* Prevent image from shrinking */
+    width: 50px; /* Set a fixed width for images */
+    height: 50px; /* Set a fixed height for images */
+    margin-right: 10px; /* Space between image and text */
 }
 
-/* Add margin to the next button for spacing */
-#next-btn {
-    margin-left: 0px; /* Adjust this value for desired gap */
+.cart-item-row p {
+    margin: 5px 0; /* Margins for paragraph elements */
+    flex-grow: 1; /* Allow text to grow and fill space */
+    min-width: 0; /* Allow overflow to be managed */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflow */
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
-/* Hover effect for buttons */
-.slider-button:hover {
-    background-color: #a6551e; /* Darker color on hover */
+.quantity-controls {
+    display: flex;
+    align-items: center;
 }
 
-/* Styling the labels */
-label {
-    color: #000000; /* Applying #bc6c25 color to labels */
-    font-weight: bold;
+.quantity-btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #bc6c25;
 }
 
-/* Styling the dropdowns (select elements) */
-select {
-    border: 1.5px solid #a6551e; /* Applying #bc6c25 border to dropdowns */
-    background-color: #f1e6d4; /* Light beige color inside the dropdown box */
-    color: #000000; /* Dark text color */
-    transition: border-color 0.3s ease;
-}
-/* Hover effect for dropdowns */
-select:hover {
-    border-color: #a6551e; /* Darker shade of #bc6c25 on hover */
+
+.item-title {
+    font-weight: bold; /* Make the title bold */
+    margin: 0; /* Remove default margin */
+    overflow-wrap: break-word; /* Allow long words to break to the next line */
+    word-wrap: break-word; /* Legacy support for older browsers */
+    hyphens: auto; /* Enable hyphenation */
+    max-width: 200px; /* Set a max width for responsiveness, adjust as needed */
 }
 
-/* Focus state for dropdowns */
-select:focus {
-    border-color: #a6551e; /* Keep #bc6c25 color on focus */
-    outline: none;
-    box-shadow: 0px 0px 10px rgb(255, 145, 0); /* Shadow with #bc6c25 */
+.item-description {
+    margin: 0; /* Remove default margin */
+    overflow-wrap: break-word; /* Allow long words to break to the next line */
+    word-wrap: break-word; /* Legacy support for older browsers */
+    hyphens: auto; /* Enable hyphenation */
+    cursor: pointer;
+    max-width: 200px; /* Set a max width for responsiveness, adjust as needed */
 }
 
-/* Styling the canvas (chart area) */
-canvas {
-    border: 2px solid #bc6c25; /* Applying #bc6c25 to the canvas border */
-    background-color: #f1e6d4; /* White background for the chart */
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .cart-item-row {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+    
+    .cart-item-row img {
+        margin-bottom: 10px; /* Add space below the image */
+    }
+    
+    .cart-item-row p {
+        white-space: normal; /* Allow wrapping for small screens */
+    }
 }
+
+/* end nath css */
