@@ -122,37 +122,46 @@
                 <h4>Vouchers / Coupons:</h4>
             </div>
             <div class="methods">
-                    <div class="method_box">
-                        <div class="method_logo"></div>
-                        <input type="radio" id="voucher1" name="vouchers" value="VOUCHER1">
-                        <label for="cod">Voucher 1</label>
-                    </div>
-                    <div class="method_box">
-                        <div class="method_logo"></div>
-                        <input type="radio" id="voucher2" name="vouchers" value="VOUCHER2">
-                        <label for="e-wallet">Voucher 2</label>
-                    </div>
-                    <div class="method_box">
-                        <div class="method_logo"></div>
-                        <input type="radio" id="voucher3" name="vouchers" value="VOUCHER3">
-                        <label for="e-wallet">Voucher 3</label>
-                    </div>
+                <h4>Please Enter Voucher Code Below</h4>
+                <input type="text" class="voucher_textbox">
+                <button class="voucher_btn">Verify</button>
             </div>
 
             <div class="title">
                 <i class="fa-solid fa-truck fa-2x"></i>
                 <h4>Delivery Options:</h4>
             </div>
-            <div class="methods">
+            <div class="methods_delivery">
                     <div class="method_box">
                         <div class="method_logo"></div>
                         <input type="radio" id="express" name="delivery_methods" value="EXPRESS">
                         <label for="cod">Express Delivery</label>
                     </div>
+                    <div class="dropdown">
+                        <div class="select">
+                            <span class="selected">Company 3</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="menu">
+                            <li>Company 1</li>
+                            <li>Company 2</li>
+                            <li class="active">Company 3</li>
+                        </ul>
+                    </div>
                     <div class="method_box">
                         <div class="method_logo"></div>
                         <input type="radio" id="standard" name="delivery_methods" value="STANDARD">
-                        <label for="e-wallet">Standard</label>
+                        <label for="e-wallet">Standard Delivery</label>
+                    </div>
+                    <div class="dropdown">
+                        <div class="select">
+                            <span class="selected">Door To Door</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="menu">
+                            <li class="active">Door to Door</li>
+                            <li>Pick Up</li>
+                        </ul>
                     </div>
             </div>
 
@@ -165,17 +174,17 @@
                     <div class="method_box">
                         <div class="method_logo"></div>
                         <input type="radio" id="cod" name="payment_methods" value="COD">
-                        <label for="cod">Cash On Delivery</label>
+                        <label for="cod">Cash On Delivery (with delivery fee 50PHP)</label>
                     </div>
                     <div class="method_box">
                         <div class="method_logo"></div>
                         <input type="radio" id="e-wallet" name="payment_methods" value="EWALLET">
-                        <label for="e-wallet">E-Wallet</label>
+                        <label for="e-wallet">E-Wallet (GCash, PayMaya, PayPal)</label>
                     </div>
                     <div class="method_box">
                         <div class="method_logo"></div>
                         <input type="radio" id="card" name="payment_methods" value="CARD">
-                        <label for="card">Credit or Debit</label>
+                        <label for="card">Credit or Debit (BDO, MasterCard, BPI, Chinabank)</label>
                     </div>
             </div>
 
@@ -186,5 +195,36 @@
         </div>
 
     </div>
+    <script>
+        const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(dropdown => {
+    const select = dropdown.querySelector('.select');
+    const caret = dropdown.querySelector('.caret');
+    const menu = dropdown.querySelector('.menu');
+    const options = dropdown.querySelectorAll('.menu li');
+    const selected = dropdown.querySelector('.selected');
+
+    select.addEventListener('click', () => {
+        console.log('Dropdown clicked');
+        select.classList.toggle('select-clicked');
+        caret.classList.toggle('caret-rotate');
+        menu.classList.toggle('menu-open');
+    });
+
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            console.log('Option clicked:', option.innerText);
+            selected.innerText = option.innerText;
+            select.classList.remove('select-clicked');
+            caret.classList.remove('caret-rotate');
+            menu.classList.remove('menu-open');
+            options.forEach(option => {
+                option.classList.remove('active');
+            });
+            option.classList.add('active');
+        });
+    });
+});
+    </script>
 </body>
 </html>
