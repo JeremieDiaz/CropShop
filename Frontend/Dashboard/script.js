@@ -31,6 +31,22 @@ function showSection(sectionId, clickedLink) {
         if (carouselSection) carouselSection.style.display = 'none';  // Hide carousel on Marketplace
         if (specialOfferHeading) specialOfferHeading.style.display = 'none'; // Hide special offer heading
         if (topTrendsSection) topTrendsSection.style.display = 'none'; // Hide Top Trends on Marketplace
+    }else if (sectionId === 'cart') {
+        if (carouselSection) carouselSection.style.display = 'none';  // Hide carousel on Marketplace
+        if (specialOfferHeading) specialOfferHeading.style.display = 'none'; // Hide special offer heading
+        if (topTrendsSection) topTrendsSection.style.display = 'none'; // Hide Top Trends on Marketplace
+       
+        if (cart && cart.length > 0) {
+            document.getElementById('empty-cart-message').style.display = 'none'; // Hide empty cart message
+            document.getElementById('cart-items').style.display = 'block'; // Hide empty cart message
+        
+        } else {
+            document.getElementById('empty-cart-message').style.display = 'block'; // Show empty cart message
+        }
+        
+       
+        document.getElementById('cart-content').style.display = 'block';
+        
     } else {
         if (carouselSection) carouselSection.style.display = 'none';  // Hide carousel on other sections
         if (specialOfferHeading) specialOfferHeading.style.display = 'none'; // Hide special offer heading
@@ -790,10 +806,184 @@ function updateImageIndex(currentIndex, totalImages) {
     }
     
 
-    function addToCart() {
-        alert('Product added to cart');
-        // Additional functionality for adding the product to the cart can be implemented here
+    // Start Cart Code
+   
+    
+
+    let cart = [];
+
+// Function to update the cart count displayed in the UI
+function updateCartCount() {
+    const cartCountElement = document.getElementById('cart-count');
+    cartCountElement.textContent = cart.length; // Update the text content with the cart length
+}
+
+// Function to add the product to the cart
+function addToCart() {
+    // Get product details
+    const productTitle = document.getElementById("product-title").innerText;
+    const productPrice = document.getElementById("product-price").innerText;
+    const productImage = document.getElementById("product-image").src;
+    const productDescription = document.getElementById("product-description").innerText;
+    
+    // Function to get the filled star rating
+    function getFilledStarRating() {
+        // Count the filled stars
+        const filledStars = document.querySelectorAll('#product-rating .filled').length; 
+        return filledStars; // Returns the number of filled stars
     }
+
+    // Get the current filled star rating
+    const rating = getFilledStarRating();
+
+    // Create a product object
+    const product = {
+        title: productTitle,
+        price: productPrice,
+        image: productImage,
+        description: productDescription,
+        rating: rating,
+        quantity: 1 // Default quantity
+    };
+
+    // Add product to the cart array
+    cart.push(product);
+
+    alert('Product added to cart');
+    // Update the cart display
+    updateCartDisplay();
+    updateCartCount();
+}
+
+
+  
+        // Function to create a cart item element
+        function createCartItem(item, index) {
+            // Create a cart item row element
+            const cartItem = document.createElement("div");
+            cartItem.className = "cart-item-row"; // Add class for styling
+
+            // Set the star rating for the current item
+            const stars = Array.from({ length: 5 }, (_, i) => `
+                <span class="star-rating ${i < item.rating ? 'filled' : ''}">&#9733;</span>
+            `).join('');
+
+     // Populate cart item HTML
+            cartItem.innerHTML = `
+            <input type="checkbox" class="product-checkbox" id="product-${index}">
+            <img src="${item.image}" alt="${item.title}" style="width: 50px; height: 50px;">
+            <p class="item-title">${item.title}</p>
+            <p class="item-description" onclick="toggleDescription(this)">${item.description}</p>
+                <div class="description-detail" style="display: none;">
+                    ${item.description}
+                </div>
+            <p>Ratings: ${stars}</p>
+            <p>${item.price}</p>
+            <div class="quantity-controls">
+                <button type="button" class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                <input type="number" id="quantity-${index}" value="${item.quantity}" min="1" readonly style="width: 50px; text-align: center;">
+                <button type="button" class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+            </div>
+            <button class="profile-btn" onclick="removeFromCart(${index})">Remove</button>
+            `;
+            return cartItem;
+        }
+
+
+        function toggleDescription(element) {
+            const descriptionDetail = element.nextElementSibling; // This is the div with the description
+            const descriptionText = descriptionDetail.innerHTML; // Get the inner HTML (description)
+
+            // Show the description in an alert
+            alert(descriptionText);
+        }
+        
+
+        // Function to update quantity
+        function updateQuantity(index, change) {
+            // Get the current quantity
+            const quantityInput = document.getElementById(`quantity-${index}`);
+            let currentQuantity = parseInt(quantityInput.value);
+
+            // Adjust quantity based on change
+            if (change === -1) {
+                currentQuantity -= 1; // Decrease quantity
+            } else if (change === 1) {
+                currentQuantity += 1; // Increase quantity
+            }
+
+            // Check if the quantity is less than 1
+            if (currentQuantity < 1) {
+                // Show alert that the item will be removed
+                alert("This item will be removed from the cart.");
+                removeFromCart(index); // Remove the item from the cart
+                return; // Exit the function
+            }
+
+            // Update the input value
+            quantityInput.value = currentQuantity;
+
+            // Update the cart object
+            cart[index].quantity = currentQuantity;
+
+            // Call updateCartDisplay() to refresh the display
+            updateCartDisplay();
+
+           
+
+        }
+
+
+
+        // Function to update cart display (remains the same)
+        function updateCartDisplay() {
+            console.log(cart);
+
+            const cartItemsContainer = document.getElementById("cart-items");
+            cartItemsContainer.innerHTML = ""; // Clear previous cart items
+
+            if (cart.length === 0) {
+                document.getElementById("empty-cart-message").style.display = "block"; // Show empty cart message
+                document.getElementById("checkout-btn").style.display = "none"; // Hide checkout button
+            } else {
+                document.getElementById("empty-cart-message").style.display = "none"; // Hide empty cart message
+                document.getElementById("checkout-btn").style.display = "block"; // Show checkout button
+
+                cart.forEach((item, index) => {
+                    const cartItem = createCartItem(item, index);
+                    cartItemsContainer.appendChild(cartItem);
+                });
+            }
+        }
+
+
+
+    // Function to remove an item from the cart
+    function removeFromCart(index) {
+        cart.splice(index, 1); // Remove item from cart array
+        updateCartDisplay(); // Update cart display
+        updateCartCount();
+    }
+
+    // Function to checkout
+    function checkout() {
+        // const selectedProducts = cart.filter((_, index) => document.getElementById(`product-${index}`).checked);
+        
+        // if (selectedProducts.length === 0) {
+        //     alert("Please select at least one product to checkout.");
+        //     return;
+        // }
+
+        // // Implement checkout process (e.g., proceed to payment, send data to server, etc.)
+        // console.log("Checkout with the following products:", selectedProducts);
+        // alert("Checkout successful!"); // Placeholder for a successful checkout message
+        // cart = []; // Clear cart after checkout
+        // updateCartDisplay(); // Update cart display
+        //  updateCartCount();
+    }
+
+
+    // End Cart Code
 
     function buyNow() {
         alert('Proceeding to purchase');

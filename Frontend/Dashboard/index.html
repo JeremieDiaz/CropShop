@@ -13,7 +13,11 @@
         <ul class="nav-links" role="menubar">
             <li role="menuitem"><a href="#" id="dashboard-link" onclick="showSection('dashboard', this)">Dashboard</a></li>
             <li role="menuitem"><a href="#" id="marketplace-link" onclick="showSection('marketplace', this)">Marketplace</a></li>
-            <li role="menuitem"><a href="#" id="cart-link" onclick="showSection('cart', this)">Cart</a></li>
+            <li role="menuitem">
+                <a href="#" id="cart-link" onclick="showSection('cart', this)">
+                    Cart (<span id="cart-count">0</span>)
+                </a>
+            </li>
         </ul>
         <button class="profile-btn" aria-label="User Profile">Profile</button>
     </nav>
@@ -635,12 +639,15 @@
     </div>
      
     
-        <!-- Cart Section -->
-        <div class="dashboard-box" id="cart" style="display: none;">
-            <h2>Cart Content</h2>
-            <p>This is the cart section.</p>
-     </section>
-    </div>
+</div>
+
+<!-- Cart Section -->
+<div class="dashboard-box" id="cart" style="display: block;">
+    <h2 id="cart-content" style="display: none;">Cart Content</h2>
+    <div id="cart-items" style="display: none;"></div> <!-- Container for cart items -->
+    <p id="empty-cart-message" style="display: none;">Your cart is empty.</p> <!-- Message when the cart is empty -->
+    <button class="profile-btn" id="checkout-btn" style="display: none;" onclick="checkout()">Checkout</button> <!-- Checkout Button -->
+</div>
     
     <script src="script.js"></script>
 </body>

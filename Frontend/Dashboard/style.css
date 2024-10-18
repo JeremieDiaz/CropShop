@@ -722,3 +722,94 @@ canvas {
     border: 2px solid #bc6c25; /* Applying #bc6c25 to the canvas border */
     background-color: #f1e6d4; /* White background for the chart */
 }
+
+
+
+
+/* start nath css */
+.cart-item-row {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 15px; /* Increased space between cart items */
+    padding: 15px; /* Increased padding around the cart item */
+    border: 2px solid #ccc; /* Thicker border for visual separation */
+    border-radius: 10px; /* More rounded corners */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    font-size: 1.2em; /* Increase font size for better readability */
+    background-color: #f9f9f9; /* Optional: add a background color */
+}
+
+#cart-items {
+    max-height: 400px; /* Set a maximum height for the cart */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: add border for visibility */
+    padding: 10px; /* Optional: add padding */
+    margin: 10px; /* Optional: add margin */
+}
+
+
+.cart-item-row img {
+    flex-shrink: 0; /* Prevent image from shrinking */
+    width: 50px; /* Set a fixed width for images */
+    height: 50px; /* Set a fixed height for images */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.cart-item-row p {
+    margin: 5px 0; /* Margins for paragraph elements */
+    flex-grow: 1; /* Allow text to grow and fill space */
+    min-width: 0; /* Allow overflow to be managed */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflow */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #bc6c25;
+}
+
+
+.item-title {
+    font-weight: bold; /* Make the title bold */
+    margin: 0; /* Remove default margin */
+    overflow-wrap: break-word; /* Allow long words to break to the next line */
+    word-wrap: break-word; /* Legacy support for older browsers */
+    hyphens: auto; /* Enable hyphenation */
+    max-width: 200px; /* Set a max width for responsiveness, adjust as needed */
+}
+
+.item-description {
+    margin: 0; /* Remove default margin */
+    overflow-wrap: break-word; /* Allow long words to break to the next line */
+    word-wrap: break-word; /* Legacy support for older browsers */
+    hyphens: auto; /* Enable hyphenation */
+    cursor: pointer;
+    max-width: 200px; /* Set a max width for responsiveness, adjust as needed */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .cart-item-row {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+    
+    .cart-item-row img {
+        margin-bottom: 10px; /* Add space below the image */
+    }
+    
+    .cart-item-row p {
+        white-space: normal; /* Allow wrapping for small screens */
+    }
+}
+
+/* end nath css */
