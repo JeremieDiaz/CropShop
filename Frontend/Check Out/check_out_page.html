@@ -1,230 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Frontend/Check Out/check_out.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Frontend/Check Out/check_out.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <script src="check_out.js"></script>
     <title>Check Out Page</title>
-</head>
-<body onload="initializeFunctions()">
+  </head>
+  <body onload="initializeFunctions()">
     <div class="background-container">
-        <img src="/Images/BackgroundImages/apple.svg" alt="Apple" />
-        <img src="/Images/BackgroundImages/boiled-egg.svg" alt="Boiled Egg" />
-        <img src="/Images/BackgroundImages/carrot.svg" alt="Carrot" />
-        <img src="/Images/BackgroundImages/corn.svg" alt="Corn" />
-        <img src="/Images/BackgroundImages/hoe.svg" alt="Hoe" />
-        <img src="/Images/BackgroundImages/pineapple.svg" alt="Pineapple" />
-        <img src="/Images/BackgroundImages/pumpkin.svg" alt="Pumpkin" />
-        <img src="/Images/BackgroundImages/seeds1.svg" alt="Seeds 1" />
-        <img src="/Images/BackgroundImages/seeds2.svg" alt="Seeds 2" />
-        <img src="/Images/BackgroundImages/shovel.svg" alt="Shovel" />
-        <img src="/Images/BackgroundImages/wheat.svg" alt="Wheat" />
+      <img src="/Images/BackgroundImages/apple.svg" alt="Apple" />
+      <img src="/Images/BackgroundImages/boiled-egg.svg" alt="Boiled Egg" />
+      <img src="/Images/BackgroundImages/carrot.svg" alt="Carrot" />
+      <img src="/Images/BackgroundImages/corn.svg" alt="Corn" />
+      <img src="/Images/BackgroundImages/hoe.svg" alt="Hoe" />
+      <img src="/Images/BackgroundImages/pineapple.svg" alt="Pineapple" />
+      <img src="/Images/BackgroundImages/pumpkin.svg" alt="Pumpkin" />
+      <img src="/Images/BackgroundImages/seeds1.svg" alt="Seeds 1" />
+      <img src="/Images/BackgroundImages/seeds2.svg" alt="Seeds 2" />
+      <img src="/Images/BackgroundImages/shovel.svg" alt="Shovel" />
+      <img src="/Images/BackgroundImages/wheat.svg" alt="Wheat" />
     </div>
 
     <!--Check Out-->
     <div class="check_out">
-        <!-- page 1 of check out-->
-        <div class="check_out_box1">
-            <div class="title">
-                <i class="fa-solid fa-user fa-2x"></i>
-                <h4>Personal Details</h4>
-            </div>
-
-            <div class="client_details">
-                <div class="name">Name: John Doe</div>
-                <div class="address">Address: 123 Main St</div>
-                <div class="contact">Contact Number: (123) 456-7890</div>
-            </div>
-
-            <div class="title">
-                <i class="fa-solid fa-shop fa-2x"></i>
-                <h4>Products</h4>
-            </div>
-            <div class="products_menu">
-
-                <div class="product">
-                    <div class="p_image" style="background-image: url(/Images/Strawberries.jpg);"></div>
-                    <div class="product_details">
-                        <div class="p_name">Product: Strawberries</div>
-                        <div class="p_price" data-price="5">Price: ₱5</div>
-                        <div class="p_quantity">Number of Product:
-                            <div class="quantity_container">
-                                <button class="quantity_btn minus">-</button>
-                                <input type="number" value="1" min="1" class="quantity_input" readonly>
-                                <button class="quantity_btn plus">+</button>
-                            </div>
-                        </div>
-                        <div class="total_cost">Total: ₱5</div>
-                    </div>
-                </div>
-            
-                <div class="product">
-                    <div class="p_image" style="background-image: url(/Images/shovel.jpg);"></div>
-                    <div class="product_details">
-                        <div class="p_name">Product: Gardening Shovel</div>
-                        <div class="p_price" data-price="18">Price: ₱18</div>
-                        <div class="p_quantity">Number of Product:
-                            <div class="quantity_container">
-                                <button class="quantity_btn minus">-</button>
-                                <input type="number" value="1" min="1" class="quantity_input" readonly>
-                                <button class="quantity_btn plus">+</button>
-                            </div>
-                        </div>
-                        <div class="total_cost">Total: ₱18</div>
-                    </div>
-                </div>
-            
-                <div class="product">
-                    <div class="p_image" style="background-image: url(/Images/corn_seeds.jpg);"></div>
-                    <div class="product_details">
-                        <div class="p_name">Product: Corn Seeds</div>
-                        <div class="p_price" data-price="8">Price: ₱8</div>
-                        <div class="p_quantity">Number of Product:
-                            <div class="quantity_container">
-                                <button class="quantity_btn minus">-</button>
-                                <input type="number" value="1" min="1" class="quantity_input" readonly>
-                                <button class="quantity_btn plus">+</button>
-                            </div>
-                        </div>
-                        <div class="total_cost">Total: ₱8</div>
-                    </div>
-                </div>
-            
-                <div class="product">
-                    <div class="p_image" style="background-image: url(/Images/watering_can.jpg);"></div>
-                    <div class="product_details">
-                        <div class="p_name">Product: Watering Can</div>
-                        <div class="p_price" data-price="10">Price: ₱10</div>
-                        <div class="p_quantity">Number of Product:
-                            <div class="quantity_container">
-                                <button class="quantity_btn minus">-</button>
-                                <input type="number" value="1" min="1" class="quantity_input" readonly>
-                                <button class="quantity_btn plus">+</button>
-                            </div>
-                        </div>
-                        <div class="total_cost">Total: ₱10</div>
-                    </div>
-                </div>
-            
-            </div>            
-
-        </div>
-        <!-- page 2 of check out-->
-        <div class="check_out_box2">
-
-            <div class="title">
-                <i class="fa-solid fa-ticket fa-2x"></i>
-                <h4>Vouchers / Coupons:</h4>
-            </div>
-            <div class="methods">
-                <h4>Please Enter Voucher Code Below</h4>
-                <input type="text" class="voucher_textbox">
-                <button class="voucher_btn">Verify</button>
-            </div>
-
-            <div class="title">
-                <i class="fa-solid fa-truck fa-2x"></i>
-                <h4>Delivery Options:</h4>
-            </div>
-            <div class="methods_delivery">
-                    <div class="method_box">
-                        <div class="method_logo"></div>
-                        <input type="radio" id="express" name="delivery_methods" value="EXPRESS">
-                        <label for="cod">Express Delivery</label>
-                    </div>
-                    <div class="dropdown">
-                        <div class="select">
-                            <span class="selected">Company 3</span>
-                            <div class="caret"></div>
-                        </div>
-                        <ul class="menu">
-                            <li>Company 1</li>
-                            <li>Company 2</li>
-                            <li class="active">Company 3</li>
-                        </ul>
-                    </div>
-                    <div class="method_box">
-                        <div class="method_logo"></div>
-                        <input type="radio" id="standard" name="delivery_methods" value="STANDARD">
-                        <label for="e-wallet">Standard Delivery</label>
-                    </div>
-                    <div class="dropdown">
-                        <div class="select">
-                            <span class="selected">Door To Door</span>
-                            <div class="caret"></div>
-                        </div>
-                        <ul class="menu">
-                            <li class="active">Door to Door</li>
-                            <li>Pick Up</li>
-                        </ul>
-                    </div>
-            </div>
-
-            <div class="title">
-                <i class="fa-solid fa-money-bill fa-2x"></i>
-                <h4>Payment Methods:</h4>
-                <button>View All</button>
-            </div>
-            <div class="methods">
-                    <div class="method_box">
-                        <div class="method_logo"></div>
-                        <input type="radio" id="cod" name="payment_methods" value="COD">
-                        <label for="cod">Cash On Delivery (with delivery fee 50PHP)</label>
-                    </div>
-                    <div class="method_box">
-                        <div class="method_logo"></div>
-                        <input type="radio" id="e-wallet" name="payment_methods" value="EWALLET">
-                        <label for="e-wallet">E-Wallet (GCash, PayMaya, PayPal)</label>
-                    </div>
-                    <div class="method_box">
-                        <div class="method_logo"></div>
-                        <input type="radio" id="card" name="payment_methods" value="CARD">
-                        <label for="card">Credit or Debit (BDO, MasterCard, BPI, Chinabank)</label>
-                    </div>
-            </div>
-
-            <div class="price">
-                <h4>Total Price: ₱ <span id="price">0</span></h4>
-                <button>Check Out</button>
-            </div>            
+      <!-- page 1 of check out-->
+      <div class="check_out_box1">
+        <div class="title">
+          <i class="fa-solid fa-user fa-2x"></i>
+          <h4>Personal Details</h4>
         </div>
 
+        <div class="client_details">
+          <div class="name">Name: John Doe</div>
+          <div class="address">Address: 123 Main St</div>
+          <div class="contact">Contact Number: (123) 456-7890</div>
+        </div>
+
+        <div class="title">
+          <i class="fa-solid fa-shop fa-2x"></i>
+          <h4>Products</h4>
+        </div>
+        <div class="products_menu"></div>
+        <div id="no-item-checkout-toast">No items in checkout.</div>
+      </div>
+      <!-- page 2 of check out-->
+      <div class="check_out_box2">
+        <div class="title">
+          <i class="fa-solid fa-ticket fa-2x"></i>
+          <h4>Vouchers / Coup`s:</h4>
+        </div>
+        <div class="methods">
+          <h4>Please Enter Voucher Code Below</h4>
+          <input type="text" class="voucher_textbox" />
+          <button class="voucher_btn">Verify</button>
+        </div>
+
+        <div class="title">
+          <i class="fa-solid fa-truck fa-2x"></i>
+          <h4>Delivery Options:</h4>
+        </div>
+        <div class="methods_delivery">
+          <div class="method_box">
+            <div class="method_logo"></div>
+            <input
+              type="radio"
+              id="express"
+              name="delivery_methods"
+              value="EXPRESS"
+            />
+            <label for="cod">Express Delivery</label>
+          </div>
+          <div class="dropdown">
+            <div class="select">
+              <span class="selected">Company 3</span>
+              <div class="caret"></div>
+            </div>
+            <ul class="menu">
+              <li>Company 1</li>
+              <li>Company 2</li>
+              <li class="active">Company 3</li>
+            </ul>
+          </div>
+          <div class="method_box">
+            <div class="method_logo"></div>
+            <input
+              type="radio"
+              id="standard"
+              name="delivery_methods"
+              value="STANDARD"
+            />
+            <label for="e-wallet">Standard Delivery</label>
+          </div>
+          <div class="dropdown">
+            <div class="select">
+              <span class="selected">Door To Door</span>
+              <div class="caret"></div>
+            </div>
+            <ul class="menu">
+              <li class="active">Door to Door</li>
+              <li>Pick Up</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="title">
+          <i class="fa-solid fa-money-bill fa-2x"></i>
+          <h4>Payment Methods:</h4>
+          <button>View All</button>
+        </div>
+        <div class="methods">
+          <div class="method_box">
+            <div class="method_logo"></div>
+            <input type="radio" id="cod" name="payment_methods" value="COD" />
+            <label for="cod">Cash On Delivery (with delivery fee 50PHP)</label>
+          </div>
+          <div class="method_box">
+            <div class="method_logo"></div>
+            <input
+              type="radio"
+              id="e-wallet"
+              name="payment_methods"
+              value="EWALLET"
+            />
+            <label for="e-wallet">E-Wallet (GCash, PayMaya, PayPal)</label>
+          </div>
+          <div class="method_box">
+            <div class="method_logo"></div>
+            <input type="radio" id="card" name="payment_methods" value="CARD" />
+            <label for="card"
+              >Credit or Debit (BDO, MasterCard, BPI, Chinabank)</label
+            >
+          </div>
+        </div>
+
+        <div class="price">
+          <h4>Total Price: <span id="price">0</span></h4>
+          <button id="checkout-button" onclick="checkOutToShip()">
+            Check Out
+          </button>
+        </div>
+      </div>
     </div>
     <script>
-        const dropdowns = document.querySelectorAll('.dropdown');
-dropdowns.forEach(dropdown => {
-    const select = dropdown.querySelector('.select');
-    const caret = dropdown.querySelector('.caret');
-    const menu = dropdown.querySelector('.menu');
-    const options = dropdown.querySelectorAll('.menu li');
-    const selected = dropdown.querySelector('.selected');
+      const dropdowns = document.querySelectorAll(".dropdown");
+      dropdowns.forEach((dropdown) => {
+        const select = dropdown.querySelector(".select");
+        const caret = dropdown.querySelector(".caret");
+        const menu = dropdown.querySelector(".menu");
+        const options = dropdown.querySelectorAll(".menu li");
+        const selected = dropdown.querySelector(".selected");
 
-    select.addEventListener('click', () => {
-        console.log('Dropdown clicked');
-        select.classList.toggle('select-clicked');
-        caret.classList.toggle('caret-rotate');
-        menu.classList.toggle('menu-open');
-    });
-
-    options.forEach(option => {
-        option.addEventListener('click', () => {
-            console.log('Option clicked:', option.innerText);
-            selected.innerText = option.innerText;
-            select.classList.remove('select-clicked');
-            caret.classList.remove('caret-rotate');
-            menu.classList.remove('menu-open');
-            options.forEach(option => {
-                option.classList.remove('active');
-            });
-            option.classList.add('active');
+        select.addEventListener("click", () => {
+          console.log("Dropdown clicked");
+          select.classList.toggle("select-clicked");
+          caret.classList.toggle("caret-rotate");
+          menu.classList.toggle("menu-open");
         });
-    });
-});
+
+        options.forEach((option) => {
+          option.addEventListener("click", () => {
+            console.log("Option clicked:", option.innerText);
+            selected.innerText = option.innerText;
+            select.classList.remove("select-clicked");
+            caret.classList.remove("caret-rotate");
+            menu.classList.remove("menu-open");
+            options.forEach((option) => {
+              option.classList.remove("active");
+            });
+            option.classList.add("active");
+          });
+        });
+      });
     </script>
-</body>
+    <script src="check_out.js"></script>
+  </body>
 </html>

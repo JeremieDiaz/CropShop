@@ -6,6 +6,7 @@
     <title>CROPSHOP</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <nav role="navigation" aria-label="Main Navigation">
@@ -19,7 +20,7 @@
                 </a>
             </li>
         </ul>
-        <button class="profile-btn" aria-label="User Profile">Profile</button>
+        <button class="profile-btn" aria-label="User Profile" onclick="window.location.href='http://127.0.0.1:5500/Frontend/Profile/'">Profile</button>
     </nav>
 
     <div class="content">
@@ -158,7 +159,7 @@
         <!-- Add more products here as needed -->
     </div>
 </div>           
-            </section>
+          
         </div>
 
 <!-- Dashboard Section -->
@@ -632,9 +633,10 @@
                 <button id="next-btn" class="slider-button">Next</button>
             </div>
                 
-                <button onclick="goBackToMarketplace()" class="back-btn">&#8592; </button> <!-- Simple back button -->
-                <button onclick="addToCart()" class="add-to-cart">Add to Cart</button> <!-- Add to Cart Button -->
-                <button onclick="buyNow()" class="buy-now">Buy Now</button> <!-- Buy Now Button -->
+            <button onclick="goBackToMarketplace()" class="back-btn">&#8592; </button> <!-- Simple back button -->
+            <button onclick="addToCart()" class="add-to-cart mb-2">Add to Cart</button> <!-- Add to Cart Button -->
+            <button onclick="buyNow()" class="buy-now">Buy Now</button> <!-- Buy Now Button -->
+            <div id="toast">Product added to cart <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#bc6b25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div>
         </div>
     </div>
      
@@ -642,11 +644,15 @@
 </div>
 
 <!-- Cart Section -->
-<div class="dashboard-box" id="cart" style="display: block;">
+<div class="dashboard-box" id="cart">
     <h2 id="cart-content" style="display: none;">Cart Content</h2>
     <div id="cart-items" style="display: none;"></div> <!-- Container for cart items -->
     <p id="empty-cart-message" style="display: none;">Your cart is empty.</p> <!-- Message when the cart is empty -->
-    <button class="profile-btn" id="checkout-btn" style="display: none;" onclick="checkout()">Checkout</button> <!-- Checkout Button -->
+    <div class="checkout-wrapper">
+        <button class="profile-btn" id="checkout-btn" style="display: none;" onclick="checkout()">Checkout</button> <!-- Checkout Button -->
+        <div id="checkout-toast">Please select at least one product to checkout <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#bc6b25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></div>
+        <div id="checkout-toast-suc">Checkout successful! <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#bc6b25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg> </div>
+    </div>
 </div>
     
     <script src="script.js"></script>
