@@ -21,38 +21,47 @@ function showSection(sectionId, clickedLink) {
     const carouselSection = document.getElementById('carousel-section'); 
     const specialOfferHeading = document.querySelector('section[aria-label="Special Offers"] h2'); 
     const topTrendsSection = document.querySelector('.top-trends-section'); 
+    const adbanner = document.getElementById('ad-banner'); // Reference to the ad banner
+    const zoomableImage = document.getElementById('zoomableImage'); // Reference to the ad banner
 
     // Show or hide sections based on the selected section
     if (sectionId === 'dashboard') {
-        carouselSection.style.display = 'block';  // Show carousel on Dashboard
+        if (carouselSection) carouselSection.style.display = 'block'; // Show carousel on Dashboard
         if (specialOfferHeading) specialOfferHeading.style.display = 'block'; // Show special offer heading if exists
         if (topTrendsSection) topTrendsSection.style.display = 'block'; // Show Top Trends on Dashboard
+        if (adbanner) adbanner.style.display = 'block'; // Show ad banner on Dashboard
+        if (zoomableImage) zoomableImage.style.display = 'block'; // 
     } else if (sectionId === 'marketplace') {
         if (carouselSection) carouselSection.style.display = 'none';  // Hide carousel on Marketplace
         if (specialOfferHeading) specialOfferHeading.style.display = 'none'; // Hide special offer heading
         if (topTrendsSection) topTrendsSection.style.display = 'none'; // Hide Top Trends on Marketplace
-    }else if (sectionId === 'cart') {
-        if (carouselSection) carouselSection.style.display = 'none';  // Hide carousel on Marketplace
+        if (adbanner) adbanner.style.display = 'none'; // Hide ad banner on Marketplace
+        if (zoomableImage) zoomableImage.style.display = 'none'; // 
+    } else if (sectionId === 'cart') {
+        if (carouselSection) carouselSection.style.display = 'none';  // Hide carousel on Cart
         if (specialOfferHeading) specialOfferHeading.style.display = 'none'; // Hide special offer heading
-        if (topTrendsSection) topTrendsSection.style.display = 'none'; // Hide Top Trends on Marketplace
-       
+        if (topTrendsSection) topTrendsSection.style.display = 'none'; // Hide Top Trends on Cart
+        if (adbanner) adbanner.style.display = 'none'; // Hide ad banner on Cart
+        if (zoomableImage) zoomableImage.style.display = 'none'; //
+        
+        // Display cart-related content
         if (cart && cart.length > 0) {
             document.getElementById('empty-cart-message').style.display = 'none'; // Hide empty cart message
-            document.getElementById('cart-items').style.display = 'block'; // Hide empty cart message
-        
+            document.getElementById('cart-items').style.display = 'block'; // Show cart items
         } else {
             document.getElementById('empty-cart-message').style.display = 'block'; // Show empty cart message
+            document.getElementById('cart-items').style.display = 'none'; // Hide cart items
         }
-        
-       
         document.getElementById('cart-content').style.display = 'block';
-        
     } else {
         if (carouselSection) carouselSection.style.display = 'none';  // Hide carousel on other sections
         if (specialOfferHeading) specialOfferHeading.style.display = 'none'; // Hide special offer heading
         if (topTrendsSection) topTrendsSection.style.display = 'none'; // Hide Top Trends on other sections
+        if (adbanner) adbanner.style.display = 'none'; // Hide ad banner on other sections
+        if (zoomableImage) zoomableImage.style.display = 'none'; // 
     }
 }
+
 
 
 
@@ -62,6 +71,7 @@ function goBackToMarketplace() {
     
     // Hide the All Products (view all trends) section if visible
     document.getElementById('all-products').style.display = 'none'; 
+
 
     // Check where the user came from and navigate back to the previous section
     if (previousSection === 'marketplace') {
@@ -75,6 +85,8 @@ function goBackToMarketplace() {
         document.getElementById('dashboard').style.display = 'block';
         document.getElementById('carousel-section').style.display = 'block';  // Show the carousel again
         document.querySelector('.top-trends-section').style.display = 'block'; // Show the Top Trends section
+        document.getElementById('ad-banner').style.display = 'block'; // 
+        document.getElementById('zoomableImage').style.display = 'block';
     }
 }
 
@@ -132,42 +144,42 @@ let currentIndex = 0; // Track the current image index
             'Rice': {
                 img: 'Images/Dashboard imgs/1.jpg', // Main image
                 images: ['Images/Dashboard imgs/1.jpg', 'Images/Dashboard imgs/1-2.jpg', 'Images/Dashboard imgs/1-3.jpg'], // Additional images for slider
-                price: '₱44/kilo',
+                price: '₱46.34/kilo',
                 rating: 4,
                 description: 'Rice is a staple food in many countries.'
             },
             'Corn': {
                 img: 'Images/Dashboard imgs/2.jpg', // Main image
                 images: ['Images/Dashboard imgs/2.jpg', 'Images/Dashboard imgs/2-2.jpg', 'Images/Dashboard imgs/2-3.jpg'], // Additional images for slider
-                price: '₱46/kilo',
+                price: '₱73.79/kilo',
                 rating: 5,
                 description: 'Corn is rich in vitamins and minerals.'
             },
             'Potato': {
                 img: 'Images/Dashboard imgs/3.jpg', // Main image
                 images: ['Images/Dashboard imgs/3.jpg', 'Images/Dashboard imgs/3-2.jpg', 'Images/Dashboard imgs/3-3.jpg'], // Additional images for slider
-                price: '₱48/kilo',
+                price: '₱55/kilo',
                 rating: 4,
                 description: 'Potatoes are versatile and nutritious.'
             },
             'Garlic': {
                 img: 'Images/Dashboard imgs/4.jpg', // Main image
                 images: ['Images/Dashboard imgs/4.jpg', 'Images/Dashboard imgs/4-2.jpg', 'Images/Dashboard imgs/4-3.jpg'], // Additional images for slider
-                price: '₱60/kilo',
+                price: '₱350/kilo',
                 rating: 4,
                 description: 'Garlic is a popular seasoning in many dishes worldwide.'
             },
             'Onion': {
                 img: 'Images/Dashboard imgs/5.jpg', // Main image
                 images: ['Images/Dashboard imgs/5.jpg', 'Images/Dashboard imgs/5-2.jpg', 'Images/Dashboard imgs/5-3.jpg'], // Additional images for slider
-                price: '₱50/kilo',
+                price: '₱70/kilo',
                 rating: 5,
                 description: 'Onions are essential in various cuisines for their flavor.'
             },
             'Ginger': {
                 img: 'Images/Dashboard imgs/6.jpg', // Main image
                 images: ['Images/Dashboard imgs/6.jpg', 'Images/Dashboard imgs/6-2.jpg', 'Images/Dashboard imgs/6-3.jpg'], // Additional images for slider
-                price: '₱70/kilo',
+                price: '₱200/kilo',
                 rating: 4,
                 description: 'Ginger is known for its medicinal and culinary uses.'
             },
@@ -181,42 +193,42 @@ let currentIndex = 0; // Track the current image index
             'Carrot': {
                 img: 'Images/Dashboard imgs/8.jpg', // Main image
                 images: ['Images/Dashboard imgs/8.jpg', 'Images/Dashboard imgs/8-2.jpg', 'Images/Dashboard imgs/8-3.jpg'], // Additional images for slider
-                price: '₱60/kilo',
+                price: '₱80/kilo',
                 rating: 4,
                 description: 'Carrots are rich in beta-carotene, which is good for eyesight.'
             },
             'Radish': {
                 img: 'Images/Dashboard imgs/9.jpg', // Main image
                 images: ['Images/Dashboard imgs/9.jpg', 'Images/Dashboard imgs/9-2.jpg', 'Images/Dashboard imgs/9-3.jpg'], // Additional images for slider
-                price: '₱55/kilo',
+                price: '₱140/kilo',
                 rating: 4,
                 description: 'Radish is a crunchy, edible root vegetable.'
             },
             'Soybeans': {
                 img: 'Images/Dashboard imgs/10.jpg', // Main image
                 images: ['Images/Dashboard imgs/10.jpg', 'Images/Dashboard imgs/10-2.jpg', 'Images/Dashboard imgs/10-3.jpg'], // Additional images for slider
-                price: '₱44/kilo',
+                price: '₱97.96/kilo',
                 rating: 4,
                 description: 'Soybeans are a rich source of protein and healthy fats.'
             },
             'Barley': {
                 img: 'Images/Dashboard imgs/11.jpg', // Main image
                 images: ['Images/Dashboard imgs/11.jpg', 'Images/Dashboard imgs/11-2.jpg', 'Images/Dashboard imgs/11-3.jpg'], // Additional images for slider
-                price: '₱46/kilo',
+                price: '₱95.63/kilo',
                 rating: 4,
                 description: 'Barley is a versatile grain used in various dishes.'
             },
             'Oats': {
                 img: 'Images/Dashboard imgs/12.jpg', // Main image
                 images: ['Images/Dashboard imgs/12.jpg', 'Images/Dashboard imgs/12-2.jpg', 'Images/Dashboard imgs/12-3.jpg'], // Additional images for slider
-                price: '₱48/kilo',
+                price: '₱185.95/kilo',
                 rating: 4,
                 description: 'Oats are a great source of fiber and nutrition.'
             },
             'Tomato': {
                 img: 'Images/Dashboard imgs/13.jpg', // Main image
                 images: ['Images/Dashboard imgs/13.jpg', 'Images/Dashboard imgs/13-2.jpg', 'Images/Dashboard imgs/13-3.jpg'], // Additional images for slider
-                price: '₱50/kilo',
+                price: '₱85/kilo',
                 rating: 5,
                 description: 'Tomatoes are rich in vitamins and antioxidants.'
             },
@@ -230,7 +242,7 @@ let currentIndex = 0; // Track the current image index
             'Coconut': {
                 img: 'Images/Dashboard imgs/15.jpg', // Main image
                 images: ['Images/Dashboard imgs/15.jpg', 'Images/Dashboard imgs/15-2.jpg', 'Images/Dashboard imgs/15-3.jpg'], // Additional images for slider
-                price: '₱70/kilo',
+                price: '₱148.37/kilo',
                 rating: 5,
                 description: 'Coconuts are used for their meat and milk.'
             },
@@ -244,14 +256,14 @@ let currentIndex = 0; // Track the current image index
             'Pineapple': {
                 img: 'Images/Dashboard imgs/17.jpg', // Main image
                 images: ['Images/Dashboard imgs/17.jpg', 'Images/Dashboard imgs/17-2.jpg', 'Images/Dashboard imgs/17-3.jpg'], // Additional images for slider
-                price: '₱60/kilo',
+                price: '₱69/kilo',
                 rating: 5,
                 description: 'Pineapples are sweet and tangy tropical fruits.'
             },
             'Mango': {
                 img: 'Images/Dashboard imgs/18.jpg', // Main image
                 images: ['Images/Dashboard imgs/18.jpg', 'Images/Dashboard imgs/18-2.jpg', 'Images/Dashboard imgs/18-3.jpg'], // Additional images for slider
-                price: '₱55/kilo',
+                price: '₱239/kilo',
                 rating: 5,
                 description: 'Mangoes are known as the king of fruits for their sweetness.'
             },
@@ -265,7 +277,7 @@ let currentIndex = 0; // Track the current image index
             'Eggplant': {
                 img: 'Images/Dashboard imgs/20.jpg', // Main image
                 images: ['Images/Dashboard imgs/20.jpg', 'Images/Dashboard imgs/20-2.jpg', 'Images/Dashboard imgs/20-3.jpg'], // Additional images for slider
-                price: '₱55/kilo',
+                price: '₱86/kilo',
                 rating: 4,
                 description: 'Eggplants are versatile and can be used in many recipes.'
             },
@@ -720,6 +732,7 @@ let currentIndex = 0; // Track the current image index
             document.getElementById('all-products-section').style.display = 'none';
             document.getElementById('carousel-section').style.display = 'none';
             document.querySelector('.top-trends-section').style.display = 'none';
+            
         }
     }
 
@@ -735,7 +748,7 @@ function updateImageIndex(currentIndex, totalImages) {
             'Corn': {
                 img: 'Images/Dashboard imgs/2.jpg', // Main image
                 images: ['Images/Dashboard imgs/2.jpg', 'Images/Dashboard imgs/2-2.jpg', 'Images/Dashboard imgs/2-3.jpg'], // Additional images for slider
-                price: '₱46/kilo',
+                price: '₱73.79/kilo',
                 rating: 5,
                 description: 'Corn is rich in vitamins and minerals.'},
            'Sugarcane': {
@@ -748,14 +761,14 @@ function updateImageIndex(currentIndex, totalImages) {
             'Rice': {
                 img: 'Images/Dashboard imgs/1.jpg', // Main image
                 images: ['Images/Dashboard imgs/1.jpg', 'Images/Dashboard imgs/1-2.jpg', 'Images/Dashboard imgs/1-3.jpg'], // Additional images for slider
-                price: '₱44/kilo',
+                price: '₱46.34/kilo',
                 rating: 4,
                 description: 'Rice is a staple food in many countries.'
             },
             'Garlic': {
                 img: 'Images/Dashboard imgs/4.jpg', // Main image
                 images: ['Images/Dashboard imgs/4.jpg', 'Images/Dashboard imgs/4-2.jpg', 'Images/Dashboard imgs/4-3.jpg'], // Additional images for slider
-                price: '₱60/kilo',
+                price: '₱350/kilo',
                 rating: 4,
                 description: 'Garlic is a popular seasoning in many dishes worldwide.'
             },
@@ -797,11 +810,13 @@ function updateImageIndex(currentIndex, totalImages) {
             // Hide carousel and top trends when viewing product details
             document.getElementById('carousel-section').style.display = 'none';
             document.querySelector('.top-trends-section').style.display = 'none';
-    
+
             // Hide dashboard and marketplace
             document.getElementById('dashboard').style.display = 'none';
             document.getElementById('marketplace').style.display = 'none';
             document.getElementById('product-details').style.display = 'block';
+            document.getElementById('ad-banner').style.display = 'none';
+            document.getElementById('zoomableImage').style.display = 'none';
         }
     }
     
@@ -1021,6 +1036,8 @@ function addToCart() {
     function viewAllTrends() {
         // Hide the top trends and other dashboard sections
         document.getElementById('topTrendsSection').style.display = 'none';
+        document.getElementById('ad-banner').style.display = 'none';
+        document.getElementById('zoomableImage').style.display = 'none';
         document.getElementById('carousel-section').style.display = 'none';
         document.getElementById('dashboard').style.display = 'none';
         document.getElementById('all-products').style.display = 'block'; // Show All Products
@@ -1039,6 +1056,8 @@ function addToCart() {
         document.getElementById('topTrendsSection').style.display = 'block';
         document.getElementById('carousel-section').style.display = 'block';
         document.getElementById('dashboard').style.display = 'block';
+        document.getElementById('ad-banner').style.display = 'block';
+        document.getElementById('zoomableImage').style.display = 'block';
         
         // Hide the All Products section
         document.getElementById('all-products').style.display = 'none';
@@ -1052,26 +1071,26 @@ function addToCart() {
     
     const products = {
         crops: [
-            { name: "Rice", price: 44 },
-            { name: "Corn", price: 46 },
-            { name: "Potato", price: 48 },
-            { name: "Garlic", price: 50 },
-            { name: "Onion", price: 60 },
-            { name: "Ginger", price: 70 },
+            { name: "Rice", price: 46.34 },
+            { name: "Corn", price: 73.79 },
+            { name: "Potato", price: 55 },
+            { name: "Garlic", price: 350 },
+            { name: "Onion", price: 70 },
+            { name: "Ginger", price: 200 },
             { name: "Sugarcane", price: 65 },
-            { name: "Carrot", price: 60 },
-            { name: "Radish", price: 55 },
-            { name: "Soybeans", price: 44 },
-            { name: "Barley", price: 46 },
-            { name: "Oats", price: 48 },
-            { name: "Tomato", price: 50 },
+            { name: "Carrot", price: 80 },
+            { name: "Radish", price: 140 },
+            { name: "Soybeans", price: 97.96 },
+            { name: "Barley", price: 95.63 },
+            { name: "Oats", price: 185.95 },
+            { name: "Tomato", price: 85 },
             { name: "Cassava", price: 60 },
-            { name: "Coconut", price: 70 },
+            { name: "Coconut", price: 148.37 },
             { name: "Banana", price: 65 },
-            { name: "Pineapple", price: 60 },
-            { name: "Mango", price: 55 },
+            { name: "Pineapple", price: 69 },
+            { name: "Mango", price: 239 },
             { name: "Calamansi", price: 60 },
-            { name: "Eggplant", price: 55 }
+            { name: "Eggplant", price: 86 }
         ],
         seeds: [
             { name: "Rice seeds", price: 200 },
@@ -1126,7 +1145,6 @@ function addToCart() {
             { name: "Inorganic fertilizer", price: 450 },
             { name: "Nitrate fertilizer", price: 500 }
         ],
-        
         tools: [
             { name: "Trowel", price: 150 },
             { name: "Mini Hand Rake", price: 130 },
@@ -1139,7 +1157,7 @@ function addToCart() {
             { name: "Hoe", price: 280 }
         ]
     };
-
+    
     // Initialize the chart
     const ctx = document.getElementById('priceChart').getContext('2d');
     let priceChart = new Chart(ctx, {
@@ -1167,13 +1185,13 @@ function addToCart() {
             }
         }
     });
-
+    
     // Function to update the graph based on selected filters
     function updateGraph() {
         const selectedCategory = document.getElementById('category').value;
         const selectedMonth = document.getElementById('month').value;
         const selectedYear = document.getElementById('year').value;
-
+    
         // Filter products based on the selected category
         let filteredProducts = [];
         if (selectedCategory === 'all') {
@@ -1182,33 +1200,139 @@ function addToCart() {
         } else {
             filteredProducts = products[selectedCategory] || [];
         }
-
-        // Date-based price adjustment (Example: adjust prices for predictions)
+    
+        // Date-based price adjustment
         filteredProducts = filteredProducts.map(product => {
             let adjustedPrice = product.price;
-
-            // Simple example: Increase price by 2% for each year after 2023, and 1% per month for seasonality
-            const yearDifference = selectedYear - 2023;
-            const monthDifference = selectedMonth - 1; // 0 for January, 1 for February, etc.
-
-            // Adjust price based on year and month
+    
+            // Calculate year difference and month difference
+            const yearDifference = selectedYear - 2024; // Calculate difference from base year
+            const monthDifference = selectedMonth - 10; // 0 for January, 1 for February, etc.
+    
+            // Adjust price: 2% increase per year and 1% increase per month
             adjustedPrice *= (1 + 0.02 * yearDifference); // Year adjustment
             adjustedPrice *= (1 + 0.01 * monthDifference); // Month adjustment
-
+    
             return { ...product, price: adjustedPrice.toFixed(2) }; // Format price to 2 decimal places
         });
-
+    
         // Update chart with filtered products
         const productNames = filteredProducts.map(product => product.name);
         const productPrices = filteredProducts.map(product => product.price);
-
+    
         priceChart.data.labels = productNames;
         priceChart.data.datasets[0].data = productPrices;
         priceChart.update();
     }
-
+    
     // Initial graph display
     updateGraph();
-
-
     
+    // Function to populate year dropdown
+    function populateYearDropdown() {
+        const yearSelect = document.getElementById('year');
+        const currentYear = new Date().getFullYear(); // Get the current year
+        const startYear = 2023; // Starting year
+        const endYear = 2030; // Ending year
+    
+        // Clear existing options
+        yearSelect.innerHTML = '';
+    
+        // Populate the dropdown with unique years
+        for (let year = startYear; year <= endYear; year++) {
+            const option = document.createElement('option');
+            option.value = year;
+            option.textContent = year;
+            yearSelect.appendChild(option);
+        }
+    
+        // Set the current year as the selected option (optional)
+        yearSelect.value = currentYear <= endYear ? currentYear : endYear;
+    }
+    
+    // Call function to populate year dropdown on page load
+    populateYearDropdown();
+    
+    let currentAdSlide = 0;
+
+function moveAdCarousel(direction) {
+    const adCarousel = document.querySelector('.ad-slides');
+    const totalAdItems = document.querySelectorAll('.ad-slide').length;
+
+    currentAdSlide += direction;
+
+    // Wrap around if reaching the end or beginning of the ad slides
+    if (currentAdSlide >= totalAdItems) {
+        currentAdSlide = 0;
+    } else if (currentAdSlide < 0) {
+        currentAdSlide = totalAdItems - 1;
+    }
+
+    // Move the ad carousel by 100% of the width per slide
+    adCarousel.style.transform = `translateX(-${currentAdSlide * 100}%)`;
+
+    // Update the active dot indicator for the ads
+    updateActiveAdDot();
+}
+
+// Set the current ad slide manually based on dot click
+function setAdSlide(index) {
+    currentAdSlide = index;
+    moveAdCarousel(0); // Trigger ad carousel movement to the new slide
+}
+
+// Update active ad dot based on the current ad slide
+function updateActiveAdDot() {
+    const adDots = document.querySelectorAll('.ad-dot');
+    adDots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentAdSlide);
+    });
+}
+
+// Function for redirection (used in both carousels)
+function redirectTo(url) {
+    window.open(url, '_blank');
+}
+
+// Automatically move to the next ad slide every 5 seconds
+setInterval(() => {
+    moveAdCarousel(1); // Move to the next ad slide
+}, 5000); // Change 5000 to your desired interval in milliseconds
+
+// Initialize the ad carousel to show the first slide
+moveAdCarousel(0);
+
+// Function to open the modal and display the image
+function openModal() {
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    const zoomableImage = document.getElementById("zoomableImage");
+
+    modal.style.display = "flex"; // Use flex to center the modal content
+    modalImage.src = zoomableImage.src;
+    modalImage.classList.remove("zoomed"); // Reset zoom state when opening
+}
+
+// Function to close the modal
+function closeModal(event) {
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+
+    if (event.target === modal || event.target.classList.contains('close')) {
+        modal.style.display = "none";
+        modalImage.classList.remove("zoomed"); // Reset zoom when closing
+    }
+}
+
+// Toggle zoom on the image inside the modal
+document.getElementById("modalImage").addEventListener("click", function () {
+    this.classList.toggle("zoomed");
+
+    if (this.classList.contains("zoomed")) {
+        // Set the top as the origin for zooming
+        this.style.transformOrigin = "top";
+    } else {
+        // Reset the transform origin
+        this.style.transformOrigin = "center";
+    }
+});
