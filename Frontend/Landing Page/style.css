@@ -94,7 +94,7 @@ section {
 }
 
 .heading span {
-    color: var(--red); /* Changes the text color inside the <span> tag to the red color variable */
+    color: var(--orange2); /* Changes the text color inside the <span> tag to the red color variable */
 }
 
 
@@ -103,7 +103,8 @@ section {
 
 
 
-.btn {
+.home .btn,
+.contact .btn {
     display: inline-block; /* Allows the button to behave like an inline element but still accepts width/height like a block element */
     padding: .8rem 3rem; /* Adds padding: 0.8rem on top/bottom and 3rem on left/right */
     border: .2rem solid var(--reddishBrown); /* Sets a 0.2rem solid border using the reddish-brown variable */
@@ -118,7 +119,8 @@ section {
     text-decoration: none; /* Removes text decorations like underlines from links and other elements */
 }
 
-.btn::before {
+.home .btn::before,
+.contact .btn::before {
     content: ''; /* Inserts an empty content box (used to create a hover effect) */
     position: absolute; /* Positions the pseudo-element absolutely within the button */
     top: 0; /* Aligns the top of the pseudo-element with the top of the button */
@@ -130,12 +132,14 @@ section {
     z-index: -1; /* Places the pseudo-element behind the button content (text) */
 }
 
-.btn:hover::before {
+.home .btn:hover::before,
+.contact .btn:hover::before {
     width: 100%; /* Expands the pseudo-element to cover the entire button width when hovered */
     left: 0; /* Positions the pseudo-element starting from the left edge of the button */
 }
 
-.btn:hover {
+.home .btn:hover,
+.contact .btn:hover {
     color: var(--white); /* Changes the text color to white when the button is hovered */
 }
 
@@ -178,7 +182,7 @@ header .logo i {
 header .navbar {
     display: flex; /* Aligns the navbar links in a horizontal row */
     justify-content: flex-start; /* Aligns the navbar links to the left side of the header */
-    margin-right: 50rem; /* Adds 50rem margin to the right to adjust spacing (can be customized) */
+    margin-right: 50rem; /* Adds 45rem margin to the right to adjust spacing (can be customized) */
     font-weight: 600; /* Sets the font weight of the navbar links to semi-bold */
 }
 
@@ -613,90 +617,205 @@ header .navbar a:hover {
 
 
 .login-section {
-    height: auto; /* Allows the login section to expand as needed based on content */
+    /* background: var(--blue); */
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 0 20px;
+    transform: translateX(50rem); /* Move the entire .login section 50px to the right */
 }
 
-.login-section .container {
-    margin-top: 150px; /* Adds space above the container */
-    position: relative; /* Positions the container relative to its normal flow */
-    width: 100%; /* Sets the container width to 100% of its parent */
-    max-width: 400px; /* Limits the maximum width of the container to 400px */
-    padding: 30px; /* Adds 30px padding inside the container */
-    background-color: var(--white); /* Sets the container background color to white */
-    border: 1px solid var(--lightGray); /* Adds a light gray border around the container */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Creates a subtle shadow for depth */
-    border-radius: 5px; /* Rounds the corners of the container */
-    text-align: center; /* Centers the text inside the container */
-    top: 50%; /* Vertically centers the container */
-    left: 50%; /* Horizontally centers the container */
-    transform: translate(-50%, -50%); /* Moves the container to the exact center of the viewport */
-    align-items: center; /* Aligns flex items in the center (if used in a flex container) */
+.login-section .form-container{
+    display: flex;
+    width: 450px;
+    height: 600px;
+    border: 3px solid rgba(255, 255, 255, .3);
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    overflow: hidden;
 }
 
-.login-section .back-btn {
-    position: absolute; /* Positions the back button absolutely within the container */
-    top: 10px; /* Places the back button 10px from the top */
-    left: 10px; /* Places the back button 10px from the left */
-    padding: 8px 12px; /* Adds padding to the back button (8px top/bottom, 12px left/right) */
-    background-color: var(--white); /* Sets the background color to white */
-    border: 1px solid var(--blacker); /* Adds a solid black border */
-    border-radius: 5px; /* Rounds the corners of the button */
-    cursor: pointer; /* Changes the cursor to a pointer when hovering */
-    font-size: 14px; /* Sets the font size of the back button text */
+.login-section .form-col {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
-.login-section .login-box h2 {
-    margin-bottom: 20px; /* Adds space below the heading */
-    font-size: 24px; /* Sets the font size of the heading */
+.login-section .btn-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
 }
 
-.login-section form {
-    display: flex; /* Uses flexbox for the form layout */
-    flex-direction: column; /* Aligns form elements in a vertical column */
+.login-section .btn {
+    font-size: 16px; /* Change font size */
+    color: #ffffff; /* Change font color */
+    font-weight: 500px;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, .2);
+    cursor: pointer;
+    transition: .2s;
+}
+.login-section .btn-1 {
+    background: #bc6c25;
 }
 
-.login-section input {
-    padding: 15px; /* Adds padding inside the input fields */
-    height: 60px; /* Sets a fixed height for the input fields */
-    margin: 10px 0; /* Adds 10px margin above and below each input */
-    width: 100%; /* Makes the input fields take up the full width of the container */
-    border: 1px solid var(--lightGray); /* Adds a light gray border around the input fields */
-    border-radius: 5px; /* Rounds the corners of the input fields */
-    font-size: 16px; /* Sets a larger font size for the input text */
+.login-section .btn:hover {
+    opacity: 0.85;
+}
+
+.login-section .form-box {
+    position: absolute;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+    transition: .3s;
+}
+
+.login-section .form-title {
+    margin: 40px 0;
+    color: var(--white);
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.login-section .login-form {
+    left: 50%;
+    opacity: 1; /* Visible initially */
+    transition: left 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+.login-section .register-form {
+    left: 100%; /* Move it completely off the screen initially */
+    top: 2rem;
+    opacity: 0; /* Invisible initially */
+    transition: left 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+.login-section .register-form,
+.login-section .form-title {
+    margin-block: 40px 20px;
+}
+
+.login-section .form-inputs {
+    width: 100%;
+}
+
+.login-section .input-box {
+    position: relative;
+}
+
+.login-section .inputs {
+    width: 100%;
+    height: 55px;
+    margin: 10px 0;
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+
+.login-section .input-field {
+    font-size: 16px;
+    padding: 0 40px 0 20px;
+    background: rgba(255, 255, 255, .2);
+    outline: none;
+    backdrop-filter: blur(20px);
+}
+
+.login-section ::placeholder {
+    color: var(--white);
+    font-size: 15px;
+}
+
+.login-section .input-box .icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: var(--white);
+    font-size: 30px; /* Adjust the size as needed */
+    width: 30px;     /* Optional: Adjust width for non-font icons */
+    height: 30px;
+}
+
+.login-section .forgot-pass,
+.login-section .remember-me {
+    display: flex;
+    justify-content: right;
+    gap: 5px;
+}
+
+.login-section .forgot-pass a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-section .forgot-pass a:hover {
+    text-decoration: underline;
+}
+
+.login-section .remember-me label{
+    color: var(--white);
+    font-size: 14px;
 }
 
 .login-section .submit-btn {
-    padding: 12px; /* Adds padding inside the submit button */
-    background-color: var(--blacker); /* Sets the background color of the submit button to black */
-    color: var(--white); /* Sets the text color to white */
-    border: none; /* Removes the border from the submit button */
-    border-radius: 5px; /* Rounds the corners of the submit button */
-    cursor: pointer; /* Changes the cursor to a pointer when hovering */
-    margin-top: 20px; /* Adds space above the submit button */
-    font-size: 16px; /* Sets the font size of the submit button text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--orange2);
+    cursor: pointer;
+    transition: .3s;
 }
 
-.login-section .submit-btn:hover, .back-btn:hover {
-    background-color: #333; /* Changes the background color to dark gray when hovered */
+.login-section .submit-btn:hover {
+    gap: 15px;
+
 }
 
-.login-section p {
-    margin-top: 15px; /* Adds space above the paragraph */
-    font-size: 14px; /* Sets the font size of the paragraph text */
+.login-section .social-login {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.login-section a {
-    color: var(--blacker); /* Sets the link color to black */
+.login-section .social-login-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: var(--white);
+    cursor: pointer;
+    transition: .2s;
 }
 
-.login-section .input-error {
-    border: 1px solid var(--red); /* Adds a red border to inputs when there is an error */
+.login-section .social-login-icon {
+    width: 30px; /* Adjust the width to increase the icon size */
+    height: 30px; /* Set the height to match the width for proportional scaling */
 }
 
-.login-section .error-message {
-    color: var(--red); /* Sets the error message text color to red */
-    font-size: 12px; /* Sets the font size of the error message text */
-    margin-top: 4px; /* Adds space above the error message */
+.login-section .social-login-icon:hover {
+    transform: scale(0.9);
+    color: var(--orange2);
+}
+
+@media screen and (max-width: 768px) {
+    .login-section {
+        transform: none;
+    }
 }
 
 
@@ -848,7 +967,7 @@ header .navbar a:hover {
     width: 100%; /* Ensures the form takes up the full width of the contact-right container */
 }
 
-form input, form textarea {
+.contact form input, form textarea {
     width: 100%; /* Sets the input fields and text areas to take up the full width of their container */
     border: 0; /* Removes the border from input fields and text areas */
     outline: none; /* Removes the default focus outline from input fields and text areas */
@@ -860,7 +979,7 @@ form input, form textarea {
     border-radius: 6px; /* Rounds the corners of input fields and text areas with a 6px radius */
 }
 
-form .btn2 {
+.contact form .btn2 {
     padding: 10px 10px; /* Adds 10px of padding to the button */
     font-size: 18px; /* Sets the font size of the button text to 18px */
     margin-top: 20px; /* Adds 20px of space above the button */
