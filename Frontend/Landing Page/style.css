@@ -207,6 +207,15 @@ header .navbar a:hover {
     display: none; /* Hides the menu icon (usually displayed in mobile views only) */
 }
 
+@media screen and (max-width: 768px) {
+    header .navbar a {
+        font-size: 1.5rem; /* Sets the font size of the navbar links */
+        text-decoration: none; /* Removes text decorations like underlines from links and other elements */
+        margin-left: 1rem; /* Adds 2rem spacing between each navbar link */
+        color: var(--darkgray); /* Sets the text color of the navbar links using the dark-gray variable */
+    }
+}
+
 
 
 /* <----------Header ends here----------> */
@@ -606,6 +615,20 @@ header .navbar a:hover {
     border-radius: 20px; /* Rounds the corners of the image for smooth edges */
 }
 
+@media screen and (max-width: 768px) {
+    .features .content,
+    .features2 .content, 
+    .features3 .content  {
+        order: 2;
+    }
+
+    .features .image,
+    .features2 .image,
+    .features3 .image {
+        order: 1;
+    }
+}
+
 
 
 /* <----------Features ends here----------> */
@@ -616,6 +639,9 @@ header .navbar a:hover {
 
 
 
+.login-dropdown{
+    padding: 0;
+}
 .login-section {
     /* background: var(--blue); */
     display: flex;
@@ -692,7 +718,7 @@ header .navbar a:hover {
 }
 
 .login-section .register-form {
-    left: 100%; /* Move it completely off the screen initially */
+    left: 150%; /* Move it completely off the screen initially */
     top: 2rem;
     opacity: 0; /* Invisible initially */
     transition: left 0.3s ease, opacity 0.3s ease; /* Smooth transition */

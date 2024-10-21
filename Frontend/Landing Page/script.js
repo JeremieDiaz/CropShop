@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         registerBtn.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
 
         loginForm.style.left = "50%"; // Center the login form
-        registerForm.style.left = "100%"; // Move the register form off-screen
+        registerForm.style.left = "150%"; // Move the register form off-screen
 
         loginForm.style.opacity = 1;
         registerForm.style.opacity = 0; // Fade out register form
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loginBtn.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
         registerBtn.style.backgroundColor = "#bc6c25";
 
-        loginForm.style.left = "100%"; // Move the login form off-screen
+        loginForm.style.left = "150%"; // Move the login form off-screen
         registerForm.style.left = "50%"; // Center the register form
 
         loginForm.style.opacity = 0; // Fade out login form
