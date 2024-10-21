@@ -87,7 +87,6 @@ nav {
     padding: 0;
 }
 
-
 /* Dashboard content box */
 .dashboard-box {
     border: 2px solid #bc6c25; /* Applying #bc6c25 to the canvas border */
@@ -101,8 +100,6 @@ nav {
     padding: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-
-
     
 }
 .dashboard-box h3 {
@@ -117,9 +114,6 @@ nav {
     margin-bottom: 20px; /* Space below each select */
     padding: 5px; /* Padding inside select */
 }
-
-
-
 
 
 /* Marketplace grid */
@@ -492,6 +486,7 @@ button:hover {
     flex-direction: column;
     justify-content: flex-start; /* Align items at the start */
     border: 2px solid #bc6c25; /* Applying #bc6c25 to the canvas border */
+    font-weight: bold;
 }
 
 .top-trends-header {
@@ -510,6 +505,7 @@ button:hover {
     color: rgb(14, 14, 14); /* Text color */
     cursor: pointer; /* Pointer cursor */
     transition: background-color 0.3s; /* Transition for hover effect */
+ 
     
 }
 
@@ -529,6 +525,7 @@ button:hover {
 .image-container {
     position: relative; /* For absolute positioning of overlay */
     height: 100%;
+    margin-bottom: 9%;
 }
 
 .image-container img {
@@ -566,6 +563,7 @@ button:hover {
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    font-weight: bold;
 }
 
 /* Style for the "Back to Dashboard" button */
@@ -660,6 +658,7 @@ button:hover {
     .trends-grid {
         grid-template-columns: repeat(1, 1fr);
     }
+
 }
 
 /* Container for slider buttons and index */
@@ -725,12 +724,9 @@ select:focus {
 
 /* Styling the canvas (chart area) */
 canvas {
-    border: 2px solid #ffffff; /* Applying #bc6c25 to the canvas border */
+    border: 2px solid #bc6c25; /* Applying #bc6c25 to the canvas border */
     background-color: #f1e6d4; /* White background for the chart */
 }
-
-
-
 
 
 .ad-banner {
@@ -812,6 +808,58 @@ canvas {
     border: 2px solid #a6551e;
 }
 
+@media (max-width: 600px) {
+    .ad-banner {
+        height: 150px; /* Reduce banner height for smaller screens */
+    }
+
+    .ad-caption {
+        font-size: 1rem; /* Smaller caption font size */
+    }
+
+    .ad-slide img {
+        border-radius: 4px; /* Smaller border radius on phones */
+    }
+
+    .a4-photo {
+        max-width: 100%; /* Make the A4 photo fit screen width */
+        height: auto;
+    }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 992px) {
+    .ad-banner {
+        height: 180px; /* Adjust banner height for tablets */
+    }
+
+    .ad-caption {
+        font-size: 1.1rem; /* Slightly larger caption font for tablets */
+    }
+
+    .a4-photo {
+        max-width: 100%; /* A4 photo width adapts to screen size */
+        height: auto;
+    }
+}
+
+/* Desktops */
+@media (min-width: 993px) {
+    .ad-banner {
+        height: 200px; /* Full height for larger screens */
+    }
+
+    .ad-caption {
+        font-size: 1.2rem; /* Larger captions for desktop */
+    }
+
+    .a4-photo {
+        max-width: 265mm; /* Use A4 width for desktops */
+        height: 500mm; /* Adjust the height for the photo */
+    }
+}
+
+
 /* Modal styling */
 .modal {
     display: none; /* Hidden by default */
@@ -866,23 +914,6 @@ canvas {
     margin-top: 10px;
 }
 
-
-
-/* Media query for smaller screens */
-@media (max-width: 600px) {
-    .a4-photo {
-        width: 100%; /* Full width on small screens */
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    .close {
-        font-size: 25px; /* Smaller close button */
-    }
-
-    #caption {
-        font-size: 14px; /* Smaller caption font */
-    }
-}
 
 
 /* start nath css */
@@ -1107,5 +1138,3 @@ canvas {
 }
 
 /* end nath css */
-
-
