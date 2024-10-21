@@ -103,6 +103,7 @@ nav {
     text-align: center;
 
 
+    
 }
 .dashboard-box h3 {
     margin-bottom: 20px; /* Space below the heading */
@@ -953,6 +954,141 @@ canvas {
     max-width: 200px; /* Set a max width for responsiveness, adjust as needed */
 }
 
+#toast {
+    visibility: hidden;
+    background-color: #ffffff; 
+    color: #333333; 
+    border-radius: 2px;
+    padding: 12px;
+    position: fixed; 
+    z-index: 1; 
+    right: 30px; 
+    bottom: 30px; 
+    border-radius: 8px;
+    font-weight: 500;
+    display: flex;
+    gap: 8px;
+}
+
+#toast.show {
+    visibility: visible; 
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+#checkout-toast {
+    visibility: hidden;
+    background-color: #ffffff; 
+    color: #333333; 
+    border-radius: 2px;
+    padding: 12px;
+    position: fixed; 
+    z-index: 1; 
+    right: 30px; 
+    bottom: 30px; 
+    border-radius: 8px;
+    font-weight: 500;
+    display: flex;
+    gap: 8px;
+}
+
+#checkout-toast.show {
+    visibility: visible; 
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+
+#checkout-toast-suc {
+    visibility: hidden;
+    background-color: #ffffff; 
+    color: #333333; 
+    border-radius: 2px;
+    padding: 12px;
+    position: fixed; 
+    z-index: 1; 
+    right: 30px; 
+    bottom: 30px; 
+    border-radius: 8px;
+    font-weight: 500;
+    display: flex;
+    gap: 8px;
+}
+
+#checkout-toast-suc.show {
+    visibility: visible; 
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+
+.checkout-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding-right: 8px;
+}
 
 /* Responsive adjustments */
 @media (max-width: 600px) {

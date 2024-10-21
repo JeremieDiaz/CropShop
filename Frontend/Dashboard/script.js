@@ -1,21 +1,15 @@
 function showSection(sectionId, clickedLink) {
-    // Hide all sections
-    document.getElementById('dashboard').style.display = 'none';
-    document.getElementById('marketplace').style.display = 'none';
-    document.getElementById('cart').style.display = 'none';
-    document.getElementById('product-details').style.display = 'none';
-    
-    // Ensure 'view all trends' section is hidden when navigating away from the dashboard
-    document.getElementById('all-products').style.display = 'none'; // Hide All Products (view all trends)
+  // Hide all sections
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("marketplace").style.display = "none";
+  document.getElementById("cart").style.display = "none";
+  document.getElementById("product-details").style.display = "none";
 
-    // Show the selected section
-    document.getElementById(sectionId).style.display = 'block';
+  // Ensure 'view all trends' section is hidden when navigating away from the dashboard
+  document.getElementById("all-products").style.display = "none"; // Hide All Products (view all trends)
 
-    // Remove 'active' class from all links and add to clicked link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.classList.remove('active');
-    });
-    clickedLink.classList.add('active');
+  // Show the selected section
+  document.getElementById(sectionId).style.display = "block";
 
     // Handle visibility for the carousel, special offer heading, and top trends
     const carouselSection = document.getElementById('carousel-section'); 
@@ -59,18 +53,54 @@ function showSection(sectionId, clickedLink) {
         if (topTrendsSection) topTrendsSection.style.display = 'none'; // Hide Top Trends on other sections
         if (adbanner) adbanner.style.display = 'none'; // Hide ad banner on other sections
         if (zoomableImage) zoomableImage.style.display = 'none'; // 
+  // Remove 'active' class from all links and add to clicked link
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.classList.remove("active");
+  });
+  clickedLink.classList.add("active");
+
+  // Handle visibility for the carousel, special offer heading, and top trends
+  const carouselSection = document.getElementById("carousel-section");
+  const specialOfferHeading = document.querySelector(
+    'section[aria-label="Special Offers"] h2'
+  );
+  const topTrendsSection = document.querySelector(".top-trends-section");
+
+  // Show or hide sections based on the selected section
+  if (sectionId === "dashboard") {
+    carouselSection.style.display = "block"; // Show carousel on Dashboard
+    if (specialOfferHeading) specialOfferHeading.style.display = "block"; // Show special offer heading if exists
+    if (topTrendsSection) topTrendsSection.style.display = "block"; // Show Top Trends on Dashboard
+  } else if (sectionId === "marketplace") {
+    if (carouselSection) carouselSection.style.display = "none"; // Hide carousel on Marketplace
+    if (specialOfferHeading) specialOfferHeading.style.display = "none"; // Hide special offer heading
+    if (topTrendsSection) topTrendsSection.style.display = "none"; // Hide Top Trends on Marketplace
+  } else if (sectionId === "cart") {
+    if (carouselSection) carouselSection.style.display = "none"; // Hide carousel on Marketplace
+    if (specialOfferHeading) specialOfferHeading.style.display = "none"; // Hide special offer heading
+    if (topTrendsSection) topTrendsSection.style.display = "none"; // Hide Top Trends on Marketplace
+
+    if (cart && cart.length > 0) {
+      document.getElementById("empty-cart-message").style.display = "none"; // Hide empty cart message
+      document.getElementById("cart-items").style.display = "block"; // Hide empty cart message
+    } else {
+      document.getElementById("empty-cart-message").style.display = "block"; // Show empty cart message
     }
+
+    document.getElementById("cart-content").style.display = "block";
+  } else {
+    if (carouselSection) carouselSection.style.display = "none"; // Hide carousel on other sections
+    if (specialOfferHeading) specialOfferHeading.style.display = "none"; // Hide special offer heading
+    if (topTrendsSection) topTrendsSection.style.display = "none"; // Hide Top Trends on other sections
+  }
 }
 
 
 
 
 function goBackToMarketplace() {
-    // Hide the product details section
-    document.getElementById('product-details').style.display = 'none';
-    
-    // Hide the All Products (view all trends) section if visible
-    document.getElementById('all-products').style.display = 'none'; 
+  // Hide the product details section
+  document.getElementById("product-details").style.display = "none";
 
 
     // Check where the user came from and navigate back to the previous section
@@ -90,52 +120,129 @@ function goBackToMarketplace() {
     }
 }
 
-    // Enhanced Filter Products based on criteria
-    function filterProducts(criteria, event) {
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-        
-        const products = document.querySelectorAll('.product-item');
-        products.forEach(product => {
-            const productName = product.querySelector('p').textContent;
-            if (criteria === 'All') {
-                product.style.display = 'block'; // Show all products
-            } else if (criteria === 'Crops' && ['Rice', 'Corn', 'Potato', 'Garlic', 'Onion', 'Ginger', 'Sugarcane', 'Carrot', 'Radish','Soybeans','Barley','Oats','Tomato','Cassava','Coconut','Banana','Pineapple','Mango','Calamansi','Eggplant'].includes(productName)) {
-                product.style.display = 'block';
-            } else if (criteria === 'Seeds' && productName.toLowerCase().includes('seeds')) {
-                product.style.display = 'block';
-            } else if (criteria === 'Fertilizers' && productName.toLowerCase().includes('fertilizer')) {
-                product.style.display = 'block';
-            } else if (criteria === 'Tools' && ['Trowel', 'Mini Hand Rake', 'Water Sprinkler','Gloves','Pruning Shears','Loopers','Spade','Rake','Hoe'].includes(productName)) {
-                product.style.display = 'block';
-            } else if (criteria === 'Dairy' && ['Milk', 'Cheese', 'Butter', 'Yogurt', 'Cream', 'Cottage Cheese', 'Sour Cream', 'Whipped Cream', 'Cream Cheese', 'Ghee', 'Ice Cream', 'Kefir', 'Condensed Milk', 'Buttermilk', 'Skimmed Milk', 'Paneer', 'Ricotta Cheese', 'Mozzarella Cheese', 'Parmesan Cheese', 'Greek Yogurt'].includes(productName)) {
-                product.style.display = 'block';
-            } else {
-                product.style.display = 'none';
-            }
-        });
+// Enhanced Filter Products based on criteria
+function filterProducts(criteria, event) {
+  document
+    .querySelectorAll(".filter-btn")
+    .forEach((btn) => btn.classList.remove("active"));
+  event.target.classList.add("active");
+
+  const products = document.querySelectorAll(".product-item");
+  products.forEach((product) => {
+    const productName = product.querySelector("p").textContent;
+    if (criteria === "All") {
+      product.style.display = "block"; // Show all products
+    } else if (
+      criteria === "Crops" &&
+      [
+        "Rice",
+        "Corn",
+        "Potato",
+        "Garlic",
+        "Onion",
+        "Ginger",
+        "Sugarcane",
+        "Carrot",
+        "Radish",
+        "Soybeans",
+        "Barley",
+        "Oats",
+        "Tomato",
+        "Cassava",
+        "Coconut",
+        "Banana",
+        "Pineapple",
+        "Mango",
+        "Calamansi",
+        "Eggplant",
+      ].includes(productName)
+    ) {
+      product.style.display = "block";
+    } else if (
+      criteria === "Seeds" &&
+      productName.toLowerCase().includes("seeds")
+    ) {
+      product.style.display = "block";
+    } else if (
+      criteria === "Fertilizers" &&
+      productName.toLowerCase().includes("fertilizer")
+    ) {
+      product.style.display = "block";
+    } else if (
+      criteria === "Tools" &&
+      [
+        "Trowel",
+        "Mini Hand Rake",
+        "Water Sprinkler",
+        "Gloves",
+        "Pruning Shears",
+        "Loopers",
+        "Spade",
+        "Rake",
+        "Hoe",
+      ].includes(productName)
+    ) {
+      product.style.display = "block";
+    } else if (
+      criteria === "Dairy" &&
+      [
+        "Milk",
+        "Cheese",
+        "Butter",
+        "Yogurt",
+        "Cream",
+        "Cottage Cheese",
+        "Sour Cream",
+        "Whipped Cream",
+        "Cream Cheese",
+        "Ghee",
+        "Ice Cream",
+        "Kefir",
+        "Condensed Milk",
+        "Buttermilk",
+        "Skimmed Milk",
+        "Paneer",
+        "Ricotta Cheese",
+        "Mozzarella Cheese",
+        "Parmesan Cheese",
+        "Greek Yogurt",
+      ].includes(productName)
+    ) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
     }
-    // Enhanced Search Bar functionality
-    document.getElementById('search-bar').addEventListener('input', function() {
-        const filter = this.value.toLowerCase();
-        const products = document.querySelectorAll('.product-item');
+  });
+}
+// Enhanced Search Bar functionality
+document.getElementById("search-bar").addEventListener("input", function () {
+  const filter = this.value.toLowerCase();
+  const products = document.querySelectorAll(".product-item");
 
-        products.forEach(product => {
-            const productName = product.querySelector('p').textContent.toLowerCase();
-            const productDescription = product.querySelectorAll('p')[1].textContent.toLowerCase();  // Assuming second <p> is description
-            const productPrice = product.querySelectorAll('p')[2]?.textContent?.toLowerCase();  // Assuming third <p> is price, if exists
+  products.forEach((product) => {
+    const productName = product.querySelector("p").textContent.toLowerCase();
+    const productDescription = product
+      .querySelectorAll("p")[1]
+      .textContent.toLowerCase(); // Assuming second <p> is description
+    const productPrice = product
+      .querySelectorAll("p")[2]
+      ?.textContent?.toLowerCase(); // Assuming third <p> is price, if exists
 
-            // Check if search filter matches product name, description, or price
-            if (productName.includes(filter) || productDescription?.includes(filter) || productPrice?.includes(filter)) {
-                product.style.display = 'block';
-            } else {
-                product.style.display = 'none';
-            }
-        });
-    });
+    // Check if search filter matches product name, description, or price
+    if (
+      productName.includes(filter) ||
+      productDescription?.includes(filter) ||
+      productPrice?.includes(filter)
+    ) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+});
 
-    // Display Product Details
-    let previousSection = 'dashboard'; // Default to 'dashboard'
+// Display Product Details
+let previousSection = "dashboard"; // Default to 'dashboard'
 let currentIndex = 0; // Track the current image index
 
     function showProductDetails(productName) {
@@ -471,215 +578,340 @@ let currentIndex = 0; // Track the current image index
     description: 'Nitrate fertilizer, provides fast nitrogen release for plants.' 
 },
 
-           'Trowel': { 
-    img: 'Images/Dashboard imgs/tools1.jpg', 
-    images: ['Images/Dashboard imgs/tools1.jpg', 'Images/Dashboard imgs/tools1-2.jpg', 'Images/Dashboard imgs/tools1-3.jpg'], 
-    price: '₱150', 
-    rating: 4, 
-    description: 'A handy tool for digging and planting.' 
-},
-'Mini Hand Rake': { 
-    img: 'Images/Dashboard imgs/tools2.jpg', 
-    images: ['Images/Dashboard imgs/tools2.jpg', 'Images/Dashboard imgs/tools2-2.jpg', 'Images/Dashboard imgs/tools2-3.jpg'], 
-    price: '₱130', 
-    rating: 4, 
-    description: 'A small rake for loosening soil and removing debris.' 
-},
-'Water Sprinkler': { 
-    img: 'Images/Dashboard imgs/tools3.jpg', 
-    images: ['Images/Dashboard imgs/tools3.jpg', 'Images/Dashboard imgs/tools3-2.jpg', 'Images/Dashboard imgs/tools3-3.jpg'], 
-    price: '₱300', 
-    rating: 4, 
-    description: 'A tool for watering plants evenly.' 
-},
-'Gloves': { 
-    img: 'Images/Dashboard imgs/tools4.jpg', 
-    images: ['Images/Dashboard imgs/tools4.jpg', 'Images/Dashboard imgs/tools4-2.jpg', 'Images/Dashboard imgs/tools4-3.jpg'], 
-    price: '₱80', 
-    rating: 4, 
-    description: 'Gardening gloves for hand protection.' 
-},
-'Pruning Shears': { 
-    img: 'Images/Dashboard imgs/tools5.jpg', 
-    images: ['Images/Dashboard imgs/tools5.jpg', 'Images/Dashboard imgs/tools5-2.jpg', 'Images/Dashboard imgs/tools5-3.jpg'], 
-    price: '₱250', 
-    rating: 4, 
-    description: 'A tool for trimming plants and branches.' 
-},
-'Loopers': { 
-    img: 'Images/Dashboard imgs/tools6.jpg', 
-    images: ['Images/Dashboard imgs/tools6.jpg', 'Images/Dashboard imgs/tools6-2.jpg', 'Images/Dashboard imgs/tools6-3.jpg'], 
-    price: '₱400', 
-    rating: 4, 
-    description: 'Ideal for cutting thicker branches.' 
-},
-'Spade': { 
-    img: 'Images/Dashboard imgs/tools7.jpg', 
-    images: ['Images/Dashboard imgs/tools7.jpg', 'Images/Dashboard imgs/tools7-2.jpg', 'Images/Dashboard imgs/tools7-3.jpg'], 
-    price: '₱350', 
-    rating: 4, 
-    description: 'A tool for digging and turning soil.' 
-},
-'Rake': { 
-    img: 'Images/Dashboard imgs/tools8.jpg', 
-    images: ['Images/Dashboard imgs/tools8.jpg', 'Images/Dashboard imgs/tools8-2.jpg', 'Images/Dashboard imgs/tools8-3.jpg'], 
-    price: '₱300', 
-    rating: 4, 
-    description: 'Used for leveling soil and gathering debris.' 
-},
-'Hoe': { 
-    img: 'Images/Dashboard imgs/tools9.jpg', 
-    images: ['Images/Dashboard imgs/tools9.jpg', 'Images/Dashboard imgs/tools9-2.jpg', 'Images/Dashboard imgs/tools9-3.jpg'], 
-    price: '₱280', 
-    rating: 4, 
-    description: 'Tool for cultivating and breaking up soil.' 
-},
+    Trowel: {
+      img: "Images/Dashboard imgs/tools1.jpg",
+      images: [
+        "Images/Dashboard imgs/tools1.jpg",
+        "Images/Dashboard imgs/tools1-2.jpg",
+        "Images/Dashboard imgs/tools1-3.jpg",
+      ],
+      price: "₱150",
+      rating: 4,
+      description: "A handy tool for digging and planting.",
+    },
+    "Mini Hand Rake": {
+      img: "Images/Dashboard imgs/tools2.jpg",
+      images: [
+        "Images/Dashboard imgs/tools2.jpg",
+        "Images/Dashboard imgs/tools2-2.jpg",
+        "Images/Dashboard imgs/tools2-3.jpg",
+      ],
+      price: "₱130",
+      rating: 4,
+      description: "A small rake for loosening soil and removing debris.",
+    },
+    "Water Sprinkler": {
+      img: "Images/Dashboard imgs/tools3.jpg",
+      images: [
+        "Images/Dashboard imgs/tools3.jpg",
+        "Images/Dashboard imgs/tools3-2.jpg",
+        "Images/Dashboard imgs/tools3-3.jpg",
+      ],
+      price: "₱300",
+      rating: 4,
+      description: "A tool for watering plants evenly.",
+    },
+    Gloves: {
+      img: "Images/Dashboard imgs/tools4.jpg",
+      images: [
+        "Images/Dashboard imgs/tools4.jpg",
+        "Images/Dashboard imgs/tools4-2.jpg",
+        "Images/Dashboard imgs/tools4-3.jpg",
+      ],
+      price: "₱80",
+      rating: 4,
+      description: "Gardening gloves for hand protection.",
+    },
+    "Pruning Shears": {
+      img: "Images/Dashboard imgs/tools5.jpg",
+      images: [
+        "Images/Dashboard imgs/tools5.jpg",
+        "Images/Dashboard imgs/tools5-2.jpg",
+        "Images/Dashboard imgs/tools5-3.jpg",
+      ],
+      price: "₱250",
+      rating: 4,
+      description: "A tool for trimming plants and branches.",
+    },
+    Loopers: {
+      img: "Images/Dashboard imgs/tools6.jpg",
+      images: [
+        "Images/Dashboard imgs/tools6.jpg",
+        "Images/Dashboard imgs/tools6-2.jpg",
+        "Images/Dashboard imgs/tools6-3.jpg",
+      ],
+      price: "₱400",
+      rating: 4,
+      description: "Ideal for cutting thicker branches.",
+    },
+    Spade: {
+      img: "Images/Dashboard imgs/tools7.jpg",
+      images: [
+        "Images/Dashboard imgs/tools7.jpg",
+        "Images/Dashboard imgs/tools7-2.jpg",
+        "Images/Dashboard imgs/tools7-3.jpg",
+      ],
+      price: "₱350",
+      rating: 4,
+      description: "A tool for digging and turning soil.",
+    },
+    Rake: {
+      img: "Images/Dashboard imgs/tools8.jpg",
+      images: [
+        "Images/Dashboard imgs/tools8.jpg",
+        "Images/Dashboard imgs/tools8-2.jpg",
+        "Images/Dashboard imgs/tools8-3.jpg",
+      ],
+      price: "₱300",
+      rating: 4,
+      description: "Used for leveling soil and gathering debris.",
+    },
+    Hoe: {
+      img: "Images/Dashboard imgs/tools9.jpg",
+      images: [
+        "Images/Dashboard imgs/tools9.jpg",
+        "Images/Dashboard imgs/tools9-2.jpg",
+        "Images/Dashboard imgs/tools9-3.jpg",
+      ],
+      price: "₱280",
+      rating: 4,
+      description: "Tool for cultivating and breaking up soil.",
+    },
 
-    
-                'Milk': {
-    img: 'Images/Dashboard imgs/dairy1.jpg', // Main image
-    images: ['Images/Dashboard imgs/dairy1.jpg', 'Images/Dashboard imgs/dairy1-2.jpg', 'Images/Dashboard imgs/dairy1-3.jpg'], // Additional images for slider
-    price: '₱70/liter',
-    rating: 4,
-    description: 'Fresh cow’s milk, perfect for daily use.'
-},
-                'Cheese': { 
-    img: 'Images/Dashboard imgs/dairy2.jpg', 
-    images: ['Images/Dashboard imgs/dairy2.jpg', 'Images/Dashboard imgs/dairy2-2.jpg', 'Images/Dashboard imgs/dairy2-3.jpg'], 
-    price: '₱350/kg', 
-    rating: 5, 
-    description: 'Delicious cheddar cheese, great for sandwiches and cooking.' 
-},
-'Butter': { 
-    img: 'Images/Dashboard imgs/dairy3.jpg', 
-    images: ['Images/Dashboard imgs/dairy3.jpg', 'Images/Dashboard imgs/dairy3-2.jpg', 'Images/Dashboard imgs/dairy3-3.jpg'], 
-    price: '₱200/block', 
-    rating: 4.5, 
-    description: 'Rich and creamy butter, perfect for baking and cooking.' 
-},
-'Yogurt': { 
-    img: 'Images/Dashboard imgs/dairy4.jpg', 
-    images: ['Images/Dashboard imgs/dairy4.jpg', 'Images/Dashboard imgs/dairy4-2.jpg', 'Images/Dashboard imgs/dairy4-3.jpg'], 
-    price: '₱90/200g', 
-    rating: 4.2, 
-    description: 'Smooth and tangy yogurt, great for breakfast or snacks.' 
-},
-'Cream': { 
-    img: 'Images/Dashboard imgs/dairy5.jpg', 
-    images: ['Images/Dashboard imgs/dairy5.jpg', 'Images/Dashboard imgs/dairy5-2.jpg', 'Images/Dashboard imgs/dairy5-3.jpg'], 
-    price: '₱150/250ml', 
-    rating: 4.7, 
-    description: 'Heavy cream, ideal for desserts and sauces.' 
-},
-'Cottage Cheese': { 
-    img: 'Images/Dashboard imgs/dairy6.jpg', 
-    images: ['Images/Dashboard imgs/dairy6.jpg', 'Images/Dashboard imgs/dairy6-2.jpg', 'Images/Dashboard imgs/dairy6-3.jpg'], 
-    price: '₱250/500g', 
-    rating: 4.3, 
-    description: 'Fresh cottage cheese, perfect for salads and healthy meals.' 
-},
-'Sour Cream': { 
-    img: 'Images/Dashboard imgs/dairy7.jpg', 
-    images: ['Images/Dashboard imgs/dairy7.jpg', 'Images/Dashboard imgs/dairy7-2.jpg', 'Images/Dashboard imgs/dairy7-3.jpg'], 
-    price: '₱120/250g', 
-    rating: 4.1, 
-    description: 'Tangy sour cream, ideal for dips and baked potatoes.' 
-},
-'Whipped Cream': { 
-    img: 'Images/Dashboard imgs/dairy8.jpg', 
-    images: ['Images/Dashboard imgs/dairy8.jpg', 'Images/Dashboard imgs/dairy8-2.jpg', 'Images/Dashboard imgs/dairy8-3.jpg'], 
-    price: '₱200/300ml', 
-    rating: 4.8, 
-    description: 'Light and fluffy whipped cream, perfect for topping desserts.' 
-},
-'Cream Cheese': { 
-    img: 'Images/Dashboard imgs/dairy9.jpg', 
-    images: ['Images/Dashboard imgs/dairy9.jpg', 'Images/Dashboard imgs/dairy9-2.jpg', 'Images/Dashboard imgs/dairy9-3.jpg'], 
-    price: '₱180/250g', 
-    rating: 4.6, 
-    description: 'Smooth cream cheese, perfect for spreading and baking.' 
-},
-'Ghee': { 
-    img: 'Images/Dashboard imgs/dairy10.jpg', 
-    images: ['Images/Dashboard imgs/dairy10.jpg', 'Images/Dashboard imgs/dairy10-2.jpg', 'Images/Dashboard imgs/dairy10-3.jpg'], 
-    price: '₱400/500g', 
-    rating: 4.9, 
-    description: 'Clarified butter, used in traditional cooking and baking.' 
-},
-'Ice Cream': { 
-    img: 'Images/Dashboard imgs/dairy11.jpg', 
-    images: ['Images/Dashboard imgs/dairy11.jpg', 'Images/Dashboard imgs/dairy11-2.jpg', 'Images/Dashboard imgs/dairy11-3.jpg'], 
-    price: '₱150/pint', 
-    rating: 5, 
-    description: 'Creamy vanilla ice cream, a perfect treat.' 
-},
-'Kefir': { 
-    img: 'Images/Dashboard imgs/dairy12.jpg', 
-    images: ['Images/Dashboard imgs/dairy12.jpg', 'Images/Dashboard imgs/dairy12-2.jpg', 'Images/Dashboard imgs/dairy12-3.jpg'], 
-    price: '₱130/250ml', 
-    rating: 4.2, 
-    description: 'Fermented milk drink, rich in probiotics.' 
-},
-'Condensed Milk': { 
-    img: 'Images/Dashboard imgs/dairy13.jpg', 
-    images: ['Images/Dashboard imgs/dairy13.jpg', 'Images/Dashboard imgs/dairy13-2.jpg', 'Images/Dashboard imgs/dairy13-3.jpg'], 
-    price: '₱50/100g', 
-    rating: 4.5, 
-    description: 'Sweetened condensed milk, ideal for desserts and drinks.' 
-},
-'Buttermilk': { 
-    img: 'Images/Dashboard imgs/dairy14.jpg', 
-    images: ['Images/Dashboard imgs/dairy14.jpg', 'Images/Dashboard imgs/dairy14-2.jpg', 'Images/Dashboard imgs/dairy14-3.jpg'], 
-    price: '₱70/500ml', 
-    rating: 4.1, 
-    description: 'Traditional buttermilk, perfect for baking and cooking.' 
-},
-'Skimmed Milk': { 
-    img: 'Images/Dashboard imgs/dairy15.jpg', 
-    images: ['Images/Dashboard imgs/dairy15.jpg', 'Images/Dashboard imgs/dairy15-2.jpg', 'Images/Dashboard imgs/dairy15-3.jpg'], 
-    price: '₱65/liter', 
-    rating: 3.8, 
-    description: 'Low-fat milk, a healthier option for daily consumption.' 
-},
-'Paneer': { 
-    img: 'Images/Dashboard imgs/dairy16.jpg', 
-    images: ['Images/Dashboard imgs/dairy16.jpg', 'Images/Dashboard imgs/dairy16-2.jpg', 'Images/Dashboard imgs/dairy16-3.jpg'], 
-    price: '₱300/kg', 
-    rating: 4.6, 
-    description: 'Indian cottage cheese, perfect for vegetarian dishes.' 
-},
-'Ricotta Cheese': { 
-    img: 'Images/Dashboard imgs/dairy17.jpg', 
-    images: ['Images/Dashboard imgs/dairy17.jpg', 'Images/Dashboard imgs/dairy17-2.jpg', 'Images/Dashboard imgs/dairy17-3.jpg'], 
-    price: '₱350/500g', 
-    rating: 4.7, 
-    description: 'Soft ricotta cheese, ideal for pasta and desserts.' 
-},
-'Mozzarella Cheese': { 
-    img: 'Images/Dashboard imgs/dairy18.jpg', 
-    images: ['Images/Dashboard imgs/dairy18.jpg', 'Images/Dashboard imgs/dairy18-2.jpg', 'Images/Dashboard imgs/dairy18-3.jpg'], 
-    price: '₱400/kg', 
-    rating: 4.9, 
-    description: 'Fresh mozzarella, perfect for pizzas and salads.' 
-},
-'Parmesan Cheese': { 
-    img: 'Images/Dashboard imgs/dairy19.jpg', 
-    images: ['Images/Dashboard imgs/dairy19.jpg', 'Images/Dashboard imgs/dairy19-2.jpg', 'Images/Dashboard imgs/dairy19-3.jpg'], 
-    price: '₱500/kg', 
-    rating: 5, 
-    description: 'Hard parmesan cheese, great for grating over pasta.' 
-},
-'Greek Yogurt': { 
-    img: 'Images/Dashboard imgs/dairy20.jpg', 
-    images: ['Images/Dashboard imgs/dairy20.jpg', 'Images/Dashboard imgs/dairy20-2.jpg', 'Images/Dashboard imgs/dairy20-3.jpg'], 
-    price: '₱110/200g', 
-    rating: 4.8, 
-    description: 'Thick and creamy Greek yogurt, high in protein.' 
-},
+    Milk: {
+      img: "Images/Dashboard imgs/dairy1.jpg", // Main image
+      images: [
+        "Images/Dashboard imgs/dairy1.jpg",
+        "Images/Dashboard imgs/dairy1-2.jpg",
+        "Images/Dashboard imgs/dairy1-3.jpg",
+      ], // Additional images for slider
+      price: "₱70/liter",
+      rating: 4,
+      description: "Fresh cow’s milk, perfect for daily use.",
+    },
+    Cheese: {
+      img: "Images/Dashboard imgs/dairy2.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy2.jpg",
+        "Images/Dashboard imgs/dairy2-2.jpg",
+        "Images/Dashboard imgs/dairy2-3.jpg",
+      ],
+      price: "₱350/kg",
+      rating: 5,
+      description:
+        "Delicious cheddar cheese, great for sandwiches and cooking.",
+    },
+    Butter: {
+      img: "Images/Dashboard imgs/dairy3.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy3.jpg",
+        "Images/Dashboard imgs/dairy3-2.jpg",
+        "Images/Dashboard imgs/dairy3-3.jpg",
+      ],
+      price: "₱200/block",
+      rating: 4.5,
+      description: "Rich and creamy butter, perfect for baking and cooking.",
+    },
+    Yogurt: {
+      img: "Images/Dashboard imgs/dairy4.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy4.jpg",
+        "Images/Dashboard imgs/dairy4-2.jpg",
+        "Images/Dashboard imgs/dairy4-3.jpg",
+      ],
+      price: "₱90/200g",
+      rating: 4.2,
+      description: "Smooth and tangy yogurt, great for breakfast or snacks.",
+    },
+    Cream: {
+      img: "Images/Dashboard imgs/dairy5.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy5.jpg",
+        "Images/Dashboard imgs/dairy5-2.jpg",
+        "Images/Dashboard imgs/dairy5-3.jpg",
+      ],
+      price: "₱150/250ml",
+      rating: 4.7,
+      description: "Heavy cream, ideal for desserts and sauces.",
+    },
+    "Cottage Cheese": {
+      img: "Images/Dashboard imgs/dairy6.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy6.jpg",
+        "Images/Dashboard imgs/dairy6-2.jpg",
+        "Images/Dashboard imgs/dairy6-3.jpg",
+      ],
+      price: "₱250/500g",
+      rating: 4.3,
+      description:
+        "Fresh cottage cheese, perfect for salads and healthy meals.",
+    },
+    "Sour Cream": {
+      img: "Images/Dashboard imgs/dairy7.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy7.jpg",
+        "Images/Dashboard imgs/dairy7-2.jpg",
+        "Images/Dashboard imgs/dairy7-3.jpg",
+      ],
+      price: "₱120/250g",
+      rating: 4.1,
+      description: "Tangy sour cream, ideal for dips and baked potatoes.",
+    },
+    "Whipped Cream": {
+      img: "Images/Dashboard imgs/dairy8.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy8.jpg",
+        "Images/Dashboard imgs/dairy8-2.jpg",
+        "Images/Dashboard imgs/dairy8-3.jpg",
+      ],
+      price: "₱200/300ml",
+      rating: 4.8,
+      description:
+        "Light and fluffy whipped cream, perfect for topping desserts.",
+    },
+    "Cream Cheese": {
+      img: "Images/Dashboard imgs/dairy9.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy9.jpg",
+        "Images/Dashboard imgs/dairy9-2.jpg",
+        "Images/Dashboard imgs/dairy9-3.jpg",
+      ],
+      price: "₱180/250g",
+      rating: 4.6,
+      description: "Smooth cream cheese, perfect for spreading and baking.",
+    },
+    Ghee: {
+      img: "Images/Dashboard imgs/dairy10.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy10.jpg",
+        "Images/Dashboard imgs/dairy10-2.jpg",
+        "Images/Dashboard imgs/dairy10-3.jpg",
+      ],
+      price: "₱400/500g",
+      rating: 4.9,
+      description: "Clarified butter, used in traditional cooking and baking.",
+    },
+    "Ice Cream": {
+      img: "Images/Dashboard imgs/dairy11.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy11.jpg",
+        "Images/Dashboard imgs/dairy11-2.jpg",
+        "Images/Dashboard imgs/dairy11-3.jpg",
+      ],
+      price: "₱150/pint",
+      rating: 5,
+      description: "Creamy vanilla ice cream, a perfect treat.",
+    },
+    Kefir: {
+      img: "Images/Dashboard imgs/dairy12.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy12.jpg",
+        "Images/Dashboard imgs/dairy12-2.jpg",
+        "Images/Dashboard imgs/dairy12-3.jpg",
+      ],
+      price: "₱130/250ml",
+      rating: 4.2,
+      description: "Fermented milk drink, rich in probiotics.",
+    },
+    "Condensed Milk": {
+      img: "Images/Dashboard imgs/dairy13.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy13.jpg",
+        "Images/Dashboard imgs/dairy13-2.jpg",
+        "Images/Dashboard imgs/dairy13-3.jpg",
+      ],
+      price: "₱50/100g",
+      rating: 4.5,
+      description: "Sweetened condensed milk, ideal for desserts and drinks.",
+    },
+    Buttermilk: {
+      img: "Images/Dashboard imgs/dairy14.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy14.jpg",
+        "Images/Dashboard imgs/dairy14-2.jpg",
+        "Images/Dashboard imgs/dairy14-3.jpg",
+      ],
+      price: "₱70/500ml",
+      rating: 4.1,
+      description: "Traditional buttermilk, perfect for baking and cooking.",
+    },
+    "Skimmed Milk": {
+      img: "Images/Dashboard imgs/dairy15.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy15.jpg",
+        "Images/Dashboard imgs/dairy15-2.jpg",
+        "Images/Dashboard imgs/dairy15-3.jpg",
+      ],
+      price: "₱65/liter",
+      rating: 3.8,
+      description: "Low-fat milk, a healthier option for daily consumption.",
+    },
+    Paneer: {
+      img: "Images/Dashboard imgs/dairy16.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy16.jpg",
+        "Images/Dashboard imgs/dairy16-2.jpg",
+        "Images/Dashboard imgs/dairy16-3.jpg",
+      ],
+      price: "₱300/kg",
+      rating: 4.6,
+      description: "Indian cottage cheese, perfect for vegetarian dishes.",
+    },
+    "Ricotta Cheese": {
+      img: "Images/Dashboard imgs/dairy17.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy17.jpg",
+        "Images/Dashboard imgs/dairy17-2.jpg",
+        "Images/Dashboard imgs/dairy17-3.jpg",
+      ],
+      price: "₱350/500g",
+      rating: 4.7,
+      description: "Soft ricotta cheese, ideal for pasta and desserts.",
+    },
+    "Mozzarella Cheese": {
+      img: "Images/Dashboard imgs/dairy18.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy18.jpg",
+        "Images/Dashboard imgs/dairy18-2.jpg",
+        "Images/Dashboard imgs/dairy18-3.jpg",
+      ],
+      price: "₱400/kg",
+      rating: 4.9,
+      description: "Fresh mozzarella, perfect for pizzas and salads.",
+    },
+    "Parmesan Cheese": {
+      img: "Images/Dashboard imgs/dairy19.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy19.jpg",
+        "Images/Dashboard imgs/dairy19-2.jpg",
+        "Images/Dashboard imgs/dairy19-3.jpg",
+      ],
+      price: "₱500/kg",
+      rating: 5,
+      description: "Hard parmesan cheese, great for grating over pasta.",
+    },
+    "Greek Yogurt": {
+      img: "Images/Dashboard imgs/dairy20.jpg",
+      images: [
+        "Images/Dashboard imgs/dairy20.jpg",
+        "Images/Dashboard imgs/dairy20-2.jpg",
+        "Images/Dashboard imgs/dairy20-3.jpg",
+      ],
+      price: "₱110/200g",
+      rating: 4.8,
+      description: "Thick and creamy Greek yogurt, high in protein.",
+    },
+  };
 
-        };
+  const product = products[productName];
 
-        const product = products[productName];
+  if (product) {
+    // Set product details
+    document.getElementById("product-image").src = product.img;
+    document.getElementById("product-title").textContent = productName;
+    document.getElementById("product-price").textContent = product.price;
+    document.getElementById("product-description").textContent =
+      product.description;
 
         if (product) {
             // Set product details
@@ -736,11 +968,56 @@ let currentIndex = 0; // Track the current image index
         }
     }
 
-    // Function to update the image index display
-function updateImageIndex(currentIndex, totalImages) {
-    document.getElementById('image-index').textContent = `${currentIndex + 1}/${totalImages}`;
+    // Set the star rating
+    let stars = "";
+    for (let i = 1; i <= 5; i++) {
+      stars += `<span class="star-rating ${
+        i <= product.rating ? "filled" : ""
+      }">&#9733;</span>`;
+    }
+    document.getElementById("product-rating").innerHTML = `Ratings: ${stars}`;
+    document.getElementById("product-description").textContent =
+      product.description;
+
+    // Reset current image index to the first image
+    currentIndex = 0;
+    document.getElementById("product-image").src = product.images[currentIndex]; // Show first image
+    updateImageIndex(currentIndex, product.images.length);
+    // Add functionality for Next and Previous buttons
+    document.getElementById("next-btn").onclick = () => {
+      currentIndex = (currentIndex + 1) % product.images.length; // Increment index
+      document.getElementById("product-image").src =
+        product.images[currentIndex]; // Update main image
+      updateImageIndex(currentIndex, product.images.length);
+    };
+
+    document.getElementById("prev-btn").onclick = () => {
+      currentIndex =
+        (currentIndex - 1 + product.images.length) % product.images.length; // Decrement index
+      document.getElementById("product-image").src =
+        product.images[currentIndex]; // Update main image
+      updateImageIndex(currentIndex, product.images.length);
+    };
+
+    // Hide marketplace and show product details
+    document.getElementById("marketplace").style.display = "none";
+    document.getElementById("product-details").style.display = "block";
+    document.getElementById("topTrendsSection").style.display = "none";
+    document.getElementById("all-products").style.display = "none";
+    // Hide carousel and top trends when viewing product details
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("all-products-section").style.display = "none";
+    document.getElementById("carousel-section").style.display = "none";
+    document.querySelector(".top-trends-section").style.display = "none";
+  }
 }
 
+// Function to update the image index display
+function updateImageIndex(currentIndex, totalImages) {
+  document.getElementById("image-index").textContent = `${
+    currentIndex + 1
+  }/${totalImages}`;
+}
 
     function showTopTrendProductDetails(productName) {
         previousSection = 'dashboard';
@@ -784,22 +1061,17 @@ function updateImageIndex(currentIndex, totalImages) {
             document.getElementById('product-rating').innerHTML = `Ratings: ${product.rating}/5`;
             document.getElementById('product-description').textContent = product.description;
 
-            let stars = '';
-            for (let i = 1; i <= 5; i++) {
-                stars += `<span class="star-rating ${i <= product.rating ? 'filled' : ''}">&#9733;</span>`;
-            }
-            document.getElementById('product-rating').innerHTML = `Ratings: ${stars}`;
+  const product = products[productName];
 
-             // Reset current image index to the first image
-        currentIndex = 0;
-        document.getElementById('product-image').src = product.images[currentIndex]; // Show first image
-         updateImageIndex(currentIndex, product.images.length);
-        // Add functionality for Next and Previous buttons
-        document.getElementById('next-btn').onclick = () => {
-            currentIndex = (currentIndex + 1) % product.images.length; // Increment index
-            document.getElementById('product-image').src = product.images[currentIndex]; // Update main image
-            updateImageIndex(currentIndex, product.images.length);
-        };
+  if (product) {
+    document.getElementById("product-image").src = product.img;
+    document.getElementById("product-title").textContent = productName;
+    document.getElementById("product-price").textContent = product.price;
+    document.getElementById(
+      "product-rating"
+    ).innerHTML = `Ratings: ${product.rating}/5`;
+    document.getElementById("product-description").textContent =
+      product.description;
 
         document.getElementById('prev-btn').onclick = () => {
             currentIndex = (currentIndex - 1 + product.images.length) % product.images.length; // Decrement index
@@ -817,74 +1089,113 @@ function updateImageIndex(currentIndex, totalImages) {
             document.getElementById('product-details').style.display = 'block';
             document.getElementById('ad-banner').style.display = 'none';
             document.getElementById('zoomableImage').style.display = 'none';
-        }
+        };
     }
-    
+    document.getElementById("product-rating").innerHTML = `Ratings: ${stars}`;
 
-    // Start Cart Code
-   
-    
+    // Reset current image index to the first image
+    currentIndex = 0;
+    document.getElementById("product-image").src = product.images[currentIndex]; // Show first image
+    updateImageIndex(currentIndex, product.images.length);
+    // Add functionality for Next and Previous buttons
+    document.getElementById("next-btn").onclick = () => {
+      currentIndex = (currentIndex + 1) % product.images.length; // Increment index
+      document.getElementById("product-image").src =
+        product.images[currentIndex]; // Update main image
+      updateImageIndex(currentIndex, product.images.length);
+    };
 
-    let cart = [];
+    document.getElementById("prev-btn").onclick = () => {
+      currentIndex =
+        (currentIndex - 1 + product.images.length) % product.images.length; // Decrement index
+      document.getElementById("product-image").src =
+        product.images[currentIndex]; // Update main image
+      updateImageIndex(currentIndex, product.images.length);
+    };
+
+    // Hide carousel and top trends when viewing product details
+    document.getElementById("carousel-section").style.display = "none";
+    document.querySelector(".top-trends-section").style.display = "none";
+
+    // Hide dashboard and marketplace
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("marketplace").style.display = "none";
+    document.getElementById("product-details").style.display = "block";
+  }
+// Start Cart Code
+
+let cart = [];
 
 // Function to update the cart count displayed in the UI
 function updateCartCount() {
-    const cartCountElement = document.getElementById('cart-count');
-    cartCountElement.textContent = cart.length; // Update the text content with the cart length
+  const cartCountElement = document.getElementById("cart-count");
+  cartCountElement.textContent = cart.length; // Update the text content with the cart length
 }
 
 // Function to add the product to the cart
 function addToCart() {
-    // Get product details
-    const productTitle = document.getElementById("product-title").innerText;
-    const productPrice = document.getElementById("product-price").innerText;
-    const productImage = document.getElementById("product-image").src;
-    const productDescription = document.getElementById("product-description").innerText;
-    
-    // Function to get the filled star rating
-    function getFilledStarRating() {
-        // Count the filled stars
-        const filledStars = document.querySelectorAll('#product-rating .filled').length; 
-        return filledStars; // Returns the number of filled stars
-    }
+  // Get product details
+  const productTitle = document.getElementById("product-title").innerText;
+  const productPrice = document.getElementById("product-price").innerText;
+  const productImage = document.getElementById("product-image").src;
+  const productDescription = document.getElementById(
+    "product-description"
+  ).innerText;
 
-    // Get the current filled star rating
-    const rating = getFilledStarRating();
+  // Function to get the filled star rating
+  function getFilledStarRating() {
+    // Count the filled stars
+    const filledStars = document.querySelectorAll(
+      "#product-rating .filled"
+    ).length;
+    return filledStars; // Returns the number of filled stars
+  }
 
-    // Create a product object
-    const product = {
-        title: productTitle,
-        price: productPrice,
-        image: productImage,
-        description: productDescription,
-        rating: rating,
-        quantity: 1 // Default quantity
-    };
+  // Get the current filled star rating
+  const rating = getFilledStarRating();
 
-    // Add product to the cart array
-    cart.push(product);
+  // Create a product object
+  const product = {
+    title: productTitle,
+    price: productPrice,
+    image: productImage,
+    description: productDescription,
+    rating: rating,
+    quantity: 1, // Default quantity
+  };
 
-    alert('Product added to cart');
-    // Update the cart display
-    updateCartDisplay();
-    updateCartCount();
+  // Add product to the cart array
+  cart.push(product);
+
+  const toast = document.getElementById("toast");
+  toast.className = "show";
+  setTimeout(function () {
+    toast.className = toast.className.replace("show", "");
+  }, 3000);
+
+  // Update the cart display
+  updateCartDisplay();
+  updateCartCount();
 }
 
+// Function to create a cart item element
+function createCartItem(item, index) {
+  // Create a cart item row element
+  const cartItem = document.createElement("div");
+  cartItem.className = "cart-item-row"; // Add class for styling
 
-  
-        // Function to create a cart item element
-        function createCartItem(item, index) {
-            // Create a cart item row element
-            const cartItem = document.createElement("div");
-            cartItem.className = "cart-item-row"; // Add class for styling
+  // Set the star rating for the current item
+  const stars = Array.from(
+    { length: 5 },
+    (_, i) => `
+                <span class="star-rating ${
+                  i < item.rating ? "filled" : ""
+                }">&#9733;</span>
+            `
+  ).join("");
 
-            // Set the star rating for the current item
-            const stars = Array.from({ length: 5 }, (_, i) => `
-                <span class="star-rating ${i < item.rating ? 'filled' : ''}">&#9733;</span>
-            `).join('');
-
-     // Populate cart item HTML
-            cartItem.innerHTML = `
+  // Populate cart item HTML
+  cartItem.innerHTML = `
             <input type="checkbox" class="product-checkbox" id="product-${index}">
             <img src="${item.image}" alt="${item.title}" style="width: 50px; height: 50px;">
             <p class="item-title">${item.title}</p>
@@ -901,52 +1212,61 @@ function addToCart() {
             </div>
             <button class="profile-btn" onclick="removeFromCart(${index})">Remove</button>
             `;
-            return cartItem;
-        }
+  return cartItem;
+}
 
+function toggleDescription(element) {
+  const descriptionDetail = element.nextElementSibling; // This is the div with the description
+  const descriptionText = descriptionDetail.innerHTML; // Get the inner HTML (description)
 
-        function toggleDescription(element) {
-            const descriptionDetail = element.nextElementSibling; // This is the div with the description
-            const descriptionText = descriptionDetail.innerHTML; // Get the inner HTML (description)
+  // Show the description in an alert
+  alert(descriptionText);
+}
 
-            // Show the description in an alert
-            alert(descriptionText);
-        }
-        
+// Function to update quantity
+function updateQuantity(index, change) {
+  // Get the current quantity
+  const quantityInput = document.getElementById(`quantity-${index}`);
+  let currentQuantity = parseInt(quantityInput.value);
 
-        // Function to update quantity
-        function updateQuantity(index, change) {
-            // Get the current quantity
-            const quantityInput = document.getElementById(`quantity-${index}`);
-            let currentQuantity = parseInt(quantityInput.value);
+  // Adjust quantity based on change
+  if (change === -1) {
+    currentQuantity -= 1; // Decrease quantity
+  } else if (change === 1) {
+    currentQuantity += 1; // Increase quantity
+  }
 
-            // Adjust quantity based on change
-            if (change === -1) {
-                currentQuantity -= 1; // Decrease quantity
-            } else if (change === 1) {
-                currentQuantity += 1; // Increase quantity
-            }
+  // Check if the quantity is less than 1
+  if (currentQuantity < 1) {
+    // Show alert that the item will be removed
+    alert("This item will be removed from the cart.");
+    removeFromCart(index); // Remove the item from the cart
+    return; // Exit the function
+  }
 
-            // Check if the quantity is less than 1
-            if (currentQuantity < 1) {
-                // Show alert that the item will be removed
-                alert("This item will be removed from the cart.");
-                removeFromCart(index); // Remove the item from the cart
-                return; // Exit the function
-            }
+  // Update the input value
+  quantityInput.value = currentQuantity;
 
-            // Update the input value
-            quantityInput.value = currentQuantity;
+  // Update the cart object
+  cart[index].quantity = currentQuantity;
 
-            // Update the cart object
-            cart[index].quantity = currentQuantity;
+  // Call updateCartDisplay() to refresh the display
+  updateCartDisplay();
+}
 
-            // Call updateCartDisplay() to refresh the display
-            updateCartDisplay();
+// Function to update cart display (remains the same)
+function updateCartDisplay() {
+  console.log(cart);
 
-           
+  const cartItemsContainer = document.getElementById("cart-items");
+  cartItemsContainer.innerHTML = ""; // Clear previous cart items
 
-        }
+  if (cart.length === 0) {
+    document.getElementById("empty-cart-message").style.display = "block"; // Show empty cart message
+    document.getElementById("checkout-btn").style.display = "none"; // Hide checkout button
+  } else {
+    document.getElementById("empty-cart-message").style.display = "none"; // Hide empty cart message
+    document.getElementById("checkout-btn").style.display = "block"; // Show checkout button
 
 
 

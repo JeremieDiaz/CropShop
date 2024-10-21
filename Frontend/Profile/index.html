@@ -1,157 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account Setting</title>
 
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
-  
-    <link rel="stylesheet" href="css/account_setting.css">
-    
-    
-    
-</head>
+    <link
+      rel="stylesheet"
+      href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
+    />
 
-<body>
+    <link rel="stylesheet" href="css/account_setting.css" />
+  </head>
 
+  <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <button class="close-btn d-block d-md-none" id="closeSidebar">
-            <i class="bi bi-x-circle"></i>
-        </button>
-        
-        <div class="logo-section text-center mb-3">
-            <div class="logo"></div>
-            <!-- <p class="fw-bold">Logo Here</p> -->
-        </div>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" href="index.html"><i class="bi bi-person-circle"></i> Account Setting</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light" href="order.html"><i class="bi bi-box-seam"></i> Order Status</a>
-            </li>
-           <!-- Logout Button -->
-            <li class="nav-item btn-logout" title="Log Out Confirmation">
-                <a class="nav-link text-light" href="#" id="logout-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
-            </li>
-        </ul>
+      <button class="close-btn d-block d-md-none" id="closeSidebar">
+        <i class="bi bi-x-circle"></i>
+      </button>
+
+      <div class="logo-section text-center mb-3">
+        <div class="logo"></div>
+        <!-- <p class="fw-bold">Logo Here</p> -->
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html"
+            ><i class="bi bi-person-circle"></i> Account Setting</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="order.html"
+            ><i class="bi bi-box-seam"></i> Order Status</a
+          >
+        </li>
+        <!-- Logout Button -->
+        <li class="nav-item btn-logout" title="Log Out Confirmation">
+          <a class="nav-link text-light" href="#" id="logout-link"
+            ><i class="bi bi-box-arrow-right"></i> Logout</a
+          >
+        </li>
+      </ul>
     </div>
 
     <!-- Main Content -->
     <div class="content-area">
-       
-        <div class="header d-flex justify-content-between align-items-center">
-            <button class="btn btn-secondary toggle-btn d-md-none" id="toggleSidebar">
-                <i class="bi bi-list"></i>
-              </button>
-            <h2 class="mb-0">Account Setting</h2>
-            <div class="user-info d-flex align-items-center">
-                <!-- <span class="me-2">Cardo Dalisay</span> -->
-                <!-- <div class="profile-img ms-2"></div> -->
+      <div class="header d-flex justify-content-between align-items-center">
+        <button
+          class="btn btn-secondary toggle-btn d-md-none"
+          id="toggleSidebar"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+        <h2 class="mb-0">Account Setting</h2>
+        <div class="user-info d-flex align-items-center">
+          <!-- <span class="me-2">Cardo Dalisay</span> -->
+          <!-- <div class="profile-img ms-2"></div> -->
+        </div>
+      </div>
+      <div class="content p-4">
+        <form onsubmit="return false;">
+          <!-- Prevent form submission for demonstration -->
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control custom-input"
+                id="firstName"
+                value="Cardo"
+                readonly
+              />
             </div>
-        </div>
-        <div class="content p-4">
-            <form onsubmit="return false;"> <!-- Prevent form submission for demonstration -->
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control custom-input" id="firstName" value="Cardo" readonly>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control custom-input" id="lastName" value="Dalisay" readonly>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="address" class="form-label">Complete Address</label>
-                    <input type="text" class="form-control custom-input" id="address" value="#123 Sitio Patalan, Lasip Grande, Dagupan City, Pangasinan" readonly>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="phoneNumber" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control custom-input" id="phoneNumber" value="09451236987" readonly>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control custom-input" id="email" value="cardodalisay@gmail.com" readonly>
-                    </div>
-                </div>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal">Edit Profile</button>
-            </form>
-        </div>
+            <div class="col-md-6">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control custom-input"
+                id="lastName"
+                value="Dalisay"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Complete Address</label>
+            <input
+              type="text"
+              class="form-control custom-input"
+              id="address"
+              value="#123 Sitio Patalan, Lasip Grande, Dagupan City, Pangasinan"
+              readonly
+            />
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="phoneNumber" class="form-label">Phone Number</label>
+              <input
+                type="text"
+                class="form-control custom-input"
+                id="phoneNumber"
+                value="09451236987"
+                readonly
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control custom-input"
+                id="email"
+                value="cardodalisay@gmail.com"
+                readonly
+              />
+            </div>
+          </div>
+          <button
+            type="button"
+            class="btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#editModal"
+          >
+            Edit Profile
+          </button>
+        </form>
+      </div>
     </div>
 
     <!-- Edit Profile Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div
+      class="modal fade"
+      id="editModal"
+      tabindex="-1"
+      aria-labelledby="editModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="editForm">
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="editFirstName" class="form-label"
+                    >First Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editFirstName"
+                    value="Cardo"
+                  />
                 </div>
-                <div class="modal-body">
-                    <form id="editForm">
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="editFirstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="editFirstName" value="Cardo">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="editLastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="editLastName" value="Dalisay">
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editAddress" class="form-label">Complete Address</label>
-                            <input type="text" class="form-control" id="editAddress" value="#123 Sitio Patalan, Lasip Grande, Dagupan City, Pangasinan">
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="editPhoneNumber" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control" id="editPhoneNumber" value="09451236987">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="editEmail" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="editEmail" value="cardodalisay@gmail.com">
-                            </div>
-                        </div>
-                    </form>
+                <div class="col-md-6">
+                  <label for="editLastName" class="form-label">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editLastName"
+                    value="Dalisay"
+                  />
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+              </div>
+              <div class="mb-3">
+                <label for="editAddress" class="form-label"
+                  >Complete Address</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editAddress"
+                  value="#123 Sitio Patalan, Lasip Grande, Dagupan City, Pangasinan"
+                />
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="editPhoneNumber" class="form-label"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editPhoneNumber"
+                    value="09451236987"
+                  />
                 </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Bootstrap Modal -->
-<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="logoutModalLabel">Log Out Confirmation</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to log out?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-          <button type="button" class="btn btn-danger" id="confirm-logout">Yes</button>
+                <div class="col-md-6">
+                  <label for="editEmail" class="form-label"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="editEmail"
+                    value="cardodalisay@gmail.com"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="saveChanges()"
+            >
+              Save changes
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- Bootstrap Modal -->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      aria-labelledby="logoutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel">
+              Log Out Confirmation
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">Are you sure you want to log out?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              No
+            </button>
+            <button type="button" class="btn btn-danger" id="confirm-logout">
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
-</body>
-
+  </body>
 </html>
