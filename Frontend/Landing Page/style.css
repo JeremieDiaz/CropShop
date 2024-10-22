@@ -36,7 +36,7 @@
 
 .background-container {
     position: absolute; /* Positions the container absolutely, relative to the nearest positioned ancestor */
-    width: 200vh; /* Sets the width of the container to match the height of the viewport (100% of the viewport height) */
+    width: 180vh; /* Sets the width of the container to match the height of the viewport (100% of the viewport height) */
     height: 100vh; /* Sets the height of the container to 100% of the viewport height */
     z-index: -1; /* Places the background container behind other elements (lower stacking order) */
 }
@@ -194,7 +194,9 @@ header .navbar a {
 }
 
 header .navbar a:hover {
-    color: var(--red); /* Changes the link color to red when the user hovers over the navbar links */
+    color: var(--reddishBrown); /* Changes the link color to red when the user hovers over the navbar links */
+    font-size: 2.1rem;
+    font-weight: 1000;
 }
 
 #menu-bar {
@@ -213,6 +215,10 @@ header .navbar a:hover {
         text-decoration: none; /* Removes text decorations like underlines from links and other elements */
         margin-left: 1rem; /* Adds 2rem spacing between each navbar link */
         color: var(--darkgray); /* Sets the text color of the navbar links using the dark-gray variable */
+    }
+
+    header .navbar a:hover {
+        font-size: 1.7rem;
     }
 }
 
@@ -301,6 +307,7 @@ header .navbar a:hover {
     z-index: 1; /* Keeps the actual content in front of the pseudo-element */
     padding: 2rem; /* Adjust padding as necessary for spacing */
     border-radius: 1rem; /* Adds rounded corners to the container */
+    padding-bottom: 3rem;
 }
 
 .card-slider .container::before {
@@ -417,11 +424,10 @@ header .navbar a:hover {
 }
 
 .card-wrapper .swiper-pagination {
-    bottom: -10rem; /* Moves the entire pagination element up */
+    margin-bottom: 37rem; /* Moves the entire pagination element up */
     position: absolute; /* Ensures it respects the bottom value */
     width: 100%; /* Optional: ensures the pagination stays centered */
     text-align: center; /* Centers the bullets */
-    display: none; /* Hides the pagination bullets */
 }
 
 .card-wrapper .swiper-pagination-bullet {
@@ -847,6 +853,93 @@ header .navbar a:hover {
 
 
 /* <----------Login ends here----------> */
+
+
+
+/* <----------Ad Banner starts here----------> */
+
+
+
+.ad-banner-section {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+
+.ad-banner-section .ad-banner {
+    width: 100%; /* Full-width banner */
+    max-width: 1000px; /* Optional: limit the maximum width */
+    height: 200px; /* Landscape height */
+    border: 2px solid #bc6c25; /* Border color */
+    background-color: #f1e6d4; /* Background color */
+    position: relative;
+    margin: 0 auto; /* Center the banner horizontally */
+    overflow: hidden; /* Hide overflow from slides */
+    margin-top: 20px;
+}
+
+.ad-banner-section .ad-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth sliding effect */
+    width: 100%;
+    height: 100%;
+}
+
+.ad-banner-section .ad-slide {
+    min-width: 100%; /* Each slide takes up full width */
+    height: 100%; /* Full height for landscape effect */
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+    position: relative;
+}
+
+.ad-banner-section .ad-slide:hover {
+    cursor: pointer;
+}
+
+.ad-banner-section .ad-slide img {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Keep height proportional for landscape */
+    object-fit: cover; /* Ensure image covers its container */
+    border-radius: 8px; /* Optional: round the image corners */
+}
+
+.ad-banner-section .ad-caption {
+    position: absolute;
+    bottom:5px;
+    left: 10px;
+    background-color: rgba(166, 85, 30, 0.7);
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}
+
+.ad-banner-section .ad-navigation {
+    position: absolute;
+    bottom: 10px;
+    right: 10px; /* Position dots on the right */
+    text-align: center;
+}
+
+.ad-banner-section .ad-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ad-banner-section .ad-dot.active {
+    background-color: #bc6c25; /* Active dot color */
+}
+
+
+
+/* <----------Ad Banner ends here----------> */
 
 
 

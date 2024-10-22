@@ -109,3 +109,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // -----Login View Password Script ends here-----
 
+// -----Ad banner Script starts here-----
+
+let currentAdSlide = 0;
+
+function moveAdCarousel(direction) {
+    const adCarousel = document.querySelector('.ad-slides');
+    const totalAdItems = document.querySelectorAll('.ad-slide').length;
+
+    currentAdSlide += direction;
+
+    // Wrap around if reaching the end or beginning of the ad slides
+    if (currentAdSlide >= totalAdItems) {
+        currentAdSlide = 0;
+    } else if (currentAdSlide < 0) {
+        currentAdSlide = totalAdItems - 1;
+    }
+
+    // Move the ad carousel by 100% of the width per slide
+    adCarousel.style.transform = `translateX(-${currentAdSlide * 100}%)`;
+
+    // Update the active dot indicator for the ads
+    updateActiveAdDot();
+}
+
+// Set the current ad slide manually based on dot click
+function setAdSlide(index) {
+    currentAdSlide = index;
+    moveAdCarousel(0); // Trigger ad carousel movement to the new slide
+}
+
+// Update active ad dot based on the current ad slide
+function updateActiveAdDot() {
+    const adDots = document.querySelectorAll('.ad-dot');
+    adDots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentAdSlide);
+    });
+}
+
+// Function for redirection (used in both carousels)
+function redirectTo(url) {
+    window.open(url, '_blank');
+}
+
+// Automatically move to the next ad slide every 5 seconds
+setInterval(() => {
+    moveAdCarousel(1); // Move to the next ad slide
+}, 5000); // Change 5000 to your desired interval in milliseconds
+
+// Initialize the ad carousel to show the first slide
+moveAdCarousel(0);
+
+// -----Ad banner Script ends here-----
+

@@ -440,6 +440,7 @@ button:hover {
     text-align: center;
     flex-direction: column;
     display: flex; /* Flex layout */
+    cursor: pointer;
 }
 
 /* Images in carousel items */
