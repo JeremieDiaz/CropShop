@@ -76,39 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // -----Login Form Swap Script ends here-----
 
-// -----Login View Password Script starts here-----
-
-// const logInputField = document.getElementById('logPassword');
-// const logInputIcon = document.getElementById('log-pass-icon');
-
-// const regInputField = document.getElementById('regPassword');
-// const regInputIcon = document.getElementById('reg-pass-icon');
-
-// function myLogPassword() {
-//     if (logInputField.type === "password") {
-//         logInputField.type = "text";
-//         logInputIcon.name = "eye-off-outline";
-//     } else {
-//         logInputField.type = "password";
-//         logInputIcon.name = "lock-closed-outline";
-//     }
-//     logInputIcon.style.cursor = "pointer";
-// }
-
-// function myRegPassword() {
-//     if (regInputField.type === "password") {
-//         regInputField.type = "text";
-//         regInputIcon.name = "eye-off-outline";
-//     } else {
-//         regInputField.type = "password";
-//         regInputIcon.name = "lock-closed-outline";
-//     }
-//     regInputIcon.style.cursor = "pointer";
-// }
-
-
-// -----Login View Password Script ends here-----
-
 // -----Ad banner Script starts here-----
 
 let currentAdSlide = 0;
