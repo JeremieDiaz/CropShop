@@ -1466,8 +1466,55 @@ function showSection(sectionId, clickedLink) {
   // End Cart Code
   
   function buyNow() {
-    alert("Proceeding to purchase");
-    // Add functionality to handle purchase or payment redirection
+    // Get product details
+    const productTitle = document.getElementById("product-title").innerText;
+    const productPrice = document.getElementById("product-price").innerText;
+    const productImage = document.getElementById("product-image").src;
+    const productDescription = document.getElementById("product-description").innerText;
+  
+    // Function to get the filled star rating
+    function getFilledStarRating() {
+      // Count the filled stars
+      const filledStars = document.querySelectorAll("#product-rating .filled").length;
+      return filledStars; // Returns the number of filled stars
+    }
+  
+    // Get the current filled star rating
+    const rating = getFilledStarRating();
+  
+    // Create a product object
+    const product = {
+      title: productTitle,
+      price: productPrice,
+      image: productImage,
+      description: productDescription,
+      rating: rating,
+      quantity: 1, // Default quantity
+    };
+  
+    // Retrieve existing items from localStorage
+    let existingItems = JSON.parse(localStorage.getItem("checkoutItems")) || [];
+  
+    // Check if the product already exists in the cart
+    const existingIndex = existingItems.findIndex(
+      (item) => item.title === product.title && item.price === product.price
+    );
+  
+    if (existingIndex !== -1) {
+      // If it exists, increase the quantity
+      existingItems[existingIndex].quantity += 1;
+    } else {
+      // If it doesn't exist, add it as a new product
+      existingItems.push(product);
+    }
+  
+    // Store the updated items back to localStorage
+    localStorage.setItem("checkoutItems", JSON.stringify(existingItems));
+  
+    // Wait for 1 second before redirecting to the checkout page
+    setTimeout(function () {
+      window.location.href = "../Check Out/check_out_page.html";
+    }, 1000);
   }
   
   // Initialize the page and render the chart on page load

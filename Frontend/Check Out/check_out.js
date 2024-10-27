@@ -212,6 +212,10 @@ function displayCheckoutItems() {
 
   // Reattach button events after displaying items
   attachButtonEvents();
+  document.addEventListener("DOMContentLoaded", function () {
+    displayCheckoutItems(); // Display items in checkout
+    updateOverallTotal(); // Calculate total on page load
+  });
 }
 
 function checkOutToShip() {
@@ -246,12 +250,18 @@ function checkOutToShip() {
     const price = item.querySelector(".p_price").getAttribute("data-price"); // Extract price
     const quantity = item.querySelector(".quantity_input").value; // Extract quantity
 
+    // Generate a unique order number for each product
+    const orderNumber = `${title.replace(/\s+/g, "-")}-${Math.floor(
+      Math.random() * 100000
+    )}`;
+
     // Add the new item details to the existing orderDetails items array
     existingOrderDetails.items.push({
       title,
       image,
       price,
       quantity,
+      orderNumber, // Add the unique order number
     });
   });
 

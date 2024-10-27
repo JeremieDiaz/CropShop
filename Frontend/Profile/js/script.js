@@ -60,7 +60,7 @@ function showOrders(status) {
                       </div>
                       <p class="mt-1 text-sm text-gray-500">Description</p>
                       <p class="mt-1 text-sm text-gray-500">Order#${
-                        orderDetailsFromStorage.orderNumber
+                        item.orderNumber.split("-")[1]
                       }</p>
                   </div>
                   <div class="flex flex-1 items-end justify-between text-sm">
