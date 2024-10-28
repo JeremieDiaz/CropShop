@@ -26,6 +26,14 @@ function showOrders(status) {
   const orderDetails = document.getElementById("order-details");
   orderDetails.innerHTML = ""; // Clear current orders
 
+  if (status === "to-receive" || status === "completed") {
+    const orderDetails = document.getElementById("order-details");
+    orderDetails.style.display = "none";
+  } else {
+    const orderDetails = document.getElementById("order-details");
+    orderDetails.style.display = "block";
+  }
+  
   // Retrieve order details from localStorage
   const orderDetailsFromStorage = JSON.parse(
     localStorage.getItem("orderDetails")
