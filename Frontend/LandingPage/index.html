@@ -303,6 +303,17 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 
+        function showToast(message) {
+            const msgDiv = document.getElementById("msg");
+            msgDiv.innerText = message;
+            msgDiv.classList.add("show");
+
+            // Hide the toast after 3 seconds
+            setTimeout(() => {
+                msgDiv.classList.remove("show");
+            }, 3000);
+        }
+
         // Your Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyD2PUYxpmO4l1kBRlnnNJmJrQS_zuqboKA",
@@ -332,8 +343,7 @@
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Sign-up successful
-                document.getElementById("msg").innerText = "Sign-up successful!";
-
+                showToast("Sign-up successful!");
                 // Clear the input fields
                 usernameInput.value = '';
                 emailInput.value = '';
@@ -342,7 +352,7 @@
             .catch((error) => {
                 // Handle errors
                 const errorMessage = error.message;
-                document.getElementById("msg").innerText = `Error: ${errorMessage}`;
+                showToast(`Error: ${error.message}`);
             });
     });
 
@@ -359,8 +369,7 @@
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Login successful
-                document.getElementById("msg").innerText = "Login successful!";
-                
+                showToast("Login successful!");
                 // Clear the input fields
                 emailInput.value = '';
                 passwordInput.value = '';
@@ -371,7 +380,7 @@
             .catch((error) => {
                 // Handle login errors
                 const errorMessage = error.message;
-                document.getElementById("msg").innerText = `Error: ${errorMessage}`;
+                showToast(`Error: ${error.message}`);
             });
     });
 

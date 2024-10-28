@@ -287,5 +287,41 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+      import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyD2PUYxpmO4l1kBRlnnNJmJrQS_zuqboKA",
+        authDomain: "cropshop-8b52f.firebaseapp.com",
+        projectId: "cropshop-8b52f",
+        storageBucket: "cropshop-8b52f.appspot.com",
+        messagingSenderId: "37652561121",
+        appId: "1:37652561121:web:7a4ac2f0900cf6342f4ba0",
+        measurementId: "G-JTR0ZN2KT3"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth(app);
+    
+      // Logout function
+      document.getElementById("confirm-logout").addEventListener("click", () => {
+        signOut(auth)
+          .then(() => {
+            // Sign-out successful, redirect to login page
+            window.location.href = "../LandingPage/index.html";
+          })
+          .catch((error) => {
+            // Handle errors here
+            console.error("Error signing out:", error);
+            alert("An error occurred while trying to sign out.");
+          });
+      });
+    </script>
   </body>
 </html>

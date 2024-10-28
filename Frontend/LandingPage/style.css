@@ -34,6 +34,27 @@
     transition: all .2s linear; /* Adds a smooth 0.2s transition effect for changes to any CSS properties */
 }
 
+#msg {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    min-width: 250px;
+    padding: 15px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+    z-index: 1000;
+  }
+
+  #msg.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 .background-container {
     position: absolute; /* Positions the container absolutely, relative to the nearest positioned ancestor */
     width: 180vh; /* Sets the width of the container to match the height of the viewport (100% of the viewport height) */
@@ -1113,3 +1134,4 @@ header .navbar a:hover {
     font-weight: 300; /* Applies a light font weight to the copyright text */
     margin-top: 20px; /* Adds 20px of margin above the copyright section */
 }
+
