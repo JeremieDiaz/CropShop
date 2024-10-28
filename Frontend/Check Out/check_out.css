@@ -13,6 +13,7 @@ body {
     position: relative;
     overflow: hidden;
     background-color: #e7cebc;
+    padding:10;
 }
 
 .background-container {
@@ -106,6 +107,7 @@ body {
     overflow: auto;
     padding: 0;
 }
+
 .check_out::-webkit-scrollbar {
     display: none;
 }
@@ -118,6 +120,7 @@ h2 {
 .check_out_box1 {
     width: 600px;
     height: 730px;
+    margin: 10px auto;
     background-color: rgba(246, 180, 104, 0.85);
     margin-right: 30px;
     border-radius: 20px;
@@ -126,6 +129,7 @@ h2 {
 
 .check_out_box2 {
     width: 600px;
+    margin: 10px auto;
     height: 730;
     background-color: rgba(246, 180, 104, 0.85);
     margin-left: 30px;
