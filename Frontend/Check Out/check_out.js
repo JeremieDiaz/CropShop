@@ -139,7 +139,7 @@ function roamImage(img) {
     img.style.top = `${y}px`;
 
     // Call moveImage again after a longer delay
-    setTimeout(moveImage, 3000 + Math.random() * 3000);
+    setTimeout(moveImage, 8000 + Math.random() * 8000);
   }
 
   moveImage();

@@ -9,6 +9,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <div class="background-container">
+        <img src="/Images/BackgroundImages/apple.svg" alt="Apple" />
+        <img src="/Images/BackgroundImages/boiled-egg.svg" alt="Boiled Egg" />
+        <img src="/Images/BackgroundImages/carrot.svg" alt="Carrot" />
+        <img src="/Images/BackgroundImages/corn.svg" alt="Corn" />
+        <img src="/Images/BackgroundImages/hoe.svg" alt="Hoe" />
+        <img src="/Images/BackgroundImages/pineapple.svg" alt="Pineapple" />
+        <img src="/Images/BackgroundImages/pumpkin.svg" alt="Pumpkin" />
+        <img src="/Images/BackgroundImages/seeds1.svg" alt="Seeds 1" />
+        <img src="/Images/BackgroundImages/seeds2.svg" alt="Seeds 2" />
+        <img src="/Images/BackgroundImages/shovel.svg" alt="Shovel" />
+        <img src="/Images/BackgroundImages/wheat.svg" alt="Wheat" />
+    </div>
     <nav role="navigation" aria-label="Main Navigation">
         <div class="logo" aria-label="CROPSHOP Logo">CROPSHOP</div>
         <ul class="nav-links" role="menubar">
@@ -23,686 +36,772 @@
         <button class="profile-btn" aria-label="User Profile" onclick="window.location.href='http://127.0.0.1:5500/Frontend/Profile/'">Profile</button>
     </nav>
 
-    <div class="content">
-         <!-- Offers Container -->
-          <div class="offers-container">
-            <!-- Carousel Section -->
-             <section aria-label="carousel-container">
-                <div id="carousel-section" class="carousel-container">
-                    <div class="carousel">
-                <!-- Carousel Item 1 -->
-                <div class="carousel-item">
-                    <img src="Images/Dashboard imgs/offer1.jpg" alt="marketplace"onclick="showSection('marketplace', this)">
-                    <p>Limited Time Offer: Discount on Selected Item (20% off)</p>
-                </div>
-                <!-- Carousel Item 2 -->
-                <div class="carousel-item">
-                    <img src="Images/Dashboard imgs/bundle1.jpg" alt="Garlic"onclick="showTopTrendProductDetails('Garlic')">
-                    <p>Bundle: Get Garlic & Onion at a special price</p>
-                </div>
-                <!-- Carousel Item 3 -->
-                <div class="carousel-item">
-                    <img src="Images/Dashboard imgs/recommended1.jpg" alt="Corn"onclick="showTopTrendProductDetails('Corn')">
-                    <p>Recommended Crops for November: Corn</p>
-                </div>
-                <!-- Carousel Item 4 -->
-                <div class="carousel-item">
-                    <img src="Images/Dashboard imgs/top-seller1.jpg" alt="Rice"onclick="showTopTrendProductDetails('Rice')">
-                    <p>Top Seller: Rice </p>
-                </div>
-                <!-- Carousel Item 5 -->
-                <div class="carousel-item">
-                    <img src="Images/Dashboard imgs/offer5.png" alt="marketplace"onclick="showSection('marketplace', this)">
-                    <p>Agri-Starter Pack</p>
-                </div>
-            </div>
-            <!-- Carousel navigation buttons -->
-            <button class="prev-btn" onclick="moveCarousel(-1)" aria-label="Previous Slide">&#10094;</button>
-            <button class="next-btn" onclick="moveCarousel(1)" aria-label="Next Slide">&#10095;</button>
-        </div>
-    </section>
-
-<!-- Top Trends Section -->
-<div class="top-trends-section" id="topTrendsSection">
-    <div class="top-trends-header">
-        <h3>Top Crops</h3>
-        <button class="see-all-trends" onclick="viewAllTrends()"> > </button> <!-- Right arrow -->
-    </div>
-    <div class="trends-grid">
-        <div class="trend-item" onclick="showTopTrendProductDetails('Corn')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/image1.jpg" alt="Corn">
-                <div class="overlay-text">Corn</div>
-            </div>
-        </div>
-        <div class="trend-item" onclick="showTopTrendProductDetails('Sugarcane')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/image2.jpg" alt="Sugarcane">
-                <div class="overlay-text">Sugarcane</div>
-            </div>
-        </div>
-        <div class="trend-item" onclick="showTopTrendProductDetails('Rice')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/image3.jpg" alt="Rice">
-                <div class="overlay-text">Rice</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-  <!-- Full Products Section (Initially Hidden) -->
-<div class="all-products-section" id="all-products" style="display: none;">
-    <div class="section-header">
-        <h3>Top Crops</h3>
-        <button class="back-button" onclick="goBackToDashboard()"> < </button>
-    </div>
-
-    <div class="trends-grid all-products-view">
-        <!-- All products, including extra ones -->
-        <div class="trend-item" onclick="showTopTrendProductDetails('Corn')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/image1.jpg" alt="Corn">
-                <div class="overlay-text">Corn</div>
-            </div>
-        </div>
-
-        <div class="trend-item" onclick="showTopTrendProductDetails('Sugarcane')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/image2.jpg" alt="Sugarcane">
-                <div class="overlay-text">Sugarcane</div>
-            </div>
-        </div>
-
-        <div class="trend-item" onclick="showTopTrendProductDetails('Rice')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/image3.jpg" alt="Rice">
-                <div class="overlay-text">Rice</div>
-            </div>
-        </div>
-
-        <div class="trend-item" onclick="showTopTrendProductDetails('Tomato')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/13.jpg" alt="Tomato">
-                <div class="overlay-text">Tomato</div>
-            </div>
-        </div>
-
-        <div class="trend-item" onclick="showTopTrendProductDetails('Potato')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/3.jpg" alt="Potato">
-                <div class="overlay-text">Potato</div>
-            </div>
-        </div>
-
-        <div class="trend-item" onclick="showTopTrendProductDetails('Mango')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/18.jpg" alt="Mango">
-                <div class="overlay-text">Mango</div>
-            </div>
-        </div>
-        
-        <div class="trend-item" onclick="showTopTrendProductDetails('Calamansi')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/19.jpg" alt="Calamansi">
-                <div class="overlay-text">Calamansi</div>
-            </div>
-        </div>
-
-        <div class="trend-item" onclick="showTopTrendProductDetails('Banana')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/16.jpg" alt="Banana">
-                <div class="overlay-text">Banana</div>
-            </div>
-        </div>
-
-        <div class="trend-item" onclick="showTopTrendProductDetails('Ginger')">
-            <div class="image-container">
-                <img src="Images/Dashboard imgs/6.jpg" alt="Ginger">
-                <div class="overlay-text">Ginger</div>
-            </div>
-        </div>
-        <!-- Add more products here as needed -->
-    </div>
-</div>           
-          
-        </div>
-
-<!-- Dashboard Section -->
-<section id="dashboard" class="dashboard-box">
-    <h3>CROPS PRICE PER KILO</h3>
-
-    <!-- Filters: Category and Date -->
-    <label for="category">Choose a category:</label>
-    <select id="category" onchange="updateGraph()">
-        <option value="all">All</option>
-        <option value="crops">Crops</option>
-        <option value="seeds">Seeds</option>
-        <option value="dairy">Dairy</option>
-        <option value="fertilizers">Fertilizers</option>
-        <option value="tools">Tools</option>
-    </select>
-
-    <label for="month">Month:</label>
-    <select id="month" onchange="updateGraph()">
-        <option value="01">January</option>
-        <option value="02">February</option>
-        <option value="03">March</option>
-        <option value="04">April</option>
-        <option value="05">May</option>
-        <option value="06">June</option>
-        <option value="07">July</option>
-        <option value="08">August</option>
-        <option value="09">September</option>
-        <option value="10">October</option>
-        <option value="11">November</option>
-        <option value="12">December</option>
-    </select>
-
-    <label for="year">Year:</label>
-    <select id="year" onchange="updateGraph()">
-        <option value="2023">2023</option>
-        <option value="2024">2024</option>
-        <option value="2025">2025</option>
-        <option value="2025">2026</option>
-        <option value="2025">2027</option>
-        <option value="2025">2028</option>
-        <option value="2025">2029</option>
-        <option value="2025">2030</option>
-    </select>
- 
-            <canvas id="priceChart" width="420" height="145"></canvas>
-        </section>
-
-        <div id="ad-banner" class="ad-banner">
-            <div class="ad-slides">
-                <div class="ad-slide active" onclick="redirectTo('https://www.gardeningtita.com/product/9-in-1-assorted-vegetables-seeds-sulit-pack-for-planting/')">
-                    <img src="Images/Dashboard imgs/ads1.png" alt="Ad 1">
-                    <div class="ad-caption">9 in 1 Assorted Vegetables Seeds Sulit Pack for Planting!</div>
-                </div>
-                <div class="ad-slide" onclick="redirectTo('https://www.landers.ph/free-delivery-brand-partnerships.html')">
-                    <img src="Images/Dashboard imgs/ads2.png" alt="Ad 2">
-                    <div class="ad-caption">Free Delivery Brand Partnerships!</div>
-                </div>
-                <div class="ad-slide" onclick="redirectTo('https://www.lazada.com.ph/shop/quaker?spm=a2o4l.homepage.bannerSliderDesktop.d_4')">
-                    <img src="Images/Dashboard imgs/ads3.png" alt="Ad 3">
-                    <div class="ad-caption">Flavored Oats Save Upto ₱20off!</div>
-                </div>
-                <div class="ad-slide" onclick="redirectTo('https://www.lazada.com.ph/ingco/?spm=a2o4l.10450891.0.0.6baa4bddhhaLlD&q=ingco+sprayer&from=wangpu&sc=KVUG&shopId=460100')">
-                    <img src="Images/Dashboard imgs/ads4.png" alt="Ad 4">
-                    <div class="ad-caption">Ingco sprayer!</div>
-                </div>
-            </div>
-            <div class="ad-navigation">
-                <span class="ad-dot active" onclick="setCurrentSlide(1)"></span>
-                <span class="ad-dot" onclick="setCurrentSlide(2)"></span>
-                <span class="ad-dot" onclick="setCurrentSlide(3)"></span>
-                <span class="ad-dot" onclick="setCurrentSlide(4)"></span>
-            </div>
-        </div>
-
-
-<!-- Image that will be zoomed when clicked -->
-<img src="Images/Dashboard imgs/a4.png" alt="A4 Sized Photo" class="a4-photo" id="zoomableImage" onclick="openModal()">
-
-<!-- Modal for zooming the image -->
-<div id="imageModal" class="modal" onclick="closeModal(event)">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImage" src="">
-</div>
-
-
-        <!-- Marketplace Section -->
-        <div class="dashboard-box" id="marketplace" style="display: none;">
-            <!-- Search and Filter Bar -->
-            <div class="search-filter-bar">
-                <input type="text" id="search-bar" placeholder="Search">
-                <button class="filter-btn active" onclick="filterProducts('All', event)">All</button>
-                <button class="filter-btn" onclick="filterProducts('Crops', event)">Crops</button>
-                <button class="filter-btn" onclick="filterProducts('Seeds', event)">Seeds</button>
-                <button class="filter-btn" onclick="filterProducts('Dairy', event)">Dairy</button>
-                <button class="filter-btn" onclick="filterProducts('Fertilizers', event)">Fertilizers</button>
-                <button class="filter-btn" onclick="filterProducts('Tools', event)">Tools</button>
-            </div>
-            
-            
-            <!-- Product Grid -->
-            <div class="product-grid">
-                <div class="product-item" onclick="showProductDetails('Rice')">
-                    <img src="Images/Dashboard imgs/1.jpg" alt="Rice">
-                    <p>Rice</p>
-                    <p>₱59.88/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Corn')">
-                    <img src="Images/Dashboard imgs/2.jpg" alt="Corn">
-                    <p>Corn</p>
-                    <p>₱90.34/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Potato')">
-                    <img src="Images/Dashboard imgs/3.jpg" alt="Potato">
-                    <p>Potato</p>
-                    <p>₱93.47/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Garlic')">
-                    <img src="Images/Dashboard imgs/4.jpg" alt="Garlic">
-                    <p>Garlic</p>
-                    <p>₱161.65/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Onion')">
-                    <img src="Images/Dashboard imgs/5.jpg" alt="Onion">
-                    <p>Onion</p>
-                    <p>₱110.16/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Ginger')">
-                    <img src="Images/Dashboard imgs/6.jpg" alt="Ginger">
-                    <p>Ginger</p>
-                    <p>₱251.69/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Sugarcane')">
-                    <img src="Images/Dashboard imgs/7.jpg" alt="Sugarcane">
-                    <p>Sugarcane</p>
-                    <p>₱83.51/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Carrot')">
-                    <img src="Images/Dashboard imgs/8.jpg" alt="Carrot">
-                    <p>Carrot</p>
-                    <p>₱134.48/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Radish')">
-                    <img src="Images/Dashboard imgs/9.jpg" alt="Radish">
-                    <p>Radish</p>
-                    <p>₱140/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Soybeans')">
-                    <img src="Images/Dashboard imgs/10.jpg" alt="Soybeans">
-                    <p>Soybeans</p>
-                    <p>₱120/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Barley')">
-                    <img src="Images/Dashboard imgs/11.jpg" alt="Barley">
-                    <p>Barley</p>
-                    <p>₱95.63/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Oats')">
-                    <img src="Images/Dashboard imgs/12.jpg" alt="Oats">
-                    <p>Oats</p>
-                    <p>₱139.50/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Tomato')">
-                    <img src="Images/Dashboard imgs/13.jpg" alt="Tomato">
-                    <p>Tomato</p>
-                    <p>₱143.98/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Cassava')">
-                    <img src="Images/Dashboard imgs/14.jpg" alt="Cassava">
-                    <p>Cassava</p>
-                    <p>₱89/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Coconut')">
-                    <img src="Images/Dashboard imgs/15.jpg" alt="Coconut">
-                    <p>Coconut</p>
-                    <p>₱50/piece</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Banana')">
-                    <img src="Images/Dashboard imgs/16.jpg" alt="Banana">
-                    <p>Banana</p>
-                    <p>₱106.21/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Pineapple')">
-                    <img src="Images/Dashboard imgs/17.jpg" alt="Pineapple">
-                    <p>Pineapple</p>
-                    <p>₱80.00/piece</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Mango')">
-                    <img src="Images/Dashboard imgs/18.jpg" alt="Mango">
-                    <p>Mango</p>
-                    <p>₱235.29/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Calamansi')">
-                    <img src="Images/Dashboard imgs/19.jpg" alt="Calamansi">
-                    <p>Calamansi</p>
-                    <p>₱73.19/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Eggplant')">
-                    <img src="Images/Dashboard imgs/20.jpg" alt="Eggplant">
-                    <p>Eggplant</p>
-                    <p>₱89.71/kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Rice seeds')">
-    <img src="Images/Dashboard imgs/seeds.jpg" alt="Rice seeds">
-    <p>Rice seeds</p>
-    <p>₱200 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Corn seeds')">
-    <img src="Images/Dashboard imgs/seeds2.jpg" alt="Corn seeds">
-    <p>Corn seeds</p>
-    <p>₱180 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Sunflower seeds')">
-    <img src="Images/Dashboard imgs/seeds3.jpg" alt="Sunflower seeds">
-    <p>Sunflower seeds</p>
-    <p>₱250 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Tomato seeds')">
-    <img src="Images/Dashboard imgs/seeds4.jpg" alt="Tomato seeds">
-    <p>Tomato seeds</p>
-    <p>₱230 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Lettuce seeds')">
-    <img src="Images/Dashboard imgs/seeds5.jpg" alt="Lettuce seeds">
-    <p>Lettuce seeds</p>
-    <p>₱180 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Carrot seeds')">
-    <img src="Images/Dashboard imgs/seeds6.jpg" alt="Carrot seeds">
-    <p>Carrot seeds</p>
-    <p>₱200 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Cucumber seeds')">
-    <img src="Images/Dashboard imgs/seeds7.jpg" alt="Cucumber seeds">
-    <p>Cucumber seeds</p>
-    <p>₱210 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Pepper seeds')">
-    <img src="Images/Dashboard imgs/seeds8.jpg" alt="Pepper seeds">
-    <p>Pepper seeds</p>
-    <p>₱220 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Pumpkin seeds')">
-    <img src="Images/Dashboard imgs/seeds9.jpg" alt="Pumpkin seeds">
-    <p>Pumpkin seeds</p>
-    <p>₱240 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Barley seeds')">
-    <img src="Images/Dashboard imgs/seeds10.jpg" alt="Barley seeds">
-    <p>Barley seeds</p>
-    <p>₱170 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Canola seeds')">
-    <img src="Images/Dashboard imgs/seeds11.jpg" alt="Canola seeds">
-    <p>Canola seeds</p>
-    <p>₱260 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Pea seeds')">
-    <img src="Images/Dashboard imgs/seeds12.jpg" alt="Pea seeds">
-    <p>Pea seeds</p>
-    <p>₱200 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Sesame seeds')">
-    <img src="Images/Dashboard imgs/seeds13.jpg" alt="Sesame seeds">
-    <p>Sesame seeds</p>
-    <p>₱280 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Broccoli seeds')">
-    <img src="Images/Dashboard imgs/seeds14.jpg" alt="Broccoli seeds">
-    <p>Broccoli seeds</p>
-    <p>₱240 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Okra seeds')">
-    <img src="Images/Dashboard imgs/seeds15.jpg" alt="Okra seeds">
-    <p>Okra seeds</p>
-    <p>₱160 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Cauliflower seeds')">
-    <img src="Images/Dashboard imgs/seeds16.jpg" alt="Cauliflower seeds">
-    <p>Cauliflower seeds</p>
-    <p>₱220 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Turnip seeds')">
-    <img src="Images/Dashboard imgs/seeds17.jpg" alt="Turnip seeds">
-    <p>Turnip seeds</p>
-    <p>₱200 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Melon seeds')">
-    <img src="Images/Dashboard imgs/seeds18.jpg" alt="Melon seeds">
-    <p>Melon seeds</p>
-    <p>₱230 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Squash seeds')">
-    <img src="Images/Dashboard imgs/seeds19.jpg" alt="Squash seeds">
-    <p>Squash seeds</p>
-    <p>₱220 / 250grams</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Papaya seeds')">
-    <img src="Images/Dashboard imgs/seeds20.jpg" alt="Papaya seeds">
-    <p>Papaya seeds</p>
-    <p>₱210 / 250grams</p>
-</div>
-
-
-
-<div class="product-item" onclick="showProductDetails('Milk')">
-    <img src="Images/Dashboard imgs/dairy1.jpg" alt="Milk">
-    <p>Milk</p>
-    <p>₱70/liter</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Cheese')">
-    <img src="Images/Dashboard imgs/dairy2.jpg" alt="Cheese">
-    <p>Cheese</p>
-    <p>₱350/kg</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Butter')">
-    <img src="Images/Dashboard imgs/dairy3.jpg" alt="Butter">
-    <p>Butter</p>
-    <p>₱200/block</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Yogurt')">
-    <img src="Images/Dashboard imgs/dairy4.jpg" alt="Yogurt">
-    <p>Yogurt</p>
-    <p>₱90/200g</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Cream')">
-    <img src="Images/Dashboard imgs/dairy5.jpg" alt="Cream">
-    <p>Cream</p>
-    <p>₱150/250ml</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Cottage Cheese')">
-    <img src="Images/Dashboard imgs/dairy6.jpg" alt="Cottage Cheese">
-    <p>Cottage Cheese</p>
-    <p>₱250/500g</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Sour Cream')">
-    <img src="Images/Dashboard imgs/dairy7.jpg" alt="Sour Cream">
-    <p>Sour Cream</p>
-    <p>₱120/250g</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Whipped Cream')">
-    <img src="Images/Dashboard imgs/dairy8.jpg" alt="Whipped Cream">
-    <p>Whipped Cream</p>
-    <p>₱200/300ml</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Cream Cheese')">
-    <img src="Images/Dashboard imgs/dairy9.jpg" alt="Cream Cheese">
-    <p>Cream Cheese</p>
-    <p>₱180/250g</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Ghee')">
-    <img src="Images/Dashboard imgs/dairy10.jpg" alt="Ghee">
-    <p>Ghee</p>
-    <p>₱400/500g</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Ice Cream')">
-    <img src="Images/Dashboard imgs/dairy11.jpg" alt="Ice Cream">
-    <p>Ice Cream</p>
-    <p>₱150/pint</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Kefir')">
-    <img src="Images/Dashboard imgs/dairy12.jpg" alt="Kefir">
-    <p>Kefir</p>
-    <p>₱130/250ml</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Condensed Milk')">
-    <img src="Images/Dashboard imgs/dairy13.jpg" alt="Condensed Milk">
-    <p>Condensed Milk</p>
-    <p>₱50/100g</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Buttermilk')">
-    <img src="Images/Dashboard imgs/dairy14.jpg" alt="Buttermilk">
-    <p>Buttermilk</p>
-    <p>₱70/500ml</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Skimmed Milk')">
-    <img src="Images/Dashboard imgs/dairy15.jpg" alt="Skimmed Milk">
-    <p>Skimmed Milk</p>
-    <p>₱65/liter</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Paneer')">
-    <img src="Images/Dashboard imgs/dairy16.jpg" alt="Paneer">
-    <p>Paneer</p>
-    <p>₱300/kg</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Ricotta Cheese')">
-    <img src="Images/Dashboard imgs/dairy17.jpg" alt="Ricotta Cheese">
-    <p>Ricotta Cheese</p>
-    <p>₱350/500g</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Mozzarella Cheese')">
-    <img src="Images/Dashboard imgs/dairy18.jpg" alt="Mozzarella Cheese">
-    <p>Mozzarella Cheese</p>
-    <p>₱400/kg</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Parmesan Cheese')">
-    <img src="Images/Dashboard imgs/dairy19.jpg" alt="Parmesan Cheese">
-    <p>Parmesan Cheese</p>
-    <p>₱500/kg</p>
-</div>
-<div class="product-item" onclick="showProductDetails('Greek Yogurt')">
-    <img src="Images/Dashboard imgs/dairy20.jpg" alt="Greek Yogurt">
-    <p>Greek Yogurt</p>
-    <p>₱110/200g</p>
-</div>
-
-
-
-
-
-                <div class="product-item" onclick="showProductDetails('Phosphorus fertilizer')">
-                    <img src="Images/Dashboard imgs/pfertilizers.jpg" alt="Phosphorus fertilizer">
-                    <p>Phosphorus fertilizer</p>
-                    <p>₱600 / kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Nitrogen fertilizer')">
-                    <img src="Images/Dashboard imgs/nfertilizers.jpg" alt="Nitrogen fertilizer">
-                    <p>Nitrogen fertilizer</p>
-                    <p>₱500 / kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Potassium fertilizer')">
-                    <img src="Images/Dashboard imgs/kfertilizers.jpg" alt="Potassium fertilizer">
-                    <p>Potassium fertilizer</p>
-                    <p>₱550 / kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Compost fertilizer')">
-                    <img src="Images/Dashboard imgs/fertilizers1.jpg" alt="Compost fertilizer">
-                    <p>Compost fertilizer</p>
-                    <p>₱150 / kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Organic fertilizer')">
-                    <img src="Images/Dashboard imgs/fertilizers2.jpg" alt="Organic fertilizer">
-                    <p>Organic fertilizer</p>
-                    <p>₱200 / kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Inorganic fertilizer')">
-                    <img src="Images/Dashboard imgs/fertilizers3.jpg" alt="Inorganic fertilizer">
-                    <p>Inorganic fertilizer</p>
-                    <p>₱450 / kilo</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Nitrate fertilizer')">
-                    <img src="Images/Dashboard imgs/fertilizers4.jpg" alt="Nitrate fertilizer">
-                    <p>Nitrate fertilizer</p>
-                    <p>₱500 / kilo</p>
-                </div>
-                
-                <div class="product-item" onclick="showProductDetails('Trowel')">
-                    <img src="Images/Dashboard imgs/tools1.jpg" alt="Trowel">
-                    <p>Trowel</p>
-                    <p>₱150</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Mini Hand Rake')">
-                    <img src="Images/Dashboard imgs/tools2.jpg" alt="Mini Hand Rake">
-                    <p>Mini Hand Rake</p>
-                    <p>₱130</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Water Sprinkler')">
-                    <img src="Images/Dashboard imgs/tools3.jpg" alt="Water Sprinkler">
-                    <p>Water Sprinkler</p>
-                    <p>₱300</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Gloves')">
-                    <img src="Images/Dashboard imgs/tools4.jpg" alt="Gloves">
-                    <p>Gloves</p>
-                    <p>₱80</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Pruning Shears')">
-                    <img src="Images/Dashboard imgs/tools5.jpg" alt="Pruning Shears">
-                    <p>Pruning Shears</p>
-                    <p>₱250</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Loopers')">
-                    <img src="Images/Dashboard imgs/tools6.jpg" alt="Loopers">
-                    <p>Loopers</p>
-                    <p>₱400</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Spade')">
-                    <img src="Images/Dashboard imgs/tools7.jpg" alt="Spade">
-                    <p>Spade</p>
-                    <p>₱350</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Rake')">
-                    <img src="Images/Dashboard imgs/tools8.jpg" alt="Rake">
-                    <p>Rake</p>
-                    <p>₱300</p>
-                </div>
-                <div class="product-item" onclick="showProductDetails('Hoe')">
-                    <img src="Images/Dashboard imgs/tools9.jpg" alt="Hoe">
-                    <p>Hoe</p>
-                    <p>₱280</p>
-                </div>
-            </div>
-        </div>
-
-        
-
- <!-- Product Details Section -->
- <div class="dashboard-box" id="product-details" style="display: none;">
-    <div class="product-view">
-        <div class="product-image">
-            <img src="" alt="Product Image" id="product-image"> <!-- Dynamically change src -->
-        </div>
-        <div class="product-info">
-            <h2 id="product-title"></h2> <!-- Product Name -->
-            <p id="product-price"></p> <!-- Product Price -->
-            <p id="product-rating">Ratings: </p> <!-- Product Rating (Stars) -->
-            <p id="product-description"></p> <!-- Product Description -->
-            <div class="button-container"> <!-- Button container -->
-            </div>
-            <div id="image-slider" class="slider"></div>
-            <div class="slider-button-container">
-                <span id="image-index">1/3</span> <!-- Image index display -->
-                <button id="prev-btn" class="slider-button">Previous</button>
-                <button id="next-btn" class="slider-button">Next</button>
-            </div>
-                
-            <button onclick="goBackToMarketplace()" class="back-btn">&#8592; </button> <!-- Simple back button -->
-            <button onclick="addToCart()" class="add-to-cart mb-2">Add to Cart</button> <!-- Add to Cart Button -->
-            <button onclick="buyNow()" class="buy-now">Buy Now</button> <!-- Buy Now Button -->
-            <div id="toast">Product added to cart <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#bc6b25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div>
-        </div>
-    </div>
-     
+    <div class="check_out">
+        <div class="content">
+            <!-- Offers Container -->
+             <div class="offers-container">
+               <!-- Carousel Section -->
+                <section aria-label="carousel-container">
+                   <div id="carousel-section" class="carousel-container">
+                       <div class="carousel">
+                   <!-- Carousel Item 1 -->
+                   <div class="carousel-item">
+                       <img src="Images/Dashboard imgs/offer1.jpg" alt="marketplace"onclick="showSection('marketplace', this)">
+                       <p>Limited Time Offer: Discount on Selected Item (20% off)</p>
+                   </div>
+                   <!-- Carousel Item 2 -->
+                   <div class="carousel-item">
+                       <img src="Images/Dashboard imgs/bundle1.jpg" alt="Garlic"onclick="showTopTrendProductDetails('Garlic')">
+                       <p>Bundle: Get Garlic & Onion at a special price</p>
+                   </div>
+                   <!-- Carousel Item 3 -->
+                   <div class="carousel-item">
+                       <img src="Images/Dashboard imgs/recommended1.jpg" alt="Corn"onclick="showTopTrendProductDetails('Corn')">
+                       <p>Recommended Crops for November: Corn</p>
+                   </div>
+                   <!-- Carousel Item 4 -->
+                   <div class="carousel-item">
+                       <img src="Images/Dashboard imgs/top-seller1.jpg" alt="Rice"onclick="showTopTrendProductDetails('Rice')">
+                       <p>Top Seller: Rice </p>
+                   </div>
+                   <!-- Carousel Item 5 -->
+                   <div class="carousel-item">
+                       <img src="Images/Dashboard imgs/offer5.png" alt="marketplace"onclick="showSection('marketplace', this)">
+                       <p>Agri-Starter Pack</p>
+                   </div>
+               </div>
+               <!-- Carousel navigation buttons -->
+               <button class="prev-btn" onclick="moveCarousel(-1)" aria-label="Previous Slide">&#10094;</button>
+               <button class="next-btn" onclick="moveCarousel(1)" aria-label="Next Slide">&#10095;</button>
+           </div>
+       </section>
+   
+   <!-- Top Trends Section -->
+   <div class="top-trends-section" id="topTrendsSection">
+       <div class="top-trends-header">
+           <h3>Top Crops</h3>
+           <button class="see-all-trends" onclick="viewAllTrends()"> > </button> <!-- Right arrow -->
+       </div>
+       <div class="trends-grid">
+           <div class="trend-item" onclick="showTopTrendProductDetails('Corn')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/image1.jpg" alt="Corn">
+                   <div class="overlay-text">Corn</div>
+               </div>
+           </div>
+           <div class="trend-item" onclick="showTopTrendProductDetails('Sugarcane')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/image2.jpg" alt="Sugarcane">
+                   <div class="overlay-text">Sugarcane</div>
+               </div>
+           </div>
+           <div class="trend-item" onclick="showTopTrendProductDetails('Rice')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/image3.jpg" alt="Rice">
+                   <div class="overlay-text">Rice</div>
+               </div>
+           </div>
+       </div>
+   </div>
+   
+     <!-- Full Products Section (Initially Hidden) -->
+   <div class="all-products-section" id="all-products" style="display: none;">
+       <div class="section-header">
+           <h3>Top Crops</h3>
+           <button class="back-button" onclick="goBackToDashboard()"> < </button>
+       </div>
+   
+       <div class="trends-grid all-products-view">
+           <!-- All products, including extra ones -->
+           <div class="trend-item" onclick="showTopTrendProductDetails('Corn')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/image1.jpg" alt="Corn">
+                   <div class="overlay-text">Corn</div>
+               </div>
+           </div>
+   
+           <div class="trend-item" onclick="showTopTrendProductDetails('Sugarcane')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/image2.jpg" alt="Sugarcane">
+                   <div class="overlay-text">Sugarcane</div>
+               </div>
+           </div>
+   
+           <div class="trend-item" onclick="showTopTrendProductDetails('Rice')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/image3.jpg" alt="Rice">
+                   <div class="overlay-text">Rice</div>
+               </div>
+           </div>
+   
+           <div class="trend-item" onclick="showTopTrendProductDetails('Tomato')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/13.jpg" alt="Tomato">
+                   <div class="overlay-text">Tomato</div>
+               </div>
+           </div>
+   
+           <div class="trend-item" onclick="showTopTrendProductDetails('Potato')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/3.jpg" alt="Potato">
+                   <div class="overlay-text">Potato</div>
+               </div>
+           </div>
+   
+           <div class="trend-item" onclick="showTopTrendProductDetails('Mango')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/18.jpg" alt="Mango">
+                   <div class="overlay-text">Mango</div>
+               </div>
+           </div>
+           
+           <div class="trend-item" onclick="showTopTrendProductDetails('Calamansi')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/19.jpg" alt="Calamansi">
+                   <div class="overlay-text">Calamansi</div>
+               </div>
+           </div>
+   
+           <div class="trend-item" onclick="showTopTrendProductDetails('Banana')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/16.jpg" alt="Banana">
+                   <div class="overlay-text">Banana</div>
+               </div>
+           </div>
+   
+           <div class="trend-item" onclick="showTopTrendProductDetails('Ginger')">
+               <div class="image-container">
+                   <img src="Images/Dashboard imgs/6.jpg" alt="Ginger">
+                   <div class="overlay-text">Ginger</div>
+               </div>
+           </div>
+           <!-- Add more products here as needed -->
+       </div>
+   </div>           
+             
+           </div>
+   
+   <!-- Dashboard Section -->
+   <section id="dashboard" class="dashboard-box">
+       <h3>CROPS PRICE PER KILO</h3>
+   
+       <!-- Filters: Category and Date -->
+       <label for="category">Choose a category:</label>
+       <select id="category" onchange="updateGraph()">
+           <option value="all">All</option>
+           <option value="crops">Crops</option>
+           <option value="seeds">Seeds</option>
+           <option value="dairy">Dairy</option>
+           <option value="fertilizers">Fertilizers</option>
+           <option value="tools">Tools</option>
+       </select>
+   
+       <label for="month">Month:</label>
+       <select id="month" onchange="updateGraph()">
+           <option value="01">January</option>
+           <option value="02">February</option>
+           <option value="03">March</option>
+           <option value="04">April</option>
+           <option value="05">May</option>
+           <option value="06">June</option>
+           <option value="07">July</option>
+           <option value="08">August</option>
+           <option value="09">September</option>
+           <option value="10">October</option>
+           <option value="11">November</option>
+           <option value="12">December</option>
+       </select>
+   
+       <label for="year">Year:</label>
+       <select id="year" onchange="updateGraph()">
+           <option value="2023">2023</option>
+           <option value="2024">2024</option>
+           <option value="2025">2025</option>
+           <option value="2025">2026</option>
+           <option value="2025">2027</option>
+           <option value="2025">2028</option>
+           <option value="2025">2029</option>
+           <option value="2025">2030</option>
+       </select>
     
-</div>
-
-<!-- Cart Section -->
-<div class="dashboard-box" id="cart">
-    <h2 id="cart-content" style="display: none;">Cart Content</h2>
-    <div id="cart-items" style="display: none;"></div> <!-- Container for cart items -->
-    <p id="empty-cart-message" style="display: none;">Your cart is empty.</p> <!-- Message when the cart is empty -->
-    <div class="checkout-wrapper">
-        <button class="profile-btn" id="checkout-btn" style="display: none;" onclick="checkout()">Checkout</button> <!-- Checkout Button -->
-        <div id="checkout-toast">Please select at least one product to checkout <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#bc6b25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></div>
-        <div id="checkout-toast-suc">Checkout successful! <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#bc6b25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg> </div>
+               <canvas id="priceChart" width="420" height="145"></canvas>
+           </section>
+   
+           <div id="ad-banner" class="ad-banner">
+               <div class="ad-slides">
+                   <div class="ad-slide active" onclick="redirectTo('https://www.gardeningtita.com/product/9-in-1-assorted-vegetables-seeds-sulit-pack-for-planting/')">
+                       <img src="Images/Dashboard imgs/ads1.png" alt="Ad 1">
+                       <div class="ad-caption">9 in 1 Assorted Vegetables Seeds Sulit Pack for Planting!</div>
+                   </div>
+                   <div class="ad-slide" onclick="redirectTo('https://www.landers.ph/free-delivery-brand-partnerships.html')">
+                       <img src="Images/Dashboard imgs/ads2.png" alt="Ad 2">
+                       <div class="ad-caption">Free Delivery Brand Partnerships!</div>
+                   </div>
+                   <div class="ad-slide" onclick="redirectTo('https://www.lazada.com.ph/shop/quaker?spm=a2o4l.homepage.bannerSliderDesktop.d_4')">
+                       <img src="Images/Dashboard imgs/ads3.png" alt="Ad 3">
+                       <div class="ad-caption">Flavored Oats Save Upto ₱20off!</div>
+                   </div>
+                   <div class="ad-slide" onclick="redirectTo('https://www.lazada.com.ph/ingco/?spm=a2o4l.10450891.0.0.6baa4bddhhaLlD&q=ingco+sprayer&from=wangpu&sc=KVUG&shopId=460100')">
+                       <img src="Images/Dashboard imgs/ads4.png" alt="Ad 4">
+                       <div class="ad-caption">Ingco sprayer!</div>
+                   </div>
+               </div>
+               <div class="ad-navigation">
+                   <span class="ad-dot active" onclick="setCurrentSlide(1)"></span>
+                   <span class="ad-dot" onclick="setCurrentSlide(2)"></span>
+                   <span class="ad-dot" onclick="setCurrentSlide(3)"></span>
+                   <span class="ad-dot" onclick="setCurrentSlide(4)"></span>
+               </div>
+           </div>
+   
+   
+   <!-- Image that will be zoomed when clicked -->
+   <img src="Images/Dashboard imgs/a4.png" alt="A4 Sized Photo" class="a4-photo" id="zoomableImage" onclick="openModal()">
+   
+   <!-- Modal for zooming the image -->
+   <div id="imageModal" class="modal" onclick="closeModal(event)">
+       <span class="close" onclick="closeModal()">&times;</span>
+       <img class="modal-content" id="modalImage" src="">
+   </div>
+   
+   
+           <!-- Marketplace Section -->
+           <div class="dashboard-box" id="marketplace" style="display: none;">
+               <!-- Search and Filter Bar -->
+               <div class="search-filter-bar">
+                   <input type="text" id="search-bar" placeholder="Search">
+                   <button class="filter-btn active" onclick="filterProducts('All', event)">All</button>
+                   <button class="filter-btn" onclick="filterProducts('Crops', event)">Crops</button>
+                   <button class="filter-btn" onclick="filterProducts('Seeds', event)">Seeds</button>
+                   <button class="filter-btn" onclick="filterProducts('Dairy', event)">Dairy</button>
+                   <button class="filter-btn" onclick="filterProducts('Fertilizers', event)">Fertilizers</button>
+                   <button class="filter-btn" onclick="filterProducts('Tools', event)">Tools</button>
+               </div>
+               
+               
+               <!-- Product Grid -->
+               <div class="product-grid">
+                   <div class="product-item" onclick="showProductDetails('Rice')">
+                       <img src="Images/Dashboard imgs/1.jpg" alt="Rice">
+                       <p>Rice</p>
+                       <p>₱59.88/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Corn')">
+                       <img src="Images/Dashboard imgs/2.jpg" alt="Corn">
+                       <p>Corn</p>
+                       <p>₱90.34/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Potato')">
+                       <img src="Images/Dashboard imgs/3.jpg" alt="Potato">
+                       <p>Potato</p>
+                       <p>₱93.47/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Garlic')">
+                       <img src="Images/Dashboard imgs/4.jpg" alt="Garlic">
+                       <p>Garlic</p>
+                       <p>₱161.65/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Onion')">
+                       <img src="Images/Dashboard imgs/5.jpg" alt="Onion">
+                       <p>Onion</p>
+                       <p>₱110.16/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Ginger')">
+                       <img src="Images/Dashboard imgs/6.jpg" alt="Ginger">
+                       <p>Ginger</p>
+                       <p>₱251.69/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Sugarcane')">
+                       <img src="Images/Dashboard imgs/7.jpg" alt="Sugarcane">
+                       <p>Sugarcane</p>
+                       <p>₱83.51/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Carrot')">
+                       <img src="Images/Dashboard imgs/8.jpg" alt="Carrot">
+                       <p>Carrot</p>
+                       <p>₱134.48/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Radish')">
+                       <img src="Images/Dashboard imgs/9.jpg" alt="Radish">
+                       <p>Radish</p>
+                       <p>₱140/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Soybeans')">
+                       <img src="Images/Dashboard imgs/10.jpg" alt="Soybeans">
+                       <p>Soybeans</p>
+                       <p>₱120/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Barley')">
+                       <img src="Images/Dashboard imgs/11.jpg" alt="Barley">
+                       <p>Barley</p>
+                       <p>₱95.63/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Oats')">
+                       <img src="Images/Dashboard imgs/12.jpg" alt="Oats">
+                       <p>Oats</p>
+                       <p>₱139.50/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Tomato')">
+                       <img src="Images/Dashboard imgs/13.jpg" alt="Tomato">
+                       <p>Tomato</p>
+                       <p>₱143.98/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Cassava')">
+                       <img src="Images/Dashboard imgs/14.jpg" alt="Cassava">
+                       <p>Cassava</p>
+                       <p>₱89/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Coconut')">
+                       <img src="Images/Dashboard imgs/15.jpg" alt="Coconut">
+                       <p>Coconut</p>
+                       <p>₱50/piece</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Banana')">
+                       <img src="Images/Dashboard imgs/16.jpg" alt="Banana">
+                       <p>Banana</p>
+                       <p>₱106.21/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Pineapple')">
+                       <img src="Images/Dashboard imgs/17.jpg" alt="Pineapple">
+                       <p>Pineapple</p>
+                       <p>₱80.00/piece</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Mango')">
+                       <img src="Images/Dashboard imgs/18.jpg" alt="Mango">
+                       <p>Mango</p>
+                       <p>₱235.29/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Calamansi')">
+                       <img src="Images/Dashboard imgs/19.jpg" alt="Calamansi">
+                       <p>Calamansi</p>
+                       <p>₱73.19/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Eggplant')">
+                       <img src="Images/Dashboard imgs/20.jpg" alt="Eggplant">
+                       <p>Eggplant</p>
+                       <p>₱89.71/kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Rice seeds')">
+       <img src="Images/Dashboard imgs/seeds.jpg" alt="Rice seeds">
+       <p>Rice seeds</p>
+       <p>₱200 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Corn seeds')">
+       <img src="Images/Dashboard imgs/seeds2.jpg" alt="Corn seeds">
+       <p>Corn seeds</p>
+       <p>₱180 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Sunflower seeds')">
+       <img src="Images/Dashboard imgs/seeds3.jpg" alt="Sunflower seeds">
+       <p>Sunflower seeds</p>
+       <p>₱250 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Tomato seeds')">
+       <img src="Images/Dashboard imgs/seeds4.jpg" alt="Tomato seeds">
+       <p>Tomato seeds</p>
+       <p>₱230 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Lettuce seeds')">
+       <img src="Images/Dashboard imgs/seeds5.jpg" alt="Lettuce seeds">
+       <p>Lettuce seeds</p>
+       <p>₱180 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Carrot seeds')">
+       <img src="Images/Dashboard imgs/seeds6.jpg" alt="Carrot seeds">
+       <p>Carrot seeds</p>
+       <p>₱200 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Cucumber seeds')">
+       <img src="Images/Dashboard imgs/seeds7.jpg" alt="Cucumber seeds">
+       <p>Cucumber seeds</p>
+       <p>₱210 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Pepper seeds')">
+       <img src="Images/Dashboard imgs/seeds8.jpg" alt="Pepper seeds">
+       <p>Pepper seeds</p>
+       <p>₱220 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Pumpkin seeds')">
+       <img src="Images/Dashboard imgs/seeds9.jpg" alt="Pumpkin seeds">
+       <p>Pumpkin seeds</p>
+       <p>₱240 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Barley seeds')">
+       <img src="Images/Dashboard imgs/seeds10.jpg" alt="Barley seeds">
+       <p>Barley seeds</p>
+       <p>₱170 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Canola seeds')">
+       <img src="Images/Dashboard imgs/seeds11.jpg" alt="Canola seeds">
+       <p>Canola seeds</p>
+       <p>₱260 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Pea seeds')">
+       <img src="Images/Dashboard imgs/seeds12.jpg" alt="Pea seeds">
+       <p>Pea seeds</p>
+       <p>₱200 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Sesame seeds')">
+       <img src="Images/Dashboard imgs/seeds13.jpg" alt="Sesame seeds">
+       <p>Sesame seeds</p>
+       <p>₱280 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Broccoli seeds')">
+       <img src="Images/Dashboard imgs/seeds14.jpg" alt="Broccoli seeds">
+       <p>Broccoli seeds</p>
+       <p>₱240 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Okra seeds')">
+       <img src="Images/Dashboard imgs/seeds15.jpg" alt="Okra seeds">
+       <p>Okra seeds</p>
+       <p>₱160 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Cauliflower seeds')">
+       <img src="Images/Dashboard imgs/seeds16.jpg" alt="Cauliflower seeds">
+       <p>Cauliflower seeds</p>
+       <p>₱220 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Turnip seeds')">
+       <img src="Images/Dashboard imgs/seeds17.jpg" alt="Turnip seeds">
+       <p>Turnip seeds</p>
+       <p>₱200 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Melon seeds')">
+       <img src="Images/Dashboard imgs/seeds18.jpg" alt="Melon seeds">
+       <p>Melon seeds</p>
+       <p>₱230 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Squash seeds')">
+       <img src="Images/Dashboard imgs/seeds19.jpg" alt="Squash seeds">
+       <p>Squash seeds</p>
+       <p>₱220 / 250grams</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Papaya seeds')">
+       <img src="Images/Dashboard imgs/seeds20.jpg" alt="Papaya seeds">
+       <p>Papaya seeds</p>
+       <p>₱210 / 250grams</p>
+   </div>
+   
+   
+   
+   <div class="product-item" onclick="showProductDetails('Milk')">
+       <img src="Images/Dashboard imgs/dairy1.jpg" alt="Milk">
+       <p>Milk</p>
+       <p>₱70/liter</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Cheese')">
+       <img src="Images/Dashboard imgs/dairy2.jpg" alt="Cheese">
+       <p>Cheese</p>
+       <p>₱350/kg</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Butter')">
+       <img src="Images/Dashboard imgs/dairy3.jpg" alt="Butter">
+       <p>Butter</p>
+       <p>₱200/block</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Yogurt')">
+       <img src="Images/Dashboard imgs/dairy4.jpg" alt="Yogurt">
+       <p>Yogurt</p>
+       <p>₱90/200g</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Cream')">
+       <img src="Images/Dashboard imgs/dairy5.jpg" alt="Cream">
+       <p>Cream</p>
+       <p>₱150/250ml</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Cottage Cheese')">
+       <img src="Images/Dashboard imgs/dairy6.jpg" alt="Cottage Cheese">
+       <p>Cottage Cheese</p>
+       <p>₱250/500g</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Sour Cream')">
+       <img src="Images/Dashboard imgs/dairy7.jpg" alt="Sour Cream">
+       <p>Sour Cream</p>
+       <p>₱120/250g</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Whipped Cream')">
+       <img src="Images/Dashboard imgs/dairy8.jpg" alt="Whipped Cream">
+       <p>Whipped Cream</p>
+       <p>₱200/300ml</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Cream Cheese')">
+       <img src="Images/Dashboard imgs/dairy9.jpg" alt="Cream Cheese">
+       <p>Cream Cheese</p>
+       <p>₱180/250g</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Ghee')">
+       <img src="Images/Dashboard imgs/dairy10.jpg" alt="Ghee">
+       <p>Ghee</p>
+       <p>₱400/500g</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Ice Cream')">
+       <img src="Images/Dashboard imgs/dairy11.jpg" alt="Ice Cream">
+       <p>Ice Cream</p>
+       <p>₱150/pint</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Kefir')">
+       <img src="Images/Dashboard imgs/dairy12.jpg" alt="Kefir">
+       <p>Kefir</p>
+       <p>₱130/250ml</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Condensed Milk')">
+       <img src="Images/Dashboard imgs/dairy13.jpg" alt="Condensed Milk">
+       <p>Condensed Milk</p>
+       <p>₱50/100g</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Buttermilk')">
+       <img src="Images/Dashboard imgs/dairy14.jpg" alt="Buttermilk">
+       <p>Buttermilk</p>
+       <p>₱70/500ml</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Skimmed Milk')">
+       <img src="Images/Dashboard imgs/dairy15.jpg" alt="Skimmed Milk">
+       <p>Skimmed Milk</p>
+       <p>₱65/liter</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Paneer')">
+       <img src="Images/Dashboard imgs/dairy16.jpg" alt="Paneer">
+       <p>Paneer</p>
+       <p>₱300/kg</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Ricotta Cheese')">
+       <img src="Images/Dashboard imgs/dairy17.jpg" alt="Ricotta Cheese">
+       <p>Ricotta Cheese</p>
+       <p>₱350/500g</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Mozzarella Cheese')">
+       <img src="Images/Dashboard imgs/dairy18.jpg" alt="Mozzarella Cheese">
+       <p>Mozzarella Cheese</p>
+       <p>₱400/kg</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Parmesan Cheese')">
+       <img src="Images/Dashboard imgs/dairy19.jpg" alt="Parmesan Cheese">
+       <p>Parmesan Cheese</p>
+       <p>₱500/kg</p>
+   </div>
+   <div class="product-item" onclick="showProductDetails('Greek Yogurt')">
+       <img src="Images/Dashboard imgs/dairy20.jpg" alt="Greek Yogurt">
+       <p>Greek Yogurt</p>
+       <p>₱110/200g</p>
+   </div>
+   
+   
+   
+   
+   
+                   <div class="product-item" onclick="showProductDetails('Phosphorus fertilizer')">
+                       <img src="Images/Dashboard imgs/pfertilizers.jpg" alt="Phosphorus fertilizer">
+                       <p>Phosphorus fertilizer</p>
+                       <p>₱600 / kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Nitrogen fertilizer')">
+                       <img src="Images/Dashboard imgs/nfertilizers.jpg" alt="Nitrogen fertilizer">
+                       <p>Nitrogen fertilizer</p>
+                       <p>₱500 / kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Potassium fertilizer')">
+                       <img src="Images/Dashboard imgs/kfertilizers.jpg" alt="Potassium fertilizer">
+                       <p>Potassium fertilizer</p>
+                       <p>₱550 / kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Compost fertilizer')">
+                       <img src="Images/Dashboard imgs/fertilizers1.jpg" alt="Compost fertilizer">
+                       <p>Compost fertilizer</p>
+                       <p>₱150 / kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Organic fertilizer')">
+                       <img src="Images/Dashboard imgs/fertilizers2.jpg" alt="Organic fertilizer">
+                       <p>Organic fertilizer</p>
+                       <p>₱200 / kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Inorganic fertilizer')">
+                       <img src="Images/Dashboard imgs/fertilizers3.jpg" alt="Inorganic fertilizer">
+                       <p>Inorganic fertilizer</p>
+                       <p>₱450 / kilo</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Nitrate fertilizer')">
+                       <img src="Images/Dashboard imgs/fertilizers4.jpg" alt="Nitrate fertilizer">
+                       <p>Nitrate fertilizer</p>
+                       <p>₱500 / kilo</p>
+                   </div>
+                   
+                   <div class="product-item" onclick="showProductDetails('Trowel')">
+                       <img src="Images/Dashboard imgs/tools1.jpg" alt="Trowel">
+                       <p>Trowel</p>
+                       <p>₱150</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Mini Hand Rake')">
+                       <img src="Images/Dashboard imgs/tools2.jpg" alt="Mini Hand Rake">
+                       <p>Mini Hand Rake</p>
+                       <p>₱130</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Water Sprinkler')">
+                       <img src="Images/Dashboard imgs/tools3.jpg" alt="Water Sprinkler">
+                       <p>Water Sprinkler</p>
+                       <p>₱300</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Gloves')">
+                       <img src="Images/Dashboard imgs/tools4.jpg" alt="Gloves">
+                       <p>Gloves</p>
+                       <p>₱80</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Pruning Shears')">
+                       <img src="Images/Dashboard imgs/tools5.jpg" alt="Pruning Shears">
+                       <p>Pruning Shears</p>
+                       <p>₱250</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Loopers')">
+                       <img src="Images/Dashboard imgs/tools6.jpg" alt="Loopers">
+                       <p>Loopers</p>
+                       <p>₱400</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Spade')">
+                       <img src="Images/Dashboard imgs/tools7.jpg" alt="Spade">
+                       <p>Spade</p>
+                       <p>₱350</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Rake')">
+                       <img src="Images/Dashboard imgs/tools8.jpg" alt="Rake">
+                       <p>Rake</p>
+                       <p>₱300</p>
+                   </div>
+                   <div class="product-item" onclick="showProductDetails('Hoe')">
+                       <img src="Images/Dashboard imgs/tools9.jpg" alt="Hoe">
+                       <p>Hoe</p>
+                       <p>₱280</p>
+                   </div>
+               </div>
+           </div>
+   
+           
+   
+    <!-- Product Details Section -->
+    <div class="dashboard-box" id="product-details" style="display: none;">
+       <div class="product-view">
+           <div class="product-image">
+               <img src="" alt="Product Image" id="product-image"> <!-- Dynamically change src -->
+           </div>
+           <div class="product-info">
+               <h2 id="product-title"></h2> <!-- Product Name -->
+               <p id="product-price"></p> <!-- Product Price -->
+               <p id="product-rating">Ratings: </p> <!-- Product Rating (Stars) -->
+               <p id="product-description"></p> <!-- Product Description -->
+               <div class="button-container"> <!-- Button container -->
+               </div>
+               <div id="image-slider" class="slider"></div>
+               <div class="slider-button-container">
+                   <span id="image-index">1/3</span> <!-- Image index display -->
+                   <button id="prev-btn" class="slider-button">Previous</button>
+                   <button id="next-btn" class="slider-button">Next</button>
+               </div>
+                   
+               <button onclick="goBackToMarketplace()" class="back-btn">&#8592; </button> <!-- Simple back button -->
+               <button onclick="addToCart()" class="add-to-cart mb-2">Add to Cart</button> <!-- Add to Cart Button -->
+               <button onclick="buyNow()" class="buy-now">Buy Now</button> <!-- Buy Now Button -->
+               <div id="toast">Product added to cart <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#bc6b25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div>
+           </div>
+       </div>
+        
+       
+   </div>
+   
+   <!-- Cart Section -->
+   <div class="dashboard-box" id="cart">
+       <h2 id="cart-content" style="display: none;">Cart Content</h2>
+       <div id="cart-items" style="display: none;"></div> <!-- Container for cart items -->
+       <p id="empty-cart-message" style="display: none;">Your cart is empty.</p> <!-- Message when the cart is empty -->
+       <div class="checkout-wrapper">
+           <button class="profile-btn" id="checkout-btn" style="display: none;" onclick="checkout()">Checkout</button> <!-- Checkout Button -->
+           <div id="checkout-toast">Please select at least one product to checkout <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#bc6b25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></div>
+           <div id="checkout-toast-suc">Checkout successful! <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#bc6b25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg> </div>
+       </div>
+   </div>
     </div>
-</div>
+
+    
     
     <script src="script.js"></script>
+    <script>
+        window.addEventListener('load', initializeFunctions);
+        function initializeImages() {
+            const imageSources = [
+                "/Images/BackgroundImages/apple.svg",
+                "/Images/BackgroundImages/boiled-egg.svg",
+                "/Images/BackgroundImages/carrot.svg",
+                "/Images/BackgroundImages/corn.svg",
+                "/Images/BackgroundImages/hoe.svg",
+                "/Images/BackgroundImages/pineapple.svg",
+                "/Images/BackgroundImages/pumpkin.svg",
+                "/Images/BackgroundImages/seeds1.svg",
+                "/Images/BackgroundImages/seeds2.svg",
+                "/Images/BackgroundImages/shovel.svg",
+                "/Images/BackgroundImages/wheat.svg"
+            ];
+        
+            const container = document.querySelector('.background-container');
+            container.innerHTML = '';
+        
+            imageSources.forEach(src => {
+                const count = Math.floor(Math.random() * 2) + 1; 
+                for (let i = 0; i < count; i++) {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = '';
+        
+                    img.style.left = `${Math.random() * 100}vw`; 
+                    img.style.top = `${Math.random() * 100}vh`; 
+                    img.style.width = `${Math.random() * (100 - 50) + 50}px`;
+                    img.style.transform = `rotate(${Math.random() * 360}deg)`;
+        
+                    container.appendChild(img);
+        
+                    roamImage(img);
+                }
+            });
+        }
+        
+        function roamImage(img) {
+            const container = document.querySelector('.background-container');
+            const checkoutBox = document.querySelector('.check_out');
+        
+            function moveImage() {
+                const containerWidth = container.clientWidth;
+                const containerHeight = container.clientHeight;
+                const imgWidth = img.offsetWidth;  
+                const imgHeight = img.offsetHeight; 
+        
+                // make random position
+                const x = Math.random() * (containerWidth + 200) - imgWidth / 2; 
+                let y = Math.random() * (containerHeight + 200) - imgHeight / 2;
+        
+                // get bottom of checkoutbox
+                const checkoutBoxBottom = checkoutBox.getBoundingClientRect().bottom;
+        
+                // make sure the images wont go outside checkoutbox
+                if (y + imgHeight / 2 > checkoutBoxBottom) {
+                    y = checkoutBoxBottom - imgHeight / 2;
+                }
+                // allow images to go above the viewport
+                if (y + imgHeight / 2 < 0) {
+                    y = -imgHeight / 2;
+                }
+        
+                // animate the image
+                img.style.left = `${x}px`;
+                img.style.top = `${y}px`;
+        
+                // Call moveImage again after a longer delay
+                setTimeout(moveImage, 8000 + Math.random() * 8000);
+
+            }
+            
+            moveImage();
+        }
+
+        function initializeFunctions() {
+            initializeImages();
+        }
+        
+    </script>
 </body>
 </html>

@@ -30,6 +30,35 @@ nav {
     top: 0;
     z-index: 1000;
 }
+
+.background-container {
+    position: absolute; /* Positions the container absolutely, relative to the nearest positioned ancestor */
+    width: 180vh; /* Sets the width of the container to match the height of the viewport (100% of the viewport height) */
+    height: 100vh; /* Sets the height of the container to 100% of the viewport height */
+    z-index: -1; /* Places the background container behind other elements (lower stacking order) */
+}
+
+.background-container img {
+    position: absolute; /* Positions the background image absolutely within its container */
+    opacity: 0.5; /* Makes the image semi-transparent (50% opacity) */
+    pointer-events: none; /* Disables interactions with the image (prevents clicks, hover effects, etc.) */
+    transition: transform 10s ease, left 10s ease, top 10s ease, bottom 10s ease, right 10s ease; /* Smoothly transitions the image’s position and size over 10 seconds */
+}
+
+.check_out {
+    position: relative; /* Positions the container relative to its normal flow, allowing it to act as a reference for its children */
+    z-index: 1; /* Ensures the check_out section is on top of the background (higher stacking order) */
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    overflow: auto; /* Allows scrolling when content overflows the container */
+    width: 1500px; /* Sets a fixed width for the checkout container */
+    height: 700px; /* Sets a fixed height for the checkout container */
+}
+
+.check_out::-webkit-scrollbar {
+    display: none; /* Hides the default scrollbar (works in WebKit browsers like Chrome, Safari) */
+}
+
 /* Logo styling */
 .logo {
     font-size: 1.5rem;
