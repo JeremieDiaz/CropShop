@@ -75,7 +75,8 @@
     justify-content: center; /* Centers the content horizontally */
     align-items: center; /* Centers the content vertically */
     overflow: auto; /* Allows scrolling when content overflows the container */
-    width: 1500px; /* Sets a fixed width for the checkout container */
+    width: 1500px;
+    overflow-x: hidden; /* Sets a fixed width for the checkout container */
     height: 700px; /* Sets a fixed height for the checkout container */
 }
 
